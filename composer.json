@@ -1,0 +1,17 @@
+{
+    "name": "lenovo/php2",
+    "autoload": {
+        "psr-4": {
+            "Src\\": "Src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "NguyenHoaiBaoNe",
+            "email": "nguyenhoaibao12c4@gmail.com"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    }
+}
