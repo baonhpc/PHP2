@@ -13,6 +13,7 @@ ini_set('error_log', './logs/php-errors.log');
 
 use Src\Models\Database;
 
-new Database();
+$connection = new Database();
+
 
 
