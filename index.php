@@ -17,14 +17,13 @@ use Src\Controllers\Client\HomeController;
 
 
 
-
-
 $connection = new Database();
 
 
 
 $dispatcher = FastRoute\simpleDispatcher(function(RouteCollector $r) {
     $r->addRoute('GET', '/home', [HomeController::class, 'show']);
+    $r->addRoute('GET', '/', [HomeController::class, 'show']);
 });
 
 $httpMethod = $_SERVER['REQUEST_METHOD'];

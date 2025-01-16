@@ -1,19 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Home Page</title>
-</head>
-<body>
-    <header>
-        <h1>Welcome to the Home Page</h1>
-    </header>
-    <main>
-        <p>This is a test page to check if everything is working properly.</p>
-    </main>
-    <footer>
-        <p>Footer content goes here.</p>
-    </footer>
-</body>
-</html>
+<?php $this->layout('Client/Components/Layout'); ?>
+
+<?php
+
+$this->start('additional_content');
+
+$this->insert('/Client/Home/Carousel');
+
+$this->stop()
+?>
+
+
+<?php $this->start('main_content') ?>
+<!-- Insert nội dung vào đây -->
+<?php
+$this->insert('/Client/Home/ProductAds');
+$this->Insert("/Client/Home/BrandAds");
+$this->insert('/Client/Home/ProductNew');
+$this->Insert("/Client/Home/BlogNews" );
+$this->Insert('Client/Home/Customer');
+?>
+
+
+<?php $this->stop() ?>
+
+
+
+
+<?php
+$this->push('scripts')
+?>
+<?php
+$this->end();
+?>
