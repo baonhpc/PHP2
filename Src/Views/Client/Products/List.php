@@ -5,7 +5,6 @@
 <?php $this->start('main_content') ?>
 <!-- Insert nội dung vào đây -->
 
-</nav>
 <!--Banner-->
 <div>
   <div>

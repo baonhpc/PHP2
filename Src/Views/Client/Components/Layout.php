@@ -38,13 +38,13 @@
             <div class="desk-menu collapse navbar-collapse justify-content-md-center" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.html">TRANG CHỦ</a>
+                        <a class="nav-link" href="/">TRANG CHỦ</a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="product.html">BỘ SƯU TẬP</a>
-                    </li>
+                    </li> -->
                     <li class="nav-item lisanpham">
-                        <a class="nav-link" href="detailproduct.html">SẢN PHẨM
+                        <a class="nav-link" href="/list">SẢN PHẨM
                             <i class="fa fa-chevron-down" aria-hidden="true"></i>
                         </a>
                         <ul class="sub_menu">
@@ -66,13 +66,13 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="introduce.html">GIỚI THIỆU</a>
+                        <a class="nav-link" href="/introduce">GIỚI THIỆU</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="blog.html">BLOG</a>
+                        <a class="nav-link" href="/blog">BLOG</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contact.html">LIÊN HỆ</a>
+                        <a class="nav-link" href="/contact">LIÊN HỆ</a>
                     </li>
                 </ul>
             </div>
@@ -89,13 +89,13 @@
                     <div class="justify-content-md-center">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="index.html">TRANG CHỦ</a>
+                                <a class="nav-link" href="/">TRANG CHỦ</a>
                             </li>
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <a class="nav-link" href="Product.html">BỘ SƯU TẬP</a>
-                            </li>
+                            </li> -->
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle aaaa" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                                <a class="nav-link dropdown-toggle aaaa" href="/list" id="navbarDropdown" role="button" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
                                     <p>SẢN PHẨM</p>
                                     <i class="fa fa-angle-double-right"></i>
@@ -108,13 +108,13 @@
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="introduce.html">GIỚI THIỆU</a>
+                                <a class="nav-link" href="/introduce">GIỚI THIỆU</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="blog.html">BLOG</a>
+                                <a class="nav-link" href="/blog">BLOG</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="Contact.html">LIÊN HỆ</a>
+                                <a class="nav-link" href="/contact">LIÊN HỆ</a>
                             </li>
                         </ul>
                     </div>

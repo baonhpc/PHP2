@@ -16,6 +16,9 @@ use Src\Models\Database;
 use Src\Controllers\Client\HomeController;
 use Src\Controllers\Client\ProductControler;
 use Src\Controllers\Client\AuthController;
+use Src\Controllers\Client\ContactController;
+use Src\Controllers\Client\IntroduceController;
+use Src\Controllers\Client\BlogController;
 
 
 
@@ -27,9 +30,13 @@ $dispatcher = FastRoute\simpleDispatcher(function (RouteCollector $r) {
     $r->addRoute('GET', '/', [HomeController::class, 'show']);
     $r->addRoute('GET', '/home', [HomeController::class, 'show']);
     $r->addRoute('GET', '/list', [ProductControler::class, 'show']);
+    $r->addRoute('GET', '/detail', [ProductControler::class, 'detail']);
+    $r->addRoute('GET', '/blog', [BlogController::class, 'show']);
+    $r->addRoute('GET', '/blog-detail', [BlogController::class, 'detail']);
+    $r->addRoute('GET', '/contact', [ContactController::class, 'show']);
+    $r->addRoute('GET', '/introduce', [IntroduceController::class, 'show']);
     $r->addRoute('GET', '/signup', [AuthController::class, 'register']);
     $r->addRoute('GET', '/signin', [AuthController::class, 'login']);
-    $r->addRoute('GET', '/detail', [ProductControler::class, 'detail']);
 });
 
 $httpMethod = $_SERVER['REQUEST_METHOD'];
