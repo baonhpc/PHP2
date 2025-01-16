@@ -14,6 +14,8 @@ use FastRoute\RouteCollector;
 use League\Plates\Extension\URI;
 use Src\Models\Database;
 use Src\Controllers\Client\HomeController;
+use Src\Controllers\Client\ProductControler;
+use Src\Controllers\Client\AuthController;
 
 
 
@@ -21,9 +23,13 @@ $connection = new Database();
 
 
 
-$dispatcher = FastRoute\simpleDispatcher(function(RouteCollector $r) {
-    $r->addRoute('GET', '/home', [HomeController::class, 'show']);
+$dispatcher = FastRoute\simpleDispatcher(function (RouteCollector $r) {
     $r->addRoute('GET', '/', [HomeController::class, 'show']);
+    $r->addRoute('GET', '/home', [HomeController::class, 'show']);
+    $r->addRoute('GET', '/list', [ProductControler::class, 'show']);
+    $r->addRoute('GET', '/signup', [AuthController::class, 'register']);
+    $r->addRoute('GET', '/signin', [AuthController::class, 'login']);
+    $r->addRoute('GET', '/detail', [ProductControler::class, 'detail']);
 });
 
 $httpMethod = $_SERVER['REQUEST_METHOD'];
