@@ -6,11 +6,8 @@
 <!-- Insert nội dung vào đây -->
 
 <!--Banner-->
-<div>
-  <div>
-    <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/collection_banner.jpg" alt="Products">
-  </div>
-</div>
+<?php $this->insert('Client/Components/Banner'); ?>
+
 <div class="breadcrumb-shop">
   <div class="container">
     <div class="row">
@@ -69,7 +66,7 @@
         <div class="box_image visible-lg visible-md">
           <div class="banner">
             <a href="">
-              <img src="//theme.hstatic.net/1000375638/1000480323/14/page_banner.jpg?v=321" alt="Runner Inn">
+              <img class="img-resize" src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/OLC.jpg" alt="">
             </a>
           </div>
         </div>
@@ -79,29 +76,27 @@
     <div class="col-md-9 col-sm-12 col-xs-12">
       <div class="page-wrapper">
         <div class="heading-page">
-          <h1>Giới thiệu</h1>
+          <h1>VỀ CHÚNG TÔI</h1>
         </div>
         <div class="wrapbox-content-page">
           <div class="content-page ">
-            <p>Trang giới thiệu giúp khách hàng hiểu rõ hơn về cửa hàng của bạn. Hãy cung cấp thông tin cụ thể về việc
-              kinh doanh, về cửa hàng, thông tin liên hệ. Điều này sẽ giúp khách hàng cảm thấy tin tưởng khi mua hàng
-              trên website của bạn.</p>
-            <p>Một vài gợi ý cho nội dung trang Giới thiệu:</p>
-            <div>
-              <ul>
-                <li><span>Bạn là ai</span><br></li>
-                <li><span>Giá trị kinh doanh của bạn là gì</span><br></li>
-                <li><span>Địa chỉ cửa hàng</span><br></li>
-                <li><span>Bạn đã kinh doanh trong ngành hàng này bao lâu rồi</span><br></li>
-                <li><span>Bạn kinh doanh ngành hàng online được bao lâu</span><br></li>
-                <li><span>Đội ngũ của bạn gồm những ai</span><br></li>
-                <li><span>Thông tin liên hệ</span><br></li>
-                <li><span>Liên kết đến các trang mạng xã hội (Twitter, Facebook)</span><br></li>
-              </ul>
-            </div>
-            <p>Bạn có thể chỉnh sửa hoặc xoá bài viết này tại <a href="" style="color:black"><strong>đây</strong></a>
-              hoặc thêm những bài viết mới trong phần quản lý <a href="" style="color: black"><strong>Trang nội
-                  dung</strong></a>.</p>
+            <p>Chuỗi nhà thuốc uy tín hàng đầu Việt Nam
+              Với hơn 12 năm hoạt động, Pharmacity tự hào là người bạn đồng hành tin cậy của hàng triệu người dân Việt Nam trên hành trình nâng cao chất lượng sức khỏe. Hệ thống gần 1000 nhà thuốc đạt chuẩn GPP trên toàn quốc trải dài 40 tỉnh thành, cùng đội ngũ gần 5000 Dược sĩ, Pharmacity mang đến dịch vụ chăm sóc sức khỏe tận tâm và trải nghiệm mua sắm tiện lợi cho mọi khách hàng.</p>
+            <h3>Sản phẩm chính hãng, giá tốt </h3>
+            <p>Pharmacity cam kết cung cấp sản phẩm chính hãng, đa dạng từ thuốc cho các nhóm bệnh: Tiểu Đường, Huyết Áp, Mỡ Máu, Tiêu Hóa, Hô Hấp,… đến thực phẩm chức năng, sản phẩm chăm sóc sức khỏe, sắc đẹp, thiết bị y tế thuộc các thương hiệu hàng đầu thế giới như: Abbott, GSK, Sanofi, Astrazeneca, Pfizer, Mega Lifesciences, Goodlife, L’oreal, Durex,… và các thương hiệu uy tín tại Việt Nam như Dược Hậu Giang, Nam Hà,… Bên cạnh đó, chúng tôi luôn chú trọng bảo quản sản phẩm trong điều kiện tốt nhất, đảm bảo chất lượng đến tay người tiêu dùng.</p>
+            <h3>Dược sĩ tận tâm, tư vấn chuyên nghiệp</h3>
+            <p>Đội ngũ Dược sĩ Pharmacity được đào tạo bài bản, có chuyên môn cao và giàu kinh nghiệm. Luôn đặt lợi ích khách hàng lên hàng đầu, sẵn sàng tư vấn, giải đáp thắc mắc và hướng dẫn sử dụng sản phẩm hiệu quả, an toàn.</p>
+            <h3>Mua sắm tiện lợi, giao hàng nhanh chóng</h3>
+            <p>Thấu hiểu nhu cầu đa dạng của khách hàng, Pharmacity mang đến hệ thống mua sắm đa kênh vô cùng tiện lợi:</p>
+            <ul style = "margin-left: 40px;">
+              <li>Mua trực tiếp tại nhà thuốc: Hệ thống gần 1000 nhà thuốc Pharmacity trải dài 40 tỉnh thành.</li>
+              <li>Mua hàng trực tuyến: Truy cập trang https://www.pharmacity.vn/ hoặc ứng dụng Pharmacity.</li>
+              <li>Giao hàng siêu tốc: Giao hàng nhanh chóng trong vòng 2 giờ tại các thành phố lớn.</li>
+              <li>Hợp tác với đối tác lớn, uy tín: Grab, Shopee, Lazada, Tiki…</li>
+            </ul>
+            <h3>Chính sách ưu đãi dành cho khách hàng thân thiết</h3>
+            <p>Pharmacity triển khai chương trình P-Thành Viên hấp dẫn. Mỗi giao dịch mua sắm, khách hàng đều được tích điểm và có thể sử dụng điểm để trừ tiền cho các lần mua sau. Ngoài ra, Pharmacity luôn có các chương trình khuyến mãi, ưu đãi dành riêng cho khách hàng thân thiết.</p>
+            <h3>Lựa chọn Pharmacity, lựa chọn an tâm cho sức khỏe bản thân và gia đình!</h3>
           </div>
         </div>
       </div>

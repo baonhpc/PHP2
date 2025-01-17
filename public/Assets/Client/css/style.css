@@ -28,7 +28,7 @@
   position: relative;
   margin: auto;
   padding-left: 20%;
-  background: url("../images/runner-popup_ebbbb7ad7346475e9caa836a64f07194.webp")
+  background: url("../images/bg_2.jpg")
     no-repeat center/cover;
 }
 .registratior_custom form .content {
@@ -643,7 +643,7 @@ h3.post_title {
   text-align: center;
 }
 .wrapper-home-newsletter {
-  background-image: url(../images/bg-newsletter.jpg);
+  background-image: url(../images/bg_1.jpg);
 }
 
 .content-newsletter {

@@ -3,13 +3,10 @@
 
 <?php $this->start('main_content') ?>
 <!-- Insert nội dung vào đây -->
+ 
+<!--Banner-->
+<?php $this->insert('Client/Components/Banner'); ?>
 
-  <!--Banner-->
-  <div>
-    <div>
-      <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/collection_banner.jpg" alt="Products">
-    </div>
-  </div>
   <div class="breadcrumb-shop">
     <div class="container">
       <div class="row">

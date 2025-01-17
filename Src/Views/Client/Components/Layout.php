@@ -17,13 +17,13 @@
     <!-- UIkit CSS -->
     <link rel="stylesheet" href="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/plugins/uikit/uikit.min.css" />
 
-    <title>Runner</title>
+    <title>Pharmacity</title>
 
 </head>
 
 <body>
     <div class="header">
-        <a style="color: #ffffff;text-decoration: none;" href="index.html">MIỄN PHÍ VẬN CHUYỂN VỚI ĐƠN HÀNG NỘI THÀNH > 300K
+        <a style="color: #ffffff;text-decoration: none;" href="/">MIỄN PHÍ VẬN CHUYỂN VỚI ĐƠN HÀNG NỘI THÀNH > 300K
             - ĐỔI TRẢ TRONG 30 NGÀY - ĐẢM BẢO CHẤT LƯỢNG</a>
     </div>
 
@@ -33,7 +33,7 @@
 
         <div class="container">
             <a class="navbar-brand" href="/">
-                <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/logo.png" class="logo-top" alt="">
+                <img style="height: 80px" src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/logo-pharmacity-compressed.jpg" class="logo-top" alt="">
             </a>
             <div class="desk-menu collapse navbar-collapse justify-content-md-center" id="navbarNav">
                 <ul class="navbar-nav">
@@ -234,39 +234,39 @@
         <div class="">
             <div class="hot_sp" style="padding-top: 70px;padding-bottom: 50px;">
                 <h2 style="text-align:center;padding-top: 10px">
-                    <a style="font-size: 28px;color: black;text-decoration: none" href="">Khách hàng và Runner Inn</a>
+                    <a style="font-size: 28px;color: black;text-decoration: none" href="">Khách hàng và Pharmacity</a>
                 </h2>
             </div>
             <div class="list-gallery clearfix">
                 <ul class="shoes-gp">
                     <li>
                         <div class="gallery_item">
-                            <img class="img-resize" src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/gallery_item_1.jpg" alt="">
+                            <img class="img-resize" src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/customer1.png" alt="">
                         </div>
                     </li>
                     <li>
                         <div class="gallery_item">
-                            <img class="img-resize" src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/gallery_item_2.jpg" alt="">
+                            <img class="img-resize" src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/customer2.png" alt="">
                         </div>
                     </li>
                     <li>
                         <div class="gallery_item">
-                            <img class="img-resize" src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/gallery_item_3.jpg" alt="">
+                            <img class="img-resize" src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/customer3.png" alt="">
                         </div>
                     </li>
                     <li>
                         <div class="gallery_item">
-                            <img class="img-resize" src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/gallery_item_4.jpg" alt="">
+                            <img class="img-resize" src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/customer4.png" alt="">
                         </div>
                     </li>
                     <li>
                         <div class="gallery_item">
-                            <img class="img-resize" src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/gallery_item_5.jpg" alt="">
+                            <img class="img-resize" src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/customer5.png" alt="">
                         </div>
                     </li>
                     <li>
                         <div class="gallery_item">
-                            <img class="img-resize" src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/gallery_item_6.jpg" alt="">
+                            <img class="img-resize" src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/customer6.png" alt="">
                         </div>
                     </li>
                 </ul>
@@ -283,9 +283,7 @@
                                 Giới thiệu
                             </h4>
                             <div class="footer-content">
-                                <p>Runner Inn trang mua sắm trực tuyến của thương hiệu giày, thời trang nam, nữ, phụ kiện, giúp bạn
-                                    tiếp
-                                    cận xu hướng thời trang mới nhất.</p>
+                                <p>Với hơn 12 năm hoạt động, Pharmacity tự hào là người bạn đồng hành tin cậy của hàng triệu người dân Việt Nam trên hành trình nâng cao chất lượng sức khỏe. Hệ thống gần 1000 nhà thuốc đạt chuẩn GPP trên toàn quốc trải dài 40 tỉnh thành, cùng đội ngũ gần 5000 Dược sĩ, Pharmacity mang đến dịch vụ chăm sóc sức khỏe tận tâm và trải nghiệm mua sắm tiện lợi cho mọi khách hàng</p>
                                 <div class="logo-footer">
                                     <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/logo-bct.png" alt="Bộ Công Thương">
                                 </div>
@@ -302,24 +300,24 @@
                     <div class="col-xs-12 col-sm-6 col-md-3">
                         <div class="footer-col footer-link">
                             <h4 class="footer-title">
-                                PHÁP LÝ &amp; CÂU HỎI
+                                Doanh mục
                             </h4>
                             <div class="footer-content toggle-footer">
                                 <ul>
                                     <li class="item">
-                                        <a href="#" title="Tìm kiếm">Tìm kiếm</a>
+                                        <a href="#" title="Tìm kiếm">Thuốc</a>
                                     </li>
                                     <li class="item">
-                                        <a href="#" title="Giới thiệu">Giới thiệu</a>
+                                        <a href="#" title="Giới thiệu">Chăm sóc cá nhân</a>
                                     </li>
                                     <li class="item">
-                                        <a href="#" title="Chính sách đổi trả">Chính sách đổi trả</a>
+                                        <a href="#" title="Chính sách đổi trả">Chăm sóc sắc đẹp</a>
                                     </li>
                                     <li class="item">
-                                        <a href="#" title="Chính sách bảo mật">Chính sách bảo mật</a>
+                                        <a href="#" title="Chính sách bảo mật">Chăm sóc sức khỏe</a>
                                     </li>
                                     <li class="item">
-                                        <a href="#" title="Điều khoản dịch vụ">Điều khoản dịch vụ</a>
+                                        <a href="#" title="Điều khoản dịch vụ">Thực phẩm chức năng</a>
                                     </li>
                                 </ul>
                             </div>
@@ -332,9 +330,9 @@
                             </h4>
                             <div class="footer-content toggle-footer">
                                 <ul>
-                                    <li><span>Địa chỉ:</span> 117-119 Lý Chính Thắng, Phường 7, Quận 3, TP. Hồ Chí Minh, Vietnam</li>
-                                    <li><span>Điện thoại:</span> +84 (028) 38800659</li>
-                                    <li><span>Fax:</span> +84 (028) 38800659</li>
+                                    <li><span>Địa chỉ:</span> 248A Nơ Trang Long, Phường 12, Quận Bình Thạnh, Ho Chi Minh City, Vietnam</li>
+                                    <li><span>Điện thoại:</span> 1800 6821</li>
+                                    <li><span>Fax:</span> +84 (084) 5456683</li>
                                     <li><span>Mail:</span> contact@aziworld.com</li>
                                 </ul>
                             </div>
@@ -353,7 +351,7 @@
                                             data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
                                             <blockquote cite="https://www.facebook.com/AziWorld-Viet-Nam-908555669481794/"
                                                 class="fb-xfbml-parse-ignore"><a
-                                                    href="https://www.facebook.com/AziWorld-Viet-Nam-908555669481794/">AziWorld Viet Nam</a>
+                                                    href="https://www.facebook.com/AziWorld-Viet-Nam-908555669481794/">Pharmarcity</a>
                                             </blockquote>
                                         </div>
                                     </div>
@@ -368,8 +366,8 @@
             <div class="container">
                 <hr>
                 <div class="main-footer--border" style="text-align:center;padding-bottom: 15px;">
-                    <p>Copyright © 2019 <a href="https://runner-inn.myharavan.com"> Runner Inn</a>. <a target="_blank"
-                            href="https://www.facebook.com/henrynguyen202">Powered by HuniBlue</a></p>
+                    <p>Copyright © 2025 <a href="https://runner-inn.myharavan.com"> Pharmacity</a>. <a target="_blank"
+                            href="https://www.facebook.com/henrynguyen202">by Hoài Bão</a></p>
                 </div>
             </div>
         </div>
@@ -381,7 +379,7 @@
                 <div class="x-close">
                     <i class="fa fa-times"></i>
                 </div>
-                <h3>Nhận các ưu đãi cùng Runner</h3>
+                <h3>Nhận các ưu đãi cùng Pharmacity</h3>
                 <p>Chúng tôi sẽ cập nhật các chương trình khuyến mãi mới đến bạn</p>
                 <ul>
                     <li>
@@ -391,7 +389,7 @@
                         <span>Sản phẩm mới</span>
                     </li>
                     <li>
-                        <span>Sản phẩm bán chạy/span>
+                        <span>Sản phẩm bán chạy</span>
                     </li>
                 </ul>
                 <input type="text" placeholder="Đăng kí nhận thông tin">

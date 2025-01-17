@@ -5,11 +5,9 @@
 <!-- Insert nội dung vào đây -->
 
 <!--Banner-->
-<div>
-  <div>
-    <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/collection_banner.jpg" alt="Products">
-  </div>
-</div>
+<?php $this->insert('Client/Components/Banner'); ?>
+
+
 <div class="breadcrumb-shop">
   <div class="container">
     <div class="row">

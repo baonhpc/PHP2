@@ -110,8 +110,8 @@
 <section class="section wrapper-home-newsletter">
     <div class="container-fluid">
         <div class="content-newsletter">
-            <h2>Đăng ký</h2>
-            <p>Đăng ký nhận bản tin của Runner Inn để cập nhật những sản phẩm mới, nhận thông tin ưu đãi đặc biệt và thông
+            <h2 style="color: black;">Đăng ký</h2>
+            <p style="color: black;">Đăng ký nhận bản tin của Pharmacity để cập nhật những sản phẩm mới, nhận thông tin ưu đãi đặc biệt và thông
                 tin
                 giảm giá khác.</p>
             <div class="form-newsletter">
