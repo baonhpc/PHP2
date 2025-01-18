@@ -1,0 +1,168 @@
+/* Reset cơ bản */
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+ }
+ 
+ body {
+   font-family: Arial, sans-serif;
+   background-color: #f9f9f9;
+   color: #333;
+ }
+ 
+ /* Container chính */
+ .container-fluid {
+   padding: 2rem;
+ }
+ 
+ /* Cấu trúc tài khoản */
+ .account .row {
+   display: flex;
+ }
+ 
+ .account .col-lg-9 {
+   padding: 2rem;
+   background-color: #fff;
+   border-radius: 8px;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+ }
+ 
+ .account-info-title {
+   text-transform: uppercase;
+   font-weight: bold;
+   font-size: 1.5rem;
+   margin-bottom: 1rem;
+   color: #28a745;
+ }
+ 
+ .account-info-form .form-group {
+   margin-bottom: 1.5rem;
+ }
+ 
+ .account-info-form label {
+   font-size: 0.875rem;
+   font-weight: bold;
+   display: block;
+   margin-bottom: 0.5rem;
+ }
+ 
+ .account-info-form input {
+   width: 100%;
+   padding: 0.75rem 1rem;
+   font-size: 1rem;
+   border: 1px solid #ddd;
+   border-radius: 4px;
+   transition: border-color 0.3s, box-shadow 0.3s;
+ }
+ 
+ .account-info-form input:focus {
+   border-color: #28a745;
+   box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+   outline: none;
+ }
+ 
+ .account-info-form .text-danger {
+   margin-top: 0.25rem;
+   font-size: 0.875rem;
+   color: #dc3545;
+ }
+ 
+ .account-info-form .btn-success {
+   background-color: #28a745;
+   border: none;
+   padding: 0.75rem 2rem;
+   font-size: 1rem;
+   color: #fff;
+   border-radius: 4px;
+   cursor: pointer;
+   text-transform: uppercase;
+   transition: background-color 0.3s ease;
+ }
+ 
+ .account-info-form .btn-success:hover {
+   background-color: #218838;
+ }
+ 
+ /* Sidebar */
+ .account-sidebar {
+   background-color: #f8f9fa;
+   border: 1px solid #ddd;
+   border-radius: 8px;
+   padding: 20px;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+ }
+ 
+ .account-sidebar-title {
+   font-size: 18px;
+   font-weight: bold;
+   color: #333;
+   margin-bottom: 20px;
+   text-align: center;
+ }
+ 
+ .account-sidebar-main ul {
+   list-style: none;
+   padding: 0;
+ }
+ 
+ .account-sidebar-main ul li {
+   display: flex;
+   align-items: center;
+   margin-bottom: 15px;
+   transition: background-color 0.3s, transform 0.2s;
+ }
+ 
+ .account-sidebar-main ul li:hover {
+   background-color: #e9ecef;
+   transform: translateX(5px);
+   border-radius: 6px;
+ }
+ 
+ .account-sidebar-main ul li svg {
+   width: 24px;
+   height: 24px;
+   color: #6c757d;
+   margin-right: 10px;
+   transition: color 0.3s;
+ }
+ 
+ .account-sidebar-main ul li:hover svg {
+   color: #007bff;
+ }
+ 
+ .account-sidebar-main ul li a {
+   font-size: 16px;
+   color: #495057;
+   text-decoration: none;
+   flex-grow: 1;
+   transition: color 0.3s;
+ }
+ 
+ .account-sidebar-main ul li:hover a {
+   color: #007bff;
+ }
+ 
+ @media (max-width: 768px) {
+   .account-sidebar {
+     padding: 15px;
+   }
+ 
+   .account-sidebar-title {
+     font-size: 16px;
+   }
+ 
+   .account-sidebar-main ul li {
+     margin-bottom: 10px;
+   }
+ 
+   .account-sidebar-main ul li svg {
+     width: 20px;
+     height: 20px;
+   }
+ 
+   .account-sidebar-main ul li a {
+     font-size: 14px;
+   }
+ }
+ 

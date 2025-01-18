@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= $this->section('styles') ?>
+  
     <link rel="stylesheet" href="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/plugins/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/plugins/animate/animate.min.css">
     <link rel="stylesheet" href="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/plugins/fontawesome/all.css">
@@ -12,8 +13,9 @@
     <link rel="stylesheet" href="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/css/owl.theme.default.min.css" type="text/css">
     <link rel="stylesheet" type="text/css" href="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/css/style.css">
+    
     <link rel="stylesheet" href="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/css/sign.css">
-
+    <link rel="stylesheet" href="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/css/myaccount.css">
     <!-- UIkit CSS -->
     <link rel="stylesheet" href="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/plugins/uikit/uikit.min.css" />
 
@@ -229,50 +231,6 @@
     </div>
 
 
-
-    <section class="section section-gallery">
-        <div class="">
-            <div class="hot_sp" style="padding-top: 70px;padding-bottom: 50px;">
-                <h2 style="text-align:center;padding-top: 10px">
-                    <a style="font-size: 28px;color: black;text-decoration: none" href="">Khách hàng và Pharmacity</a>
-                </h2>
-            </div>
-            <div class="list-gallery clearfix">
-                <ul class="shoes-gp">
-                    <li>
-                        <div class="gallery_item">
-                            <img class="img-resize" src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/customer1.png" alt="">
-                        </div>
-                    </li>
-                    <li>
-                        <div class="gallery_item">
-                            <img class="img-resize" src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/customer2.png" alt="">
-                        </div>
-                    </li>
-                    <li>
-                        <div class="gallery_item">
-                            <img class="img-resize" src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/customer3.png" alt="">
-                        </div>
-                    </li>
-                    <li>
-                        <div class="gallery_item">
-                            <img class="img-resize" src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/customer4.png" alt="">
-                        </div>
-                    </li>
-                    <li>
-                        <div class="gallery_item">
-                            <img class="img-resize" src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/customer5.png" alt="">
-                        </div>
-                    </li>
-                    <li>
-                        <div class="gallery_item">
-                            <img class="img-resize" src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/customer6.png" alt="">
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </section>
     <footer class="main-footer">
         <div class="container">
             <div class="">
@@ -399,6 +357,7 @@
             </div>
         </form>
     </div>
+    
     <script async defer crossorigin="anonymous" src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/plugins/sdk.js"></script>
     <script src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/plugins/jquery-3.4.1/jquery-3.4.1.min.js"></script>
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
@@ -409,6 +368,8 @@
     <script src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/js/script.js"></script>
     <script src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/plugins/uikit/uikit.min.js"></script>
     <script src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/plugins/uikit/uikit-icons.min.js"></script>
+    
+
     <?= $this->section('scripts') ?>
 </body>
 

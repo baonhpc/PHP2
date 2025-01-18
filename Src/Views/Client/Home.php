@@ -17,6 +17,7 @@ $this->insert('/Client/Home/ProductAds');
 $this->Insert("/Client/Home/BrandAds");
 $this->insert('/Client/Home/ProductNew');
 $this->Insert("/Client/Home/BlogNews" );
+$this->Insert("/Client/Components/Footer_2" );
 ?>
 
 

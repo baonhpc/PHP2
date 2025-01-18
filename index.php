@@ -19,6 +19,7 @@ use Src\Controllers\Client\AuthController;
 use Src\Controllers\Client\ContactController;
 use Src\Controllers\Client\IntroduceController;
 use Src\Controllers\Client\BlogController;
+use Src\Controllers\Client\UserController;
 
 
 
@@ -32,6 +33,7 @@ $dispatcher = FastRoute\simpleDispatcher(function (RouteCollector $r) {
     $r->addRoute('GET', '/list', [ProductControler::class, 'show']);
     $r->addRoute('GET', '/detail', [ProductControler::class, 'detail']);
     $r->addRoute('GET', '/blog', [BlogController::class, 'show']);
+    $r->addRoute('GET', '/myaccount', [UserController::class, 'myaccount']);
     $r->addRoute('GET', '/blog-detail', [BlogController::class, 'detail']);
     $r->addRoute('GET', '/contact', [ContactController::class, 'show']);
     $r->addRoute('GET', '/introduce', [IntroduceController::class, 'show']);
