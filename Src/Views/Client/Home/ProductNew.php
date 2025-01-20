@@ -19,9 +19,9 @@
                     <div class="product-block">
                         <div class="product-img fade-box">
                             <a href="#" title="Adidas Ultraboost W" class="img-resize">
-                                <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/801432_01_b16d089f8bda434bacfe4620e8480be1_grande.jpg" alt="Adidas Ultraboost W"
+                                <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/pharma/blob (3).jpg" alt="Adidas Ultraboost W"
                                     class="lazyloaded">
-                                <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/shoes fade 4.jpg" alt="Adidas Ultraboost W" class="lazyloaded">
+                                <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/pharma/nattoenzyn.png" alt="Adidas Ultraboost W" class="lazyloaded">
                             </a>
 
                         </div>
@@ -44,9 +44,9 @@
                     <div class="product-block">
                         <div class="product-img fade-box">
                             <a href="#" title="Adidas Ultraboost W" class="img-resize">
-                                <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/801432_01_b16d089f8bda434bacfe4620e8480be1_grande.jpg" alt="Adidas Ultraboost W"
+                                <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/pharma/blob (2).jpg" alt="Adidas Ultraboost W"
                                     class="lazyloaded">
-                                <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/shoes fade 4.jpg" alt="Adidas Ultraboost W" class="lazyloaded">
+                                <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/pharma/dizza.png" alt="Adidas Ultraboost W" class="lazyloaded">
                             </a>
 
                         </div>
@@ -69,9 +69,9 @@
                     <div class="product-block">
                         <div class="product-img fade-box">
                             <a href="#" title="Adidas Ultraboost W" class="img-resize">
-                                <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/801432_01_b16d089f8bda434bacfe4620e8480be1_grande.jpg" alt="Adidas Ultraboost W"
+                                <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/pharma/blob (1).jpg" alt="Adidas Ultraboost W"
                                     class="lazyloaded">
-                                <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/shoes fade 4.jpg" alt="Adidas Ultraboost W" class="lazyloaded">
+                                <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/pharma/bigbb.png" alt="Adidas Ultraboost W" class="lazyloaded">
                             </a>
 
                         </div>
@@ -94,9 +94,9 @@
                     <div class="product-block">
                         <div class="product-img fade-box">
                             <a href="#" title="Adidas Ultraboost W" class="img-resize">
-                                <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/801432_01_b16d089f8bda434bacfe4620e8480be1_grande.jpg" alt="Adidas Ultraboost W"
+                                <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/pharma/blob.jpg" alt="Adidas Ultraboost W"
                                     class="lazyloaded">
-                                <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/shoes fade 4.jpg" alt="Adidas Ultraboost W" class="lazyloaded">
+                                <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/pharma/diabetna.png" alt="Adidas Ultraboost W" class="lazyloaded">
                             </a>
 
                         </div>
@@ -119,9 +119,9 @@
                     <div class="product-block">
                         <div class="product-img fade-box">
                             <a href="#" title="Adidas Ultraboost W" class="img-resize">
-                                <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/801432_01_b16d089f8bda434bacfe4620e8480be1_grande.jpg" alt="Adidas Ultraboost W"
+                                <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/pharma/blob (4).jpg" alt="Adidas Ultraboost W"
                                     class="lazyloaded">
-                                <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/shoes fade 4.jpg" alt="Adidas Ultraboost W" class="lazyloaded">
+                                <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/pharma/blob (4).jpg" alt="Adidas Ultraboost W" class="lazyloaded">
                             </a>
 
                         </div>
@@ -144,9 +144,9 @@
                     <div class="product-block">
                         <div class="product-img fade-box">
                             <a href="#" title="Adidas Ultraboost W" class="img-resize">
-                                <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/801432_01_b16d089f8bda434bacfe4620e8480be1_grande.jpg" alt="Adidas Ultraboost W"
+                                <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/pharma/blob (4).jpg" alt="Adidas Ultraboost W"
                                     class="lazyloaded">
-                                <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/shoes fade 4.jpg" alt="Adidas Ultraboost W" class="lazyloaded">
+                                <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/pharma/blob (4).jpg" alt="Adidas Ultraboost W" class="lazyloaded">
                             </a>
 
                         </div>
