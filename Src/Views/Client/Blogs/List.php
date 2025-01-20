@@ -41,11 +41,11 @@
             <div class="item-article clearfix">
               <div class="post-image">
                 <a href="">
-                  <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/blog/n-1.jpg" alt="Adidas Falcon nổi bật mùa Hè với phối màu color block"></a>
+                  <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/blog/blog (1).png" alt="Adidas Falcon nổi bật mùa Hè với phối màu color block"></a>
               </div>
               <div class="post-content">
                 <h3>
-                  <a href="">Adidas Falcon nổi bật mùa Hè với phối màu color block</a>
+                  <a href="">5 bước đơn giản giúp móng tay chắc khỏe sau Tết</a>
                 </h3>
                 <span class="author">
                   <a href="">Be Nguyen</a>
@@ -57,7 +57,7 @@
             </div>
             <div class="item-article clearfix">
               <div class="post-image">
-                <a href=""><img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/blog/n-2.jpg" alt="Saucony hồi sinh mẫu giày chạy bộ cổ điển của mình – Aya Runner"></a>
+                <a href=""><img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/blog/blog (2).png" alt="Saucony hồi sinh mẫu giày chạy bộ cổ điển của mình – Aya Runner"></a>
               </div>
               <div class="post-content">
                 <h3>
@@ -73,7 +73,7 @@
             </div>
             <div class="item-article clearfix">
               <div class="post-image">
-                <a href=""><img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/blog/n-3.jpg" alt="Nike Vapormax Plus trở lại với sắc tím mộng mơ và thiết kế chuyển màu đẹp mắt"></a>
+                <a href=""><img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/blog/blog (3).png" alt="Nike Vapormax Plus trở lại với sắc tím mộng mơ và thiết kế chuyển màu đẹp mắt"></a>
               </div>
               <div class="post-content">
                 <h3>
@@ -149,13 +149,13 @@
           <article class="blog-loop">
             <div class="blog-post row">
               <div class="col-md-4 col-xs-12 col-sm-12">
-                <a href="/blog-detail" class="blog-post-thumbnail" title="Adidas Falcon nổi bật mùa Hè với phối màu color block" rel="nofollow">
-                  <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/blog/n-1.jpg" alt="Adidas Falcon nổi bật mùa Hè với phối màu color block">
+                <a href="/blog-detail" class="blog-post-thumbnail" title="5 bước đơn giản giúp móng tay chắc khỏe sau Tết" rel="nofollow">
+                  <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/blog/blog (1).png" alt="5 bước đơn giản giúp móng tay chắc khỏe sau Tết">
                 </a>
               </div>
               <div class="col-md-8 col-xs-12 col-sm-12">
                 <h3 class="blog-post-title">
-                  <a href="/blog-detail" title="Adidas Falcon nổi bật mùa Hè với phối màu color block">Adidas Falcon nổi bật mùa Hè với phối màu color block</a>
+                  <a href="/blog-detail" title="5 bước đơn giản giúp móng tay chắc khỏe sau Tết">5 bước đơn giản giúp móng tay chắc khỏe sau Tết</a>
                 </h3>
                 <div class="blog-post-meta">
                   <span class="author vcard">Người viết: Huni</span>
@@ -163,7 +163,7 @@
                     <time pubdate="" datetime="2019-06-11">11.06.2019</time>
                   </span>
                 </div>
-                <p class="entry-content">Cuối tháng 5, adidas Falcon đã cho ra mắt nhiều phối màu đón chào mùa Hè khiến giới trẻ yêu thích không thôi. Tưởng chừng...</p>
+                <p class="entry-content">Sau những ngày Tết vui vẻ với biết bao hoạt động, từ tiệc tùng đến du xuân, đôi bàn tay của chúng ta, đặc biệt là bộ móng, thường phải chịu đựng khá nhiều tác động. Việc làm nail thường xuyên, tiếp xúc với hóa chất, cùng với chế độ ăn uống và sinh hoạt thay đổi ít nhiều trong dịp lễ...</p>
               </div>
             </div>
           </article>
@@ -171,7 +171,7 @@
             <div class="blog-post row">
               <div class="col-md-4 col-xs-12 col-sm-12">
                 <a href="/blog-detail" class="blog-post-thumbnail" title="Saucony hồi sinh mẫu giày chạy bộ cổ điển của mình – Aya Runner" rel="nofollow">
-                  <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/blog/n-2.jpg" alt="Saucony hồi sinh mẫu giày chạy bộ cổ điển của mình – Aya Runner">
+                  <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/blog/blog (2).png" alt="Saucony hồi sinh mẫu giày chạy bộ cổ điển của mình – Aya Runner">
                 </a>
               </div>
               <div class="col-md-8 col-xs-12 col-sm-12">
@@ -193,7 +193,7 @@
 
               <div class="col-md-4 col-xs-12 col-sm-12">
                 <a href="/blog-detail" class="blog-post-thumbnail" title="Nike Vapormax Plus trở lại với sắc tím mộng mơ và thiết kế chuyển màu đẹp mắt" rel="nofollow">
-                  <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/blog/n-3.jpg" alt="Nike Vapormax Plus trở lại với sắc tím mộng mơ và thiết kế chuyển màu đẹp mắt">
+                  <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/blog/blog (3).png" alt="Nike Vapormax Plus trở lại với sắc tím mộng mơ và thiết kế chuyển màu đẹp mắt">
                 </a>
               </div>
               <div class="col-md-8 col-xs-12 col-sm-12">

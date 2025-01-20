@@ -169,7 +169,7 @@
                                 <tbody>
                                     <tr class="item_1">
                                         <td class="img"><a href="" title="Nike Air Max 90 Essential &quot;Grape&quot;"><img
-                                                    src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/1.jpg" alt="/products/nike-air-max-90-essential-grape"></a></td>
+                                                    src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/pharma/dizza.png" alt="/products/nike-air-max-90-essential-grape"></a></td>
                                         <td>
                                             <a class="pro-title-view" style="color: #272727" href=""
                                                 title="Nike Air Max 90 Essential &quot;Grape&quot;">Nike Air Max 90 Essential "Grape"</a>
@@ -196,8 +196,6 @@
                                 </tbody>
                             </table>
 
-                            <a href="" target="_blank" class="button btn-check" style="text-decoration:none;"><span>Click nhận mã giảm
-                                    giá ngay !</span></a>
                         </div>
                     </div>
                 </div>

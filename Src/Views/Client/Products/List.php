@@ -8,7 +8,7 @@
 <!--Banner-->
 <div>
   <div>
-    <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/collection_banner.jpg" alt="Products">
+    <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/hero_1.jpg" alt="Products">
   </div>
 </div>
 <div class="breadcrumb-shop">
@@ -273,12 +273,12 @@
         <div class="col-md-3 col-sm-6 col-xs-6 col-6">
           <div class="product-block">
             <div class="product-img fade-box">
-              <a href="#" title="Adidas EQT Cushion ADV" class="img-resize">
+              <a href="/detail" title="Adidas EQT Cushion ADV" class="img-resize">
                 <img
-                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/1.jpg"
+                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/pharma/blob (1).jpg"
                   alt="Adidas EQT Cushion ADV" class="lazyloaded">
                 <img
-                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/1-1.jpg"
+                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/pharma/bigbb.png"
                   alt="Adidas EQT Cushion ADV" class="lazyloaded">
               </a>
 
@@ -286,7 +286,7 @@
             <div class="product-detail clearfix">
               <div class="pro-text">
                 <a style=" color: black;
-                                                          font-size: 14px;text-decoration: none;" href="#"
+                                                          font-size: 14px;text-decoration: none;" href="/detail"
                   title="Adidas EQT Cushion ADV" inspiration pack>
                   Adidas EQT Cushion ADV "North America"
                 </a>
@@ -300,12 +300,12 @@
         <div class="col-md-3 col-sm-6 col-xs-6 col-6">
           <div class="product-block">
             <div class="product-img fade-box">
-              <a href="#" title="Adidas EQT Cushion ADV" class="img-resize">
+              <a href="/detail" title="Adidas EQT Cushion ADV" class="img-resize">
                 <img
-                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/2.jpg"
+                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/pharma/blob.jpg"
                   alt="Adidas EQT Cushion ADV" class="lazyloaded">
                 <img
-                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/2-2.jpg"
+                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/pharma/diabetna.png"
                   alt="Adidas EQT Cushion ADV" class="lazyloaded">
               </a>
 
@@ -313,7 +313,7 @@
             <div class="product-detail clearfix">
               <div class="pro-text">
                 <a style=" color: black;
-                                                          font-size: 14px;text-decoration: none;" href="#"
+                                                          font-size: 14px;text-decoration: none;" href="/detail"
                   title="Adidas EQT Cushion ADV" inspiration pack>
                   Adidas EQT Cushion ADV "North America"
                 </a>
@@ -327,12 +327,12 @@
         <div class="col-md-3 col-sm-6 col-xs-6 col-6">
           <div class="product-block">
             <div class="product-img fade-box">
-              <a href="#" title="Adidas EQT Cushion ADV" class="img-resize">
+              <a href="/detail" title="Adidas EQT Cushion ADV" class="img-resize">
                 <img
-                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/3.jpg"
+                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/pharma/blob (2).jpg"
                   alt="Adidas EQT Cushion ADV" class="lazyloaded">
                 <img
-                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/3-3.jpg"
+                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/pharma/dizza.png"
                   alt="Adidas EQT Cushion ADV" class="lazyloaded">
               </a>
 
@@ -340,7 +340,7 @@
             <div class="product-detail clearfix">
               <div class="pro-text">
                 <a style=" color: black;
-                                                          font-size: 14px;text-decoration: none;" href="#"
+                                                          font-size: 14px;text-decoration: none;" href="/detail"
                   title="Adidas EQT Cushion ADV" inspiration pack>
                   Adidas EQT Cushion ADV "North America"
                 </a>
@@ -354,12 +354,12 @@
         <div class="col-md-3 col-sm-6 col-xs-6 col-6">
           <div class="product-block">
             <div class="product-img fade-box">
-              <a href="#" title="Adidas EQT Cushion ADV" class="img-resize">
+              <a href="/detail" title="Adidas EQT Cushion ADV" class="img-resize">
                 <img
-                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/4.jpg"
+                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/pharma/blob (3).jpg"
                   alt="Adidas EQT Cushion ADV" class="lazyloaded">
                 <img
-                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/4-4.jpg"
+                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/pharma/nattoenzyn.png"
                   alt="Adidas EQT Cushion ADV" class="lazyloaded">
               </a>
 
@@ -367,7 +367,7 @@
             <div class="product-detail clearfix">
               <div class="pro-text">
                 <a style=" color: black;
-                                                        font-size: 14px;text-decoration: none;" href="#"
+                                                        font-size: 14px;text-decoration: none;" href="/detail"
                   title="Adidas EQT Cushion ADV" inspiration pack>
                   Adidas EQT Cushion ADV "North America"
                 </a>
@@ -381,12 +381,12 @@
         <div class="col-md-3 col-sm-6 col-xs-6 col-6">
           <div class="product-block">
             <div class="product-img fade-box">
-              <a href="#" title="Adidas EQT Cushion ADV" class="img-resize">
+              <a href="/detail" title="Adidas EQT Cushion ADV" class="img-resize">
                 <img
-                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/5.jpg"
+                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/pharma/blob (4).jpg"
                   alt="Adidas EQT Cushion ADV" class="lazyloaded">
                 <img
-                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/5-5.jpg"
+                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/pharma/blob (4).jpg"
                   alt="Adidas EQT Cushion ADV" class="lazyloaded">
               </a>
 
@@ -394,7 +394,7 @@
             <div class="product-detail clearfix">
               <div class="pro-text">
                 <a style=" color: black;
-                                                      font-size: 14px;text-decoration: none;" href="#"
+                                                      font-size: 14px;text-decoration: none;" href="/detail"
                   title="Adidas EQT Cushion ADV" inspiration pack>
                   Adidas EQT Cushion ADV "North America"
                 </a>
@@ -408,39 +408,12 @@
         <div class="col-md-3 col-sm-6 col-xs-6 col-6">
           <div class="product-block">
             <div class="product-img fade-box">
-              <a href="#" title="Adidas EQT Cushion ADV" class="img-resize">
+              <a href="/detail" title="Adidas EQT Cushion ADV" class="img-resize">
                 <img
-                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/6.jpg"
+                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/pharma/detail_2.png"
                   alt="Adidas EQT Cushion ADV" class="lazyloaded">
                 <img
-                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/6-6.jpg"
-                  alt="Adidas EQT Cushion ADV" class="lazyloaded">
-              </a>
-
-            </div>
-            <div class="product-detail clearfix">
-              <div class="pro-text">
-                <a style=" color: black;
-                                                    font-size: 14px;text-decoration: none;" href="#"
-                  title="Adidas EQT Cushion ADV" inspiration pack>
-                  Adidas EQT Cushion ADV "North America"
-                </a>
-              </div>
-              <div class="pro-price">
-                <p class="">7,000,000₫</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6 col-xs-6 col-6">
-          <div class="product-block">
-            <div class="product-img fade-box">
-              <a href="#" title="Adidas EQT Cushion ADV" class="img-resize">
-                <img
-                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/7.jpg"
-                  alt="Adidas EQT Cushion ADV" class="lazyloaded">
-                <img
-                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/7-7.jpg"
+                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/pharma/detail_3.png"
                   alt="Adidas EQT Cushion ADV" class="lazyloaded">
               </a>
 
@@ -448,361 +421,7 @@
             <div class="product-detail clearfix">
               <div class="pro-text">
                 <a style=" color: black;
-                                                    font-size: 14px;text-decoration: none;" href="#"
-                  title="Adidas EQT Cushion ADV" inspiration pack>
-                  Adidas EQT Cushion ADV "North America"
-                </a>
-              </div>
-              <div class="pro-price">
-                <p class="">7,000,000₫</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6 col-xs-6 col-6">
-          <div class="product-block">
-            <div class="product-img fade-box">
-              <a href="#" title="Adidas EQT Cushion ADV" class="img-resize">
-                <img
-                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/8.jpg"
-                  alt="Adidas EQT Cushion ADV" class="lazyloaded">
-                <img
-                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/8-8.jpg"
-                  alt="Adidas EQT Cushion ADV" class="lazyloaded">
-              </a>
-
-            </div>
-            <div class="product-detail clearfix">
-              <div class="pro-text">
-                <a style=" color: black;
-                                                  font-size: 14px;text-decoration: none;" href="#"
-                  title="Adidas EQT Cushion ADV" inspiration pack>
-                  Adidas EQT Cushion ADV "North America"
-                </a>
-              </div>
-              <div class="pro-price">
-                <p class="">7,000,000₫</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6 col-xs-6 col-6">
-          <div class="product-block">
-            <div class="product-img fade-box">
-              <a href="#" title="Adidas EQT Cushion ADV" class="img-resize">
-                <img
-                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/201493_1_017364c87c3e4802a8cda5259e3d5a95_grande.jpg"
-                  alt="Adidas EQT Cushion ADV" class="lazyloaded">
-                <img
-                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/shoes fade 2.jpg"
-                  alt="Adidas EQT Cushion ADV" class="lazyloaded">
-              </a>
-
-            </div>
-            <div class="product-detail clearfix">
-              <div class="pro-text">
-                <a style=" color: black;
-                                                  font-size: 14px;text-decoration: none;" href="#"
-                  title="Adidas EQT Cushion ADV" inspiration pack>
-                  Adidas EQT Cushion ADV "North America"
-                </a>
-              </div>
-              <div class="pro-price">
-                <p class="">7,000,000₫</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6 col-xs-6 col-6">
-          <div class="product-block">
-            <div class="product-img fade-box">
-              <a href="#" title="Adidas EQT Cushion ADV" class="img-resize">
-                <img
-                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/800502_01_e92c3b2bb8764b52a791846d84a3a360_grande.jpg"
-                  alt="Adidas EQT Cushion ADV" class="lazyloaded">
-                <img
-                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/shoes fade 5.jpg"
-                  alt="Adidas EQT Cushion ADV" class="lazyloaded">
-              </a>
-
-            </div>
-            <div class="product-detail clearfix">
-              <div class="pro-text">
-                <a style=" color: black;
-                                                  font-size: 14px;text-decoration: none;" href="#"
-                  title="Adidas EQT Cushion ADV" inspiration pack>
-                  Adidas EQT Cushion ADV "North America"
-                </a>
-              </div>
-              <div class="pro-price">
-                <p class="">7,000,000₫</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6 col-xs-6 col-6">
-          <div class="product-block">
-            <div class="product-img fade-box">
-              <a href="#" title="Adidas EQT Cushion ADV" class="img-resize">
-                <img
-                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/801432_01_b16d089f8bda434bacfe4620e8480be1_grande.jpg"
-                  alt="Adidas EQT Cushion ADV" class="lazyloaded">
-                <img
-                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/shoes fade 4.jpg"
-                  alt="Adidas EQT Cushion ADV" class="lazyloaded">
-              </a>
-
-            </div>
-            <div class="product-detail clearfix">
-              <div class="pro-text">
-                <a style=" color: black;
-                                                font-size: 14px;text-decoration: none;" href="#"
-                  title="Adidas EQT Cushion ADV" inspiration pack>
-                  Adidas EQT Cushion ADV "North America"
-                </a>
-              </div>
-              <div class="pro-price">
-                <p class="">7,000,000₫</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6 col-xs-6 col-6">
-          <div class="product-block">
-            <div class="product-img fade-box">
-              <a href="#" title="Adidas EQT Cushion ADV" class="img-resize">
-                <img
-                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/801740_1_e4adfa6d09b7468a8c9fb21bf8e02bd4_medium (1).jpg"
-                  alt="Adidas EQT Cushion ADV" class="lazyloaded">
-                <img
-                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/shoes fade 1.jpg"
-                  alt="Adidas EQT Cushion ADV" class="lazyloaded">
-              </a>
-
-            </div>
-            <div class="product-detail clearfix">
-              <div class="pro-text">
-                <a style=" color: black;
-                                                font-size: 14px;text-decoration: none;" href="#"
-                  title="Adidas EQT Cushion ADV" inspiration pack>
-                  Adidas EQT Cushion ADV "North America"
-                </a>
-              </div>
-              <div class="pro-price">
-                <p class="">7,000,000₫</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6 col-xs-6 col-6">
-          <div class="product-block">
-            <div class="product-img fade-box">
-              <a href="#" title="Adidas EQT Cushion ADV" class="img-resize">
-                <img
-                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/802501_01_eccb69b5bcdf4ef5b209557ec6547774_grande.jpg"
-                  alt="Adidas EQT Cushion ADV" class="lazyloaded">
-                <img
-                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/shoes fade 6.jpg"
-                  alt="Adidas EQT Cushion ADV" class="lazyloaded">
-              </a>
-
-            </div>
-            <div class="product-detail clearfix">
-              <div class="pro-text">
-                <a style=" color: black;
-                                                font-size: 14px;text-decoration: none;" href="#"
-                  title="Adidas EQT Cushion ADV" inspiration pack>
-                  Adidas EQT Cushion ADV "North America"
-                </a>
-              </div>
-              <div class="pro-price">
-                <p class="">7,000,000₫</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6 col-xs-6 col-6">
-          <div class="product-block">
-            <div class="product-img fade-box">
-              <a href="#" title="Adidas EQT Cushion ADV" class="img-resize">
-                <img
-                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/805266_02_b8b2cdd1782246febf8879a44a7e5021_grande.jpg"
-                  alt="Adidas EQT Cushion ADV" class="lazyloaded">
-                <img
-                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/shoes fade 3.jpg"
-                  alt="Adidas EQT Cushion ADV" class="lazyloaded">
-              </a>
-
-            </div>
-            <div class="product-detail clearfix">
-              <div class="pro-text">
-                <a style=" color: black;
-                                                font-size: 14px;text-decoration: none;" href="#"
-                  title="Adidas EQT Cushion ADV" inspiration pack>
-                  Adidas EQT Cushion ADV "North America"
-                </a>
-              </div>
-              <div class="pro-price">
-                <p class="">7,000,000₫</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6 col-xs-6 col-6">
-          <div class="product-block">
-            <div class="product-img fade-box">
-              <a href="#" title="Adidas EQT Cushion ADV" class="img-resize">
-                <img
-                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/805338_01_eb7365e97d3f471d872159918a8526a9_grande.jpg"
-                  alt="Adidas EQT Cushion ADV" class="lazyloaded">
-                <img
-                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/shoes fade 8.jpg"
-                  alt="Adidas EQT Cushion ADV" class="lazyloaded">
-              </a>
-
-            </div>
-            <div class="product-detail clearfix">
-              <div class="pro-text">
-                <a style=" color: black;
-                                                font-size: 14px;text-decoration: none;" href="#"
-                  title="Adidas EQT Cushion ADV" inspiration pack>
-                  Adidas EQT Cushion ADV "North America"
-                </a>
-              </div>
-              <div class="pro-price">
-                <p class="">7,000,000₫</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6 col-xs-6 col-6">
-          <div class="product-block">
-            <div class="product-img fade-box">
-              <a href="#" title="Adidas EQT Cushion ADV" class="img-resize">
-                <img
-                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/806859_01_1ad7dd36e7b5403286b95a253e00718d_grande.jpg"
-                  alt="Adidas EQT Cushion ADV" class="lazyloaded">
-                <img
-                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/shoes fade 7.jpg"
-                  alt="Adidas EQT Cushion ADV" class="lazyloaded">
-              </a>
-
-            </div>
-            <div class="product-detail clearfix">
-              <div class="pro-text">
-                <a style=" color: black;
-                                                font-size: 14px;text-decoration: none;" href="#"
-                  title="Adidas EQT Cushion ADV" inspiration pack>
-                  Adidas EQT Cushion ADV "North America"
-                </a>
-              </div>
-              <div class="pro-price">
-                <p class="">7,000,000₫</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6 col-xs-6 col-6">
-          <div class="product-block">
-            <div class="product-img fade-box">
-              <a href="#" title="Adidas EQT Cushion ADV" class="img-resize">
-                <img
-                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/9.jpg"
-                  alt="Adidas EQT Cushion ADV" class="lazyloaded">
-                <img
-                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/9-9.jpg"
-                  alt="Adidas EQT Cushion ADV" class="lazyloaded">
-              </a>
-
-            </div>
-            <div class="product-detail clearfix">
-              <div class="pro-text">
-                <a style=" color: black;
-                                                font-size: 14px;text-decoration: none;" href="#"
-                  title="Adidas EQT Cushion ADV" inspiration pack>
-                  Adidas EQT Cushion ADV "North America"
-                </a>
-              </div>
-              <div class="pro-price">
-                <p class="">7,000,000₫</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6 col-xs-6 col-6">
-          <div class="product-block">
-            <div class="product-img fade-box">
-              <a href="#" title="Adidas EQT Cushion ADV" class="img-resize">
-                <img
-                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/10.jpg"
-                  alt="Adidas EQT Cushion ADV" class="lazyloaded">
-                <img
-                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/10-10.jpg"
-                  alt="Adidas EQT Cushion ADV" class="lazyloaded">
-              </a>
-
-            </div>
-            <div class="product-detail clearfix">
-              <div class="pro-text">
-                <a style=" color: black;
-                                                font-size: 14px;text-decoration: none;" href="#"
-                  title="Adidas EQT Cushion ADV" inspiration pack>
-                  Adidas EQT Cushion ADV "North America"
-                </a>
-              </div>
-              <div class="pro-price">
-                <p class="">7,000,000₫</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6 col-xs-6 col-6">
-          <div class="product-block">
-            <div class="product-img fade-box">
-              <a href="#" title="Adidas EQT Cushion ADV" class="img-resize">
-                <img
-                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/11.jpg"
-                  alt="Adidas EQT Cushion ADV" class="lazyloaded">
-                <img
-                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/11-11.jpg"
-                  alt="Adidas EQT Cushion ADV" class="lazyloaded">
-              </a>
-
-            </div>
-            <div class="product-detail clearfix">
-              <div class="pro-text">
-                <a style=" color: black;
-                                                font-size: 14px;text-decoration: none;" href="#"
-                  title="Adidas EQT Cushion ADV" inspiration pack>
-                  Adidas EQT Cushion ADV "North America"
-                </a>
-              </div>
-              <div class="pro-price">
-                <p class="">7,000,000₫</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6 col-xs-6 col-6">
-          <div class="product-block">
-            <div class="product-img fade-box">
-              <a href="#" title="Adidas EQT Cushion ADV" class="img-resize">
-                <img
-                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/12.jpg"
-                  alt="Adidas EQT Cushion ADV" class="lazyloaded">
-                <img
-                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/shoes/12-12.jpg"
-                  alt="Adidas EQT Cushion ADV" class="lazyloaded">
-              </a>
-              <div class="button-add">
-                <button type=submit title="Mua ngay" class="action">Mua ngay</button>
-                <button type="submit" title="Thêm vào giỏ" class="action add-to-cart">Thêm vào giỏ</button>
-              </div>
-            </div>
-            <div class="product-detail clearfix">
-              <div class="pro-text">
-                <a style=" color: black;
-                                                font-size: 14px;text-decoration: none;" href="#"
+                                                    font-size: 14px;text-decoration: none;" href="/detail"
                   title="Adidas EQT Cushion ADV" inspiration pack>
                   Adidas EQT Cushion ADV "North America"
                 </a>
@@ -832,7 +451,7 @@
   </div>
 </div>
 <?php
-$this->Insert("/Client/Components/Footer_2" );
+$this->Insert("/Client/Components/Footer_2");
 ?>
 <?php $this->stop() ?>
 <?php

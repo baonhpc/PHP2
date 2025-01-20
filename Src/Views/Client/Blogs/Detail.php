@@ -40,11 +40,11 @@
             <div class="item-article clearfix">
               <div class="post-image">
                 <a href="">
-                  <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/blog/n-1.jpg" alt="Adidas Falcon nổi bật mùa Hè với phối màu color block"></a>
+                  <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/blog/blog (1).png" alt="5 bước đơn giản giúp móng tay chắc khỏe sau Tết"></a>
               </div>
               <div class="post-content">
                 <h3>
-                  <a href="">Adidas Falcon nổi bật mùa Hè với phối màu color block</a>
+                  <a href="">5 bước đơn giản giúp móng tay chắc khỏe sau Tết</a>
                 </h3>
                 <span class="author">
                   <a href="">Be Nguyen</a>
@@ -56,12 +56,12 @@
             </div>
             <div class="item-article clearfix">
               <div class="post-image">
-                <a href=""><img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/blog/n-2.jpg"
+                <a href=""><img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/blog/blog (2).png"
                     alt="Saucony hồi sinh mẫu giày chạy bộ cổ điển của mình – Aya Runner"></a>
               </div>
               <div class="post-content">
                 <h3>
-                  <a href="">Saucony hồi sinh mẫu giày chạy bộ cổ điển của mình – Aya Runner</a>
+                  <a href="">Cách phục hồi tóc hư tổn do uốn nhuộm trong dịp Tết</a>
                 </h3>
                 <span class="author">
                   <a href="">Be Nguyen</a>
@@ -73,15 +73,15 @@
             </div>
             <div class="item-article clearfix">
               <div class="post-image">
-                <a href=""><img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/blog/n-3.jpg"
+                <a href=""><img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/blog/blog (3).png"
                     alt="Nike Vapormax Plus trở lại với sắc tím mộng mơ và thiết kế chuyển màu đẹp mắt"></a>
               </div>
               <div class="post-content">
                 <h3>
-                  <a href="">Nike Vapormax Plus trở lại với sắc tím mộng mơ và thiết kế chuyển màu đẹp mắt</a>
+                  <a href="">Cách phục hồi tóc hư tổn do uốn nhuộm trong dịp Tết</a>
                 </h3>
                 <span class="author">
-                  <a href="">Runner Inn</a>
+                  <a href="">Pharmacity</a>
                 </span>
                 <span class="date">
                   11.06.2019
@@ -97,7 +97,7 @@
                   <a href="">Bài viết mẫu</a>
                 </h3>
                 <span class="author">
-                  <a href="">Runner Inn</a>
+                  <a href="">Pharmacity</a>
                 </span>
                 <span class="date">
                   10.06.2019
@@ -144,32 +144,43 @@
           <div class="box-article-heading clearfix">
             <div class="background-img">
               <img
-                src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/blog/detail-1.jpg"
-                alt="Adidas Falcon nổi bật mùa Hè với phối màu color block">
+                src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/blog/blog (1).png"
+                alt="5 bước đơn giản giúp móng tay chắc khỏe sau Tết">
             </div>
-            <h1 class="sb-title-article">Adidas Falcon nổi bật mùa Hè với phối màu color block</h1>
+            <h1 class="sb-title-article">5 bước đơn giản giúp móng tay chắc khỏe sau Tết</h1>
             <ul class="article-info-more" style="padding-left: 0">
               <li> Người viết: Be Nguyen lúc <time pubdate="" datetime="2019-06-11">11.06.2019</time></li>
               <li><i class="far fa-file-alt"></i><a style="color:black;text-decoration: none;" href="#"> Tin tức</a> </li>
             </ul>
           </div>
           <div class="article-pages">
-            <p>Cuối tháng 5, adidas Falcon đã cho ra mắt nhiều phối màu đón chào mùa Hè khiến giới trẻ yêu thích không
-              thôi. Tưởng chừng thương hiệu sẽ tiếp tục theo đuổi phong cách ombre cho hàng loạt mối màu nối tiếp,
-              nhưng không, lần này thiết kế Falcon còn rực rỡ hơn trước.</p>
-            <p>Từ lúc ra mắt đến nay, đôi Falcon luôn gắng với những sắc màu nhạt mang phong cách retro. Nhưng gần
-              đây,&nbsp;nhà “3 sọc”&nbsp;rất siêng năng trình làng nhiều phối màu sử dụng tông sắc nổi bật hơn. Đôi
-              sneakers đang ngày càng nhận được nhiều sự quan tâm nhờ diện mạo chunky đậm chất retro. Để đón chào mùa
-              Hè, thương hiệu cho ra mắt hai phối màu áp dụng phong cách color block vô cùng bắt mắt.</p>
+            <p>Tại Sao Móng Tay Cần Được Chăm Sóc Sau Tết?
+              Trước khi đi vào 5 bước cụ thể, hãy cùng tìm hiểu lý do tại sao móng tay cần được chăm sóc đặc biệt sau Tết:
+
+              Ảnh hưởng từ việc làm nail: Trong dịp Tết, nhiều người có xu hướng làm nail thường xuyên hơn với nhiều kiểu dáng và màu sắc cầu kỳ. Việc sử dụng acetone, sơn gel, bột đắp móng và các hóa chất khác, nếu không được thực hiện đúng cách, có thể làm khô móng, mất đi lớp dầu tự nhiên bảo vệ móng, khiến móng trở nên giòn và dễ gãy.
+
+              Tác động từ sinh hoạt hàng ngày: Các hoạt động như rửa chén, dọn dẹp nhà cửa sau Tết, hoặc tiếp xúc với các chất tẩy rửa cũng có thể làm móng tay bị khô và yếu đi.
+
+              Thay đổi chế độ ăn uống: Chế độ ăn uống không cân bằng trong những ngày Tết, với nhiều đồ ăn dầu mỡ, đồ ngọt và ít rau xanh, có thể dẫn đến thiếu hụt vitamin và khoáng chất, ảnh hưởng đến sức khỏe của móng.
+
+            </p>
+            <p>“Một bộ móng tay khỏe mạnh không chỉ là vẻ đẹp bên ngoài mà còn phản ánh sức khỏe bên trong của bạn. Vì vậy, việc chăm sóc móng tay sau Tết là vô cùng quan trọng.”Tại Sao Móng Tay Cần Được Chăm Sóc Sau Tết?
+              Trước khi đi vào 5 bước cụ thể, hãy cùng tìm hiểu lý do tại sao móng tay cần được chăm sóc đặc biệt sau Tết:
+
+              Ảnh hưởng từ việc làm nail: Trong dịp Tết, nhiều người có xu hướng làm nail thường xuyên hơn với nhiều kiểu dáng và màu sắc cầu kỳ. Việc sử dụng acetone, sơn gel, bột đắp móng và các hóa chất khác, nếu không được thực hiện đúng cách, có thể làm khô móng, mất đi lớp dầu tự nhiên bảo vệ móng, khiến móng trở nên giòn và dễ gãy.
+
+              Tác động từ sinh hoạt hàng ngày: Các hoạt động như rửa chén, dọn dẹp nhà cửa sau Tết, hoặc tiếp xúc với các chất tẩy rửa cũng có thể làm móng tay bị khô và yếu đi.
+
+              Thay đổi chế độ ăn uống: Chế độ ăn uống không cân bằng trong những ngày Tết, với nhiều đồ ăn dầu mỡ, đồ ngọt và ít rau xanh, có thể dẫn đến thiếu hụt vitamin và khoáng chất, ảnh hưởng đến sức khỏe của móng.
+
+              “Một bộ móng tay khỏe mạnh không chỉ là vẻ đẹp bên ngoài mà còn phản ánh sức khỏe bên trong của bạn. Vì vậy, việc chăm sóc móng tay sau Tết là vô cùng quan trọng.”</p>
             <p>Mỗi thiết kế đều sử dụng chất liệu da trơn, da lộn và lưới mesh quen thuộc. Mỗi lớp layers được tạo nên
               từ nhiều sắc màu nóng, nổi bật hơn. Đây cũng là lần đầu tiên, adidas Falcon được xuất hiện với vẻ ngoài
               độc đáo như vậy. Đặc biệt hơn là phần đế hai màu chưa từng có trước đây. Hai thiết kế dự sẽ được ra mắt
               vào đầu tháng 6 tại&nbsp;website&nbsp;và một số nhà bán lẻ.</p>
             <p>
-              <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/blog/detail-2.jpg" alt="Falcon color block">
-              <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/blog/detail-3.jpg" alt="Falcon color block">
-              <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/blog/detail-4.jpg" alt="Falcon color block">
-              <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/blog/detail-5.jpg" alt="Falcon color block">
+              <img style="height: 450px;" src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/blog/blog-detail.png" alt="Falcon color block">
+              <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/blog/blog-detail_2.jpg" alt="Falcon color block">
             </p>
             <h4>Đôi nét về dòng giày Falcon</h4>
             <p>Bắt nguồn từ những đôi Yeezy Boost 700 và 500 của Kanye West,&nbsp;adidas&nbsp;liên tiếp giới thiệu các
