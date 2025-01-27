@@ -4,7 +4,7 @@ namespace Src\Controllers\Client;
 
 
 use Src\Controllers\BaseController;
-class ProductControler extends BaseController{ 
+class ProductController extends BaseController{ 
 
     public function show(){
         echo $this->view->render('Client/Products/List', ['Name' => 'Bao']);

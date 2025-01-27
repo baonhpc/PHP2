@@ -4,7 +4,7 @@ namespace Src\Controllers\Client;
 
 
 use Src\Controllers\BaseController;
-class UserController extends BaseController{ 
+class UserInfoController extends BaseController{ 
 
     public function myaccount(){
         echo $this->view->render('Client/UserProfile/MyAccount', ['Name' => 'Bao']);
