@@ -20,8 +20,9 @@ use Src\Controllers\Client\ContactController;
 use Src\Controllers\Client\IntroduceController;
 use Src\Controllers\Client\BlogController;
 use Src\Controllers\Client\UserController;
-
-
+use Src\Controllers\Client\CartController;
+use Src\Controllers\Client\CheckoutController;
+use Src\Controllers\Client\SearchController;
 
 $connection = new Database();
 
@@ -34,11 +35,18 @@ $dispatcher = FastRoute\simpleDispatcher(function (RouteCollector $r) {
     $r->addRoute('GET', '/detail', [ProductControler::class, 'detail']);
     $r->addRoute('GET', '/blog', [BlogController::class, 'show']);
     $r->addRoute('GET', '/myaccount', [UserController::class, 'myaccount']);
+    $r->addRoute('GET', '/orders', [UserController::class, 'orders']);
+    $r->addRoute('GET', '/orderDetail', [UserController::class, 'orderDetail']);
+    $r->addRoute('GET', '/changePassword', [UserController::class, 'changePassword']);
+    $r->addRoute('GET', '/address', [UserController::class, 'address']);
     $r->addRoute('GET', '/blog-detail', [BlogController::class, 'detail']);
     $r->addRoute('GET', '/contact', [ContactController::class, 'show']);
     $r->addRoute('GET', '/introduce', [IntroduceController::class, 'show']);
     $r->addRoute('GET', '/signup', [AuthController::class, 'register']);
     $r->addRoute('GET', '/signin', [AuthController::class, 'login']);
+    $r->addRoute('GET', '/cart', [CartController::class, 'show']);
+    $r->addRoute('GET', '/checkout', [CheckoutController::class, 'show']);
+    $r->addRoute('GET', '/Search', [SearchController::class, 'show']);
 });
 
 $httpMethod = $_SERVER['REQUEST_METHOD'];

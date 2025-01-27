@@ -4,12 +4,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "web": "php -S localhost:8000 "
+    "web": "php -S localhost:8000",
+    "styles": "sass --watch ./public/Assets/Client/Sass/index.scss ./public/Assets/Client/Styles/main.css"
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "bootstrap": "^5.3.3"
+    "bootstrap": "^5.3.3",
+    "sass": "^1.49.11"
   }
 }

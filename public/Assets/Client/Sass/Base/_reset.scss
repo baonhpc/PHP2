@@ -1,0 +1,23 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap');
+
+
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  /* 2. Remove default margin */
+  * {
+    margin: 0;
+    font-family: "Lexend Deca", sans-serif !important; 
+    font-optical-sizing: auto;
+    font-style: normal;
+  }
+  .container-fluid{
+    padding: 0 25px !important;
+  }
+
+
+  a {
+    text-decoration: none;
+  }

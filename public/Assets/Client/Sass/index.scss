@@ -1,0 +1,13 @@
+@import '../../../../node_modules/bootstrap/scss/bootstrap.scss';
+
+
+@import './Abstracts/variables';
+@import './Abstracts/mixins';
+
+@import './Base/reset';
+@import './Components/search';
+
+@import './Pages/my-account';
+@import './Pages/cart';
+@import './Pages/payment.scss';
+

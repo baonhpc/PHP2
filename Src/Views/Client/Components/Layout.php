@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= $this->section('styles') ?>
-  
+    <link rel="stylesheet" href="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/Styles/main.css">
     <link rel="stylesheet" href="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/plugins/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/plugins/animate/animate.min.css">
     <link rel="stylesheet" href="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/plugins/fontawesome/all.css">
@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/css/owl.theme.default.min.css" type="text/css">
     <link rel="stylesheet" type="text/css" href="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/css/style.css">
-    
+
     <link rel="stylesheet" href="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/css/sign.css">
     <link rel="stylesheet" href="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/css/myaccount.css">
     <!-- UIkit CSS -->
@@ -355,7 +355,7 @@
             </div>
         </form>
     </div>
-    
+
     <script async defer crossorigin="anonymous" src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/plugins/sdk.js"></script>
     <script src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/plugins/jquery-3.4.1/jquery-3.4.1.min.js"></script>
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
@@ -366,7 +366,7 @@
     <script src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/js/script.js"></script>
     <script src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/plugins/uikit/uikit.min.js"></script>
     <script src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/plugins/uikit/uikit-icons.min.js"></script>
-    
+
 
     <?= $this->section('scripts') ?>
 </body>

@@ -1,0 +1,14 @@
+<?php 
+
+namespace Src\Controllers\Client;
+
+
+use Src\Controllers\BaseController;
+class CartController extends BaseController{ 
+
+    public function show(){
+        echo $this->view->render('Client/Pages/Cart', ['Name' => 'Bao']);
+    }
+
+
+}
