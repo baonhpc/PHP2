@@ -7,7 +7,7 @@
     <div class="row text-center py-3 pb-0">
         <!-- Dòng kết quả tìm kiếm -->
         <div class="search-result-count">
-            <h1>335 kết quả tìm kiếm cho "lót chuột"</h1>
+            <h1>335 kết quả tìm kiếm </h1>
         </div>
         <!-- Thanh tìm kiếm -->
         <div class="search-bar-wrapper ">
@@ -154,33 +154,6 @@
                         <div class="pro-text">
                             <a style=" color: black;
                                                       font-size: 14px;text-decoration: none;" href="/detail"
-                                title="Adidas EQT Cushion ADV" inspiration pack>
-                                Adidas EQT Cushion ADV "North America"
-                            </a>
-                        </div>
-                        <div class="pro-price">
-                            <p class="">7,000,000₫</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-6 col-6">
-                <div class="product-block">
-                    <div class="product-img fade-box">
-                        <a href="/detail" title="Adidas EQT Cushion ADV" class="img-resize">
-                            <img
-                                src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/pharma/detail_2.png"
-                                alt="Adidas EQT Cushion ADV" class="lazyloaded">
-                            <img
-                                src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/pharma/detail_3.png"
-                                alt="Adidas EQT Cushion ADV" class="lazyloaded">
-                        </a>
-
-                    </div>
-                    <div class="product-detail clearfix">
-                        <div class="pro-text">
-                            <a style=" color: black;
-                                                    font-size: 14px;text-decoration: none;" href="/detail"
                                 title="Adidas EQT Cushion ADV" inspiration pack>
                                 Adidas EQT Cushion ADV "North America"
                             </a>

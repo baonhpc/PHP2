@@ -52,17 +52,17 @@
                         <ul class="sub_menu">
                             <li class="">
                                 <a href="detailproduct.html" title="Sản phẩm - Style 1">
-                                    Sản phẩm - Style 1
+                                    Sản phẩm 1
                                 </a>
                             </li>
                             <li class="">
                                 <a href="detailproduct.html" title="Sản phẩm - Style 2">
-                                    Sản phẩm - Style 2
+                                    Sản phẩm 2
                                 </a>
                             </li>
                             <li class="">
                                 <a href="detailproduct.html" title="Sản phẩm - Style 3">
-                                    Sản phẩm - Style 3
+                                    Sản phẩm 3
                                 </a>
                             </li>
                         </ul>
@@ -104,9 +104,9 @@
 
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="border:0;">
-                                    <a class="dropdown-item" href="detailproduct.html" title="Sản phẩm - Style 1">Sản phẩm - Style 1</a>
-                                    <a class="dropdown-item" href="detailproduct.html" title="Sản phẩm - Style 2">Sản phẩm - Style 2</a>
-                                    <a class="dropdown-item" href="detailproduct.html" title="Sản phẩm - Style 3">Sản phẩm - Style 3</a>
+                                    <a class="dropdown-item" href="#" title="Sản phẩm - Style 1">Sản phẩm </a>
+                                    <a class="dropdown-item" href="#" title="Sản phẩm - Style 2">Sản phẩm</a>
+                                    <a class="dropdown-item" href="#" title="Sản phẩm - Style 3">Sản phẩm</a>
                                 </div>
                             </li>
                             <li class="nav-item">
@@ -190,8 +190,8 @@
                                         <td class="text-right" id="total-view-cart">4,800,000₫</td>
                                     </tr>
                                     <tr>
-                                        <td class="distance-td"><a href="" class="linktocart button dark">Xem giỏ hàng</a></td>
-                                        <td><a href="" class="linktocheckout button dark">Thanh toán</a></td>
+                                        <td class="distance-td"><a href="/cart" class="linktocart button dark">Xem giỏ hàng</a></td>
+                                        <td><a href="/checkout" class="linktocheckout button dark">Thanh toán</a></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -202,7 +202,7 @@
             </div>
 
             <div class="icon-ol">
-                <a style="color: #272727" href="">
+                <a style="color: #272727" href="/myaccount">
                     <i class="fas fa-user-alt"></i>
                 </a>
                 <a href="#" class="" uk-toggle="target: #offcanvas-flip">
