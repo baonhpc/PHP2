@@ -163,4 +163,22 @@ abstract class BaseModel implements CrudInterface
             return false;
         }
     }
+    public function findDuplicateByColumn($column, $value)
+    {
+        try {
+            $sql = "SELECT COUNT(*) AS count FROM $this->table WHERE $column = ?";
+            $conn = $this->_conn->MySQLi();
+            $stmt = $conn->prepare($sql);
+
+            // Gắn giá trị tham số
+            $stmt->bind_param('s', $value);
+            $stmt->execute();
+            $result = $stmt->get_result()->fetch_assoc();
+
+            return $result['count'] > 0;
+        } catch (\Throwable $th) {
+            error_log('Lỗi khi kiểm tra trùng lặp theo cột: ' . $th->getMessage());
+            return false;
+        }
+    }
 }

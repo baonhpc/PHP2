@@ -64,6 +64,16 @@ $dispatcher = FastRoute\simpleDispatcher(function (RouteCollector $r) {
         $r->get('/vouchers', [VouchersController::class, 'show']);
         $r->get('/users', [UserController::class, 'show']);
         $r->get('/create-user', [UserController::class, 'add']);
+        $r->get('/user-order/{user_id}/{order_id}', [UserController::class, 'showUserOrderDetails']);
+        $r->get('/edit-user/{id:\d+}', [UserController::class, 'edit']);
+        $r->get('/locked-account', [UserController::class, 'locked']);
+        $r->post('/add-user', [UserController::class, 'store']);
+        $r->post('/user-search', [UserController::class, 'search']);
+        $r->post('/edit-user/{id:\d+}', [UserController::class, 'update']);
+        $r->post('/lock-user/{id:\d+}', [UserController::class, 'lockUser']);
+        $r->post('/user/get-order/{id}', [UserController::class, 'showOrders']);
+        $r->delete('/delete-user/{id:\d+}', [UserController::class, 'delete']);
+
         $r->get('/products', [ProductsController::class, 'show']);
         $r->get('/product/add', [ProductsController::class, 'add']);
         $r->get('/allattribute', [UserController::class, 'show']);

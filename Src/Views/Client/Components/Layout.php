@@ -329,7 +329,7 @@
         </div>
     </footer>
     </div>
-    <div class="registratior_custom">
+    <!-- <div class="registratior_custom">
         <form action="">
             <div class="content">
                 <div class="x-close">
@@ -354,7 +354,7 @@
                 </button>
             </div>
         </form>
-    </div>
+    </div> -->
 
     <script async defer crossorigin="anonymous" src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/plugins/sdk.js"></script>
     <script src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/plugins/jquery-3.4.1/jquery-3.4.1.min.js"></script>

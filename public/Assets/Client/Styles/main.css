@@ -12362,7 +12362,6 @@ input[type=range]::-webkit-slider-thumb {
   background-color: #fff;
   padding: 20px;
   box-sizing: border-box;
-  border: 1px solid #ddd;
 }
 @media (max-width: 1024px) {
   .cart,

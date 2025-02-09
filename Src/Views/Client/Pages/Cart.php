@@ -11,7 +11,7 @@
             <button class="cart__content__fix" name="delete-cart" onclick="return confirm('Bạn chắc chứ?')">Xóa toàn bộ sản phẩm</button>
         </form>
         <h3 style="text-align: center; margin-top: 30px;">Giỏ hàng</h3>
-        <p class="cart__subtitle">Bạn được giao hàng miễn phí!</p>
+        <p class="cart__subtitle"></p>
 
         <div class="cart__content">
             <div class="cart__products">
@@ -65,6 +65,7 @@
                             <p class="cart__product-total">1.240.000₫</p>
                         </td>
                     </tr>
+                    
 
                 </table>
             </div>
