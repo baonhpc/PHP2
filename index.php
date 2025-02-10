@@ -74,14 +74,34 @@ $dispatcher = FastRoute\simpleDispatcher(function (RouteCollector $r) {
         $r->post('/user/get-order/{id}', [UserController::class, 'showOrders']);
         $r->delete('/delete-user/{id:\d+}', [UserController::class, 'delete']);
 
-        $r->get('/products', [ProductsController::class, 'show']);
-        $r->get('/product/add', [ProductsController::class, 'add']);
+        $r->get('/products', [productsController::class, 'index']);
+        $r->get('/product/add', [productsController::class, 'add']);
+        $r->get('/product/detail/{id}', [productsController::class, 'show']);
+        $r->get('/edit-product/{id}', [productsController::class, 'edit']);
+        $r->get('/product/detail/description/{id}', [ProductsController::class, 'loadDescription']);
+        $r->get('/delete-sku/{sku_id}/{product_id}', [ProductsController::class, 'deleteSku']);
+        $r->get('/edit-variant/{product_id}/{sku_id}', [ProductsController::class, 'variantEdit']);
+        $r->get('/edit-specification/{id}', [ProductsController::class, 'specificationEdit']);
+        $r->get('/delete-product/{id}', [productsController::class, 'delete']);
+        $r->post('/edit-specs/{id}', [ProductsController::class, 'updateSpecs']);
+        $r->post('/product/update/{id}', [ProductsController::class, 'update']);
+        $r->post('/product/store', [ProductsController::class, 'store']);
+        $r->post('/get-child-categories', [ProductsController::class, 'selectResult']);
+        $r->post('/variant/edit/{product_id}/{sku_id}', [ProductsController::class, 'updateVariant']);
+        $r->delete('/variant/delete/{sku_value}/{option_value}', [ProductsController::class, 'deleteProperty']);
+
+
         $r->get('/allattribute', [UserController::class, 'show']);
         $r->get('/attribute', [AttributeController::class, 'add']);
         $r->get('/categories', [CategoryController::class, 'show']);
         $r->get('/category/add', [CategoryController::class, 'add']);
         $r->get('/brands', [BrandController::class, 'show']);
         $r->get('/brand/add', [BrandController::class, 'add']);
+        $r->get('/edit-brand/{id:\d+}', [BrandController::class, 'edit']);
+        $r->post('/add-brand', [BrandController::class, 'store']);
+        $r->post('/update-brand/{id:\d+}', [BrandController::class, 'update']);
+        $r->delete('/delete-brand/{id:\d+}', [BrandController::class, 'delete']);
+
         $r->get('/comments', [CommentController::class, 'show']);
         $r->get('/orders', [OrdersController::class, 'show']);
     });

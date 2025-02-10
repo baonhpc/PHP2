@@ -9,7 +9,6 @@ use Src\Models\QueryBuilder;
 
 class UserModel extends BaseModel
 {
-    use QueryBuilder;
     protected $table = 'users';
     protected $id = 'id';
     public function store($data)

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Pharmacity Admin</title>
     <?= $this->section('styles') ?>
@@ -10,26 +10,27 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="<?= getenv('APP_URL') ?>\node_modules\typicons.font\src\font/typicons.css">
-    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="<?= getenv('APP_URL') ?>/public/Assets/Admin/Styles/style.css">
-    <!-- <link rel="shortcut icon" href="<?= getenv('APP_URL') ?>/public/assets/admin/images/favicon.png" /> -->
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script
-        src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
-        integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8="
+        src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
         crossorigin="anonymous"></script>
     <script src="<?= getenv('APP_URL') ?>/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 
 <body>
     <div class="container-scroller">
+
         <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="navbar-brand-wrapper d-flex justify-content-center">
                 <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">
                     <!-- <a class="navbar-brand brand-logo" href="/admin/dashboard"><img src="<?= getenv('APP_URL') ?>public/assets/admin/images/beelogo.png" -->
                     <a class="navbar-brand brand-logo" href="/admin/dashboard"><img
-                            src="" alt="logo" /></a>
+                            src="<?= getenv('APP_URL') ?>/public\Assets\Admin\Images\WebLogo.png" alt="logo" /></a>
                     <a class="navbar-brand brand-logo-mini" href="/admin/dashboard"
                         style="color: #fff; text-decoration: none;">Bee</a>
                     <button class="navbar-toggler navbar-toggler align-self-center" type="button"
@@ -149,7 +150,7 @@
                             <span class="menu-title">Thuộc Tính Sản phẩm</span>
                         </a>
                         <div id="attributeSubmenu" class="collapse submenu">
-                            <a class="nav-link" href="/admin/allattribute">Danh sách thuộc tính sản phẩm</a>
+                            <a class="nav-link" href="/admin/allAttribute">Danh sách thuộc tính sản phẩm</a>
                             <a class="nav-link" href="/admin/attribute">Thêm thuộc tính</a>
                         </div>
                     </li>
@@ -174,17 +175,33 @@
                         </div>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#vouchersSubmenu">
+                            <i class="typcn typcn-ticket menu-icon"></i>
+                            <span class="menu-title">Mã giảm giá</span>
+                        </a>
+                        <div id="vouchersSubmenu" class="collapse submenu">
+                            <a class="nav-link" href="/admin/vouchers">Danh sách mã giảm giá</a>
+                            <a class="nav-link" href="/admin/create-voucher">Thêm mã giảm giá</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#commentsSubmenu">
-                            <svg class="typcn typcn-ticket menu-icon" xmlns="http://www.w3.org/2000/svg" height="20px"
-                                viewBox="0 -960 960 960" width="20px" fill="#788791">
-                                <path
-                                    d="M240-400h480v-80H240v80Zm0-120h480v-80H240v80Zm0-120h480v-80H240v80ZM880-80 720-240H160q-33 0-56.5-23.5T80-320v-480q0-33 23.5-56.5T160-880h640q33 0 56.5 23.5T880-800v720ZM160-320h594l46 45v-525H160v480Zm0 0v-480 480Z" />
-                            </svg>
+                            <i class="typcn typcn-message menu-icon"></i>
                             <span class="menu-title">Bình luận</span>
                         </a>
                         <div id="commentsSubmenu" class="collapse submenu">
                             <a class="nav-link" href="/admin/comments">Danh sách Bình luận</a>
-                            <a class="nav-link" href="#">Thêm Bình luận</a>
+
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#ratingsSubmenu">
+                            <i class="typcn typcn-star  menu-icon"></i>
+                            <span class="menu-title">Đánh giá</span>
+                        </a>
+                        <div id="ratingsSubmenu" class="collapse submenu">
+                            <a class="nav-link" href="/admin/ratings">Danh sách đánh giá</a>
+
                         </div>
                     </li>
                     <li class="nav-item">
@@ -196,17 +213,31 @@
                             <a class="nav-link" href="/admin/orders">Danh sách đơn hàng</a>
                         </div>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#InstallmentsSubmenu">
+                            <i class="typcn typcn-th-small menu-icon"></i>
+                            <span class="menu-title">Kế Hoạch Trả Góp</span>
+                        </a>
+                        <div id="InstallmentsSubmenu" class="collapse submenu">
+                            <a class="nav-link" href="/admin/tragop">Danh sách trả góp</a>
+                            <a class="nav-link" href="/admin/tragop/add">Thêm đơn trả góp</a>
+                        </div>
+                    </li>
 
                 </ul>
             </nav>
 
             <div class="main-panel">
+
                 <div class="content-wrapper">
 
                     <?= $this->section('main_content') ?>
 
                 </div>
+
+
                 <footer class="footer">
+
                     <div class="card">
                         <div class="card-body">
                             <div class="d-sm-flex justify-content-center justify-content-sm-between">
@@ -220,9 +251,14 @@
                         </div>
                     </div>
                 </footer>
+
             </div>
+
         </div>
+
     </div>
+    <?php $this->insert('Notification'); ?>
+
     <?= $this->section('scripts') ?>
     <!-- <script src="<?= getenv('APP_URL') ?>/public/assets/admin/vendors/js/vendor.bundle.base.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

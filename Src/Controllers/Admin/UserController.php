@@ -66,7 +66,7 @@ class UserController extends BaseController
             if (count($orders) > 0) {
                 echo json_encode($orders);
             } else {
-                echo json_encode('Người dùng chưa có đơn hàng nào tại BeeTechNova');
+                echo json_encode('Người dùng chưa có đơn hàng nào tại Phamarcity');
             }
         } else {
             echo json_encode('Đã có lỗi xảy ra khi lấy đơn hàng của người dùng này');

@@ -181,4 +181,25 @@ abstract class BaseModel implements CrudInterface
             return false;
         }
     }
+    public function getAllByStatus()
+    {
+        $sql = "SELECT * FROM $this->table WHERE status=" . self::STATUS_ENABLE;
+        $result = $this->_conn->MySQLi()->query($sql);
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    public function findByColumn($product_id)
+    {
+        try {
+            $sql = "SELECT * FROM product_skus WHERE product_id = ?";
+            $conn = $this->_conn->MySQLi();
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param('i', $product_id);
+            $stmt->execute();
+            $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+            return $result;
+        } catch (\Throwable $th) {
+            error_log('Lỗi khi lấy tất cả SKUs của sản phẩm: ' . $th->getMessage());
+            return [];
+        }
+    }
 }
