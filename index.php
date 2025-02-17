@@ -91,10 +91,24 @@ $dispatcher = FastRoute\simpleDispatcher(function (RouteCollector $r) {
         $r->delete('/variant/delete/{sku_value}/{option_value}', [ProductsController::class, 'deleteProperty']);
 
 
-        $r->get('/allattribute', [UserController::class, 'show']);
+        $r->get('/allAttribute', [AttributeController::class, 'show']);
         $r->get('/attribute', [AttributeController::class, 'add']);
+        $r->get('/attribute-edit/{id}', [AttributeController::class, 'edit']);
+        $r->get('/delete-attribute/{id}', [AttributeController::class, 'delete']);
+        $r->post('/attribute-add', [AttributeController::class, 'store']);
+        $r->post('/attribute-update/{id}', [AttributeController::class, 'update']);
         $r->get('/categories', [CategoryController::class, 'show']);
+        $r->get('/category/CategoryValueList/{id}', [CategoryController::class, 'showSub']);
+        $r->get('/category/CategoryValueAdd/{id}', [CategoryController::class, 'addSub']);
         $r->get('/category/add', [CategoryController::class, 'add']);
+        $r->get('/category/edit/{id}', [CategoryController::class, 'edit']);
+        $r->post('/category/update/{id}', [CategoryController::class, 'update']);
+        $r->get('/category/delete/{id}', [CategoryController::class, 'delete']);
+        $r->post('/category/store', [CategoryController::class, 'store']);
+        $r->post('/category/storeSub', [CategoryController::class, 'storeSub']);
+        $r->get('/category/value/edit/{id}', [CategoryController::class, 'editSub']);
+        $r->post('/category/value/update/{id}', [CategoryController::class, 'updateSub']);
+        $r->post('/category/value/delete/{id}', [CategoryController::class, 'deleteSub']);
         $r->get('/brands', [BrandController::class, 'show']);
         $r->get('/brand/add', [BrandController::class, 'add']);
         $r->get('/edit-brand/{id:\d+}', [BrandController::class, 'edit']);

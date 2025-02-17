@@ -1,7 +1,7 @@
 <?php $this->layout('Admin/Layouts/Layout') ?>
 
 
-<?php 
+<?php
 $this->start('main_content');
 ?>
 <div class="col-lg-12 grid-margin stretch-card">
@@ -19,47 +19,48 @@ $this->start('main_content');
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Giả định có dữ liệu -->
-                        <tr>
-                            <td>1</td>
-                            <td>Tên loại sản phẩm 1</td>
-                            <td>Hoạt động</td>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <a href="/admin/edit-category/1" class="btn btn-success btn-sm btn-icon-text mr-3">
-                                        Sửa
-                                        <i class="typcn typcn-edit btn-icon-append"></i>
-                                    </a>
-                                    <a href="/admin/delete-category/1" onclick="return confirm('Bạn chắc chứ?')"
-                                        class="btn btn-danger btn-sm btn-icon-text">
-                                        Xóa
-                                        <i class="typcn typcn-delete-outline btn-icon-append"></i>
-                                    </a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Tên loại sản phẩm 2</td>
-                            <td>Không hoạt động</td>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <a href="/admin/edit-category/2" class="btn btn-success btn-sm btn-icon-text mr-3">
-                                        Sửa
-                                        <i class="typcn typcn-edit btn-icon-append"></i>
-                                    </a>
-                                    <a href="/admin/delete-category/2" onclick="return confirm('Bạn chắc chứ?')"
-                                        class="btn btn-danger btn-sm btn-icon-text">
-                                        Xóa
-                                        <i class="typcn typcn-delete-outline btn-icon-append"></i>
-                                    </a>
-                                </div>
-                            </td>
-                        </tr>
-                        <!-- Kết thúc giả định có dữ liệu -->
+                        <?php foreach ($categories as $category): ?>
+                            <tr>
+                                <td><?= $category['id'] ?></td>
+                                <td> <?= htmlspecialchars($category['name']) ?></td>
+                                <td><?= $category['status'] == 1 ? 'Hoạt động' : 'Không hoạt động'?></td>
+                                <td>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="bi bi-three-dots"></i>
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item d-flex" href="/admin/category/edit/<?= $category['id'] ?>">
+                                                <p>Sửa</p>
+                                                <i class="typcn typcn-edit btn-icon-append"></i>
+                                            </a>
+                                            <a class="dropdown-item d-flex" href="/admin/category/delete/<?= $category['id'] ?>" onclick="return confirm('Bạn chắc chứ?')">
+                                                <p>Xóa</p>
+                                                <i class="typcn typcn-delete-outline btn-icon-append"></i>
+                                            </a>
+                                            <a class="dropdown-item d-flex" href="/admin/category/CategoryValueList/<?= $category['id'] ?>">
+                                                <p>Danh sách loại sản phẩm con</p>
+                                                <i class="typcn typcn-edit btn-icon-append"></i>
+                                            </a>
+                                            <a class="dropdown-item d-flex" href="/admin/category/CategoryValueAdd/<?= $category['id'] ?>">
+                                                <p>Thêm loại sản phẩm con</p>
+                                                <i class="typcn typcn-edit btn-icon-append"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                            <?php endforeach; ?>
                     </tbody>
                 </table>
+                <?php
+                if(!isset($category) || empty($category)):
+                ?>
                 <h4 class="text-center text-danger">Không có dữ liệu</h4>
+                <?php
+                endif;
+                ?>
             </div>
         </div>
     </div>
