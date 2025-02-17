@@ -174,16 +174,7 @@
                             <a class="nav-link" href="/admin/brand/add">Thêm thương hiệu</a>
                         </div>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#vouchersSubmenu">
-                            <i class="typcn typcn-ticket menu-icon"></i>
-                            <span class="menu-title">Mã giảm giá</span>
-                        </a>
-                        <div id="vouchersSubmenu" class="collapse submenu">
-                            <a class="nav-link" href="/admin/vouchers">Danh sách mã giảm giá</a>
-                            <a class="nav-link" href="/admin/create-voucher">Thêm mã giảm giá</a>
-                        </div>
-                    </li>
+       
                     <li class="nav-item">
                         <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#commentsSubmenu">
                             <i class="typcn typcn-message menu-icon"></i>
@@ -195,32 +186,12 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#ratingsSubmenu">
-                            <i class="typcn typcn-star  menu-icon"></i>
-                            <span class="menu-title">Đánh giá</span>
-                        </a>
-                        <div id="ratingsSubmenu" class="collapse submenu">
-                            <a class="nav-link" href="/admin/ratings">Danh sách đánh giá</a>
-
-                        </div>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#ordersSubmenu">
                             <i class="typcn typcn-clipboard menu-icon"></i>
                             <span class="menu-title">Đơn hàng</span>
                         </a>
                         <div id="ordersSubmenu" class="collapse submenu">
                             <a class="nav-link" href="/admin/orders">Danh sách đơn hàng</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#InstallmentsSubmenu">
-                            <i class="typcn typcn-th-small menu-icon"></i>
-                            <span class="menu-title">Kế Hoạch Trả Góp</span>
-                        </a>
-                        <div id="InstallmentsSubmenu" class="collapse submenu">
-                            <a class="nav-link" href="/admin/tragop">Danh sách trả góp</a>
-                            <a class="nav-link" href="/admin/tragop/add">Thêm đơn trả góp</a>
                         </div>
                     </li>
 
@@ -242,10 +213,10 @@
                         <div class="card-body">
                             <div class="d-sm-flex justify-content-center justify-content-sm-between">
                                 <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright ©
-                                    2024 <a href="#" class="text-muted" target="_blank">Bee Technova</a>.
+                                    2025 <ma href="#" class="text-muted" target="_blank">Phamarcity</a>.
                                     All rights reserved.</span>
                                 <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center text-muted">Bee
-                                    <a href="#" class="text-muted" target="_blank">Technova
+                                    <a href="#" class="text-muted" target="_blank">Phamarcity
                                         Admin</a></span>
                             </div>
                         </div>

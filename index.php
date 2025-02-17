@@ -18,7 +18,6 @@ use Src\Controllers\Admin\CategoryController;
 use Src\Controllers\Admin\CommentController;
 use Src\Controllers\Admin\DashboardController;
 use Src\Controllers\Admin\OrdersController;
-use Src\Controllers\Admin\VouchersController;
 use Src\Controllers\Admin\UserController;
 use Src\Controllers\Admin\ProductsController;
 use Src\Models\Database;
@@ -61,7 +60,6 @@ $dispatcher = FastRoute\simpleDispatcher(function (RouteCollector $r) {
         $r->get('/admin/dashboard', [DashboardController::class, 'show']);
         $r->get('', [DashboardController::class, 'show']);
         $r->get('/dashboard', [DashboardController::class, 'show']);
-        $r->get('/vouchers', [VouchersController::class, 'show']);
         $r->get('/users', [UserController::class, 'show']);
         $r->get('/create-user', [UserController::class, 'add']);
         $r->get('/user-order/{user_id}/{order_id}', [UserController::class, 'showUserOrderDetails']);
@@ -118,6 +116,9 @@ $dispatcher = FastRoute\simpleDispatcher(function (RouteCollector $r) {
 
         $r->get('/comments', [CommentController::class, 'show']);
         $r->get('/orders', [OrdersController::class, 'show']);
+        $r->get('/order-detail/{id}', [OrdersController::class, 'detail']);
+        $r->post('/order-search', [OrdersController::class, 'search']);
+        $r->post('/update-order-status', [OrdersController::class, 'changeStatus']);
     });
 });
 
