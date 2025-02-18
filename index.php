@@ -52,6 +52,8 @@ $dispatcher = FastRoute\simpleDispatcher(function (RouteCollector $r) {
     $r->addRoute('GET', '/introduce', [IntroduceController::class, 'show']);
     $r->addRoute('GET', '/signup', [AuthController::class, 'register']);
     $r->addRoute('GET', '/signin', [AuthController::class, 'login']);
+    $r->post('/register-action', [AuthController::class, 'store']);
+    $r->post('/user-login', [AuthController::class, 'authLogin']);
     $r->addRoute('GET', '/cart', [CartController::class, 'show']);
     $r->addRoute('GET', '/checkout', [CheckoutController::class, 'show']);
     $r->addRoute('GET', '/Search', [SearchController::class, 'show']);

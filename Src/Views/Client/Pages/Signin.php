@@ -15,20 +15,21 @@
         </div>
       </div>
       <div class="signin-right " id="a-sign">
-        <form action="">
+        <form action="/user-login" method="post" class="login-form" id="loginForm">
           <div class="username form-control1 ">
-            <input type="email" id="username" placeholder="Email">
+            <input type="text" placeholder="Địa chỉ Email" class="login-form-input " name="email" id="email">
+            <span class="text-danger email-required" style="display:none" id="email-required">Vui lòng điền Email *</span>
           </div>
           <div class="password form-control1">
-            <input type="password" id="password" placeholder="Mật khẩu">
-            <div class="error" style="position: absolute; bottom: 0;background: #fff; padding:10px; border:1px solid #ccc; color: red">Please fill out this field </div>
+          <input type="password" placeholder="Mật khẩu" class="login-form-input" name="password" id="password">
+          <span class="text-danger password-required" style="display:none" id="password-required">Vui lòng điền mật khẩu *</span>
 
 
           </div>
 
           <div class="recaptcha form-control1">This site is protected by reCAPTCHA and the Google <a href="">Privacy Policy</a> and <a href="">Terms of Service</a> apply.</div>
           <div class="submit">
-            <input class="btn" type="submit" id="dangnhap" value="Đăng Nhập">
+          <button class="btn btn-secondary" id="loginSubmit">Đăng nhập</button>
             <div class="forgetpassword">
               <p id="quenmk">Quên mật khẩu?</p> hoặc <a href="">Đăng kí</a>
             </div>
@@ -64,6 +65,7 @@
 <?php
 $this->push('scripts')
 ?>
+<script src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/js/AuthValidation.js"></script>
 <?php
 $this->end();
 ?>
