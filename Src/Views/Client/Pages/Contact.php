@@ -104,9 +104,7 @@
     </div>
   </div>
 </section>
-<?php
-$this->Insert("/Client/Components/Footer_2");
-?>
+
 <?php $this->stop() ?>
 <?php
 $this->push('scripts')

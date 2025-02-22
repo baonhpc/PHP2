@@ -19,7 +19,7 @@
     <!-- UIkit CSS -->
     <link rel="stylesheet" href="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/plugins/uikit/uikit.min.css" />
 
-    <title>Pharmacity</title>
+    <title>Medical health care</title>
 
 </head>
 
@@ -35,43 +35,22 @@
 
         <div class="container">
             <a class="navbar-brand" href="/">
-                <img style="height: 80px" src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/logo-pharmacity-compressed.jpg" class="logo-top" alt="">
+                <img style="height: 80px" src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/logo.png" class="logo-top" alt="">
             </a>
             <div class="desk-menu collapse navbar-collapse justify-content-md-center" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
                         <a class="nav-link" href="/">TRANG CHỦ</a>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="product.html">BỘ SƯU TẬP</a>
-                    </li> -->
                     <li class="nav-item lisanpham">
                         <a class="nav-link" href="/list">SẢN PHẨM
-                            <i class="fa fa-chevron-down" aria-hidden="true"></i>
                         </a>
-                        <ul class="sub_menu">
-                            <li class="">
-                                <a href="detailproduct.html" title="Sản phẩm - Style 1">
-                                    Sản phẩm 1
-                                </a>
-                            </li>
-                            <li class="">
-                                <a href="detailproduct.html" title="Sản phẩm - Style 2">
-                                    Sản phẩm 2
-                                </a>
-                            </li>
-                            <li class="">
-                                <a href="detailproduct.html" title="Sản phẩm - Style 3">
-                                    Sản phẩm 3
-                                </a>
-                            </li>
-                        </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/introduce">GIỚI THIỆU</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/blog">BLOG</a>
+                        <a class="nav-link" href="/blog">TIN TỨC</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/contact">LIÊN HỆ</a>
@@ -239,7 +218,7 @@
                                 Giới thiệu
                             </h4>
                             <div class="footer-content">
-                                <p>Với hơn 12 năm hoạt động, Pharmacity tự hào là người bạn đồng hành tin cậy của hàng triệu người dân Việt Nam trên hành trình nâng cao chất lượng sức khỏe. Hệ thống gần 1000 nhà thuốc đạt chuẩn GPP trên toàn quốc trải dài 40 tỉnh thành, cùng đội ngũ gần 5000 Dược sĩ, Pharmacity mang đến dịch vụ chăm sóc sức khỏe tận tâm và trải nghiệm mua sắm tiện lợi cho mọi khách hàng</p>
+                                <p>Với hơn 12 năm hoạt động, Medical health care tự hào là người bạn đồng hành tin cậy của hàng triệu người dân Việt Nam trên hành trình nâng cao chất lượng sức khỏe. Hệ thống gần 1000 nhà thuốc đạt chuẩn GPP trên toàn quốc trải dài 40 tỉnh thành, cùng đội ngũ gần 5000 Dược sĩ, Medical health care mang đến dịch vụ chăm sóc sức khỏe tận tâm và trải nghiệm mua sắm tiện lợi cho mọi khách hàng</p>
                                 <div class="logo-footer">
                                     <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/logo-bct.png" alt="Bộ Công Thương">
                                 </div>
@@ -322,39 +301,13 @@
             <div class="container">
                 <hr>
                 <div class="main-footer--border" style="text-align:center;padding-bottom: 15px;">
-                    <p>Copyright © 2025 <a href="https://runner-inn.myharavan.com"> Pharmacity</a>. <a target="_blank"
+                    <p>Copyright © 2025 <a href="https://runner-inn.myharavan.com"> Medical health care</a>. <a target="_blank"
                             href="https://www.facebook.com/henrynguyen202">by Hoài Bão</a></p>
                 </div>
             </div>
         </div>
     </footer>
     </div>
-    <!-- <div class="registratior_custom">
-        <form action="">
-            <div class="content">
-                <div class="x-close">
-                    <i class="fa fa-times"></i>
-                </div>
-                <h3>Nhận các ưu đãi cùng Pharmacity</h3>
-                <p>Chúng tôi sẽ cập nhật các chương trình khuyến mãi mới đến bạn</p>
-                <ul>
-                    <li>
-                        <span>Giảm giá sản phẩm</span>
-                    </li>
-                    <li>
-                        <span>Sản phẩm mới</span>
-                    </li>
-                    <li>
-                        <span>Sản phẩm bán chạy</span>
-                    </li>
-                </ul>
-                <input type="text" placeholder="Đăng kí nhận thông tin">
-                <button class="button_register">
-                    <p>ĐĂNG KÍ</p>
-                </button>
-            </div>
-        </form>
-    </div> -->
 
     <script async defer crossorigin="anonymous" src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/plugins/sdk.js"></script>
     <script src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/plugins/jquery-3.4.1/jquery-3.4.1.min.js"></script>

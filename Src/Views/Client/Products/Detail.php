@@ -1,6 +1,27 @@
 <?php $this->layout('Client/Components/Layout'); ?>
 
+<?php
+// Khởi tạo $firstSku
+$firstSku = null;
+if (!empty($productData['skus'])) {
+  $firstSku = reset($productData['skus']);
+}
 
+// Khởi tạo mảng images
+$images = [];
+if ($firstSku && !empty($firstSku['images'])) {
+  // Thêm ảnh từ SKU
+  $images[] = $firstSku['images'];
+}
+
+// Thêm thumbnail của sản phẩm nếu có
+if (!empty($productData['thumbnail'])) {
+  if (!in_array($productData['thumbnail'], $images)) {
+    $images[] = $productData['thumbnail'];
+  }
+}
+
+?>
 
 <?php $this->start('main_content') ?>
 <!-- Insert nội dung vào đây -->
@@ -19,7 +40,7 @@
             <ol class="breadcrumb breadcrumb-arrows">
               <li>
                 <a href="home.html">
-                  <span">Trang chủ</span>
+                  <span>Trang chủ</span>
                 </a>
               </li>
               <li>
@@ -29,7 +50,7 @@
               </li>
               <li class="active">
                 <span>
-                  <span itemprop="name">Tràng phục linh</span>
+                  <span itemprop="name"><?= $productData['product_name'] ?></span>
                 </span>
                 <meta itemprop="position" content="3">
               </li>
@@ -46,178 +67,125 @@
           <div class="row product-detail-main pr_style_01">
             <div class="col-md-7 col-sm-12 col-xs-12">
               <div class="product-gallery">
-                <div class="product-gallery__thumbs-container hidden-sm
-                    hidden-xs">
-                  <div class="product-gallery__thumbs thumb-fix">
-
-                    <div class="product-gallery__thumb  active" id="imgg1">
-                      <a class="product-gallery__thumb-placeholder" href="javascript:void(0);"
-                        data-image="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/detail_2.png" data-zoom-image="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/detail_2.png">
-                        <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/detail_2.png" data-image="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/detail_2.png"
-                          alt="Nike Air Max 90 Essential" grape="">
-                      </a>
-                    </div>
-
-                    <div class="product-gallery__thumb " id="imgg2">
-                      <a class="product-gallery__thumb-placeholder" href="javascript:void(0);"
-                        data-image="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/detail_3.png" data-zoom-image="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/detail_3.png">
-                        <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/detail_3.png" data-image="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/detail_3.png"
-                          alt="Nike Air Max 90 Essential" grape="">
-                      </a>
-                    </div>
-
-                    <div class="product-gallery__thumb " id="imgg3">
-                      <a class="product-gallery__thumb-placeholder" href="javascript:void(0);"
-                        data-image="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/detail_4.png" data-zoom-image="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/detail_4.png">
-                        <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/detail_4.png" data-image="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/detail_4.png"
-                          alt="Nike Air Max 90 Essential" grape="">
-                      </a>
-                    </div>
-
-                    <div class="product-gallery__thumb " id="imgg4">
-                      <a class="product-gallery__thumb-placeholder" href="javascript:void(0);"
-                        data-image="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/detail_1.png" data-zoom-image="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/detail_1.png">
-                        <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/detail_1.png" data-image="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/detail_1.png"
-                          alt="Nike Air Max 90 Essential" grape="">
-                      </a>
+                <?php if (!empty($images)): ?>
+                  <div class="product-gallery__thumbs-container hidden-sm hidden-xs">
+                    <div class="product-gallery__thumbs thumb-fix">
+                      <?php foreach ($images as $index => $image): ?>
+                        <div class="product-gallery__thumb <?= $index === 0 ? 'active' : '' ?>" id="imgg<?= $index + 1 ?>">
+                          <a class="product-gallery__thumb-placeholder" href="javascript:void(0);"
+                            data-image="<?= $_ENV['APP_URL'] ?>/public/Uploads/Products/<?= $image ?>"
+                            data-zoom-image="<?= $_ENV['APP_URL'] ?>/public/Uploads/Products/<?= $image ?>">
+                            <img src="<?= $_ENV['APP_URL'] ?>/public/Uploads/Products/<?= $image ?>"
+                              data-image="<?= $_ENV['APP_URL'] ?>/public/Uploads/Products/<?= $image ?>"
+                              alt="<?= $productData['product_name'] ?>">
+                          </a>
+                        </div>
+                      <?php endforeach; ?>
                     </div>
                   </div>
-                </div>
-                <div class="product-image-detail box__product-gallery
-                    scroll hidden-xs">
-                  <ul id="sliderproduct" class="site-box-content
-                      slide_product">
-
-                    <li class="product-gallery-item gallery-item
-                        current " id="imgg1a">
-                      <img class="product-image-feature " src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/detail_2.png"
-                        alt="Nike Air Max 90 Essential" grape="">
-                    </li>
-
-                    <li class="product-gallery-item gallery-item " id="imgg2a">
-                      <img class="product-image-feature" src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/detail_3.png"
-                        alt="Nike Air Max 90 Essential" grape="">
-                    </li>
-
-                    <li class="product-gallery-item gallery-item " id="imgg3a">
-                      <img class="product-image-feature" src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/detail_4.png"
-                        alt="Nike Air Max 90 Essential" grape="">
-                    </li>
-
-                    <li class="product-gallery-item gallery-ite " id="imgg4a">
-                      <img class="product-image-feature" src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/detail_1.png"
-                        alt="Nike Air Max 90 Essential" grape="">
-                    </li>
-
-                
-                  </ul>
-                  <div class="product-image__button">
-                    <div id="product-zoom-in" class="product-zoom
-                        icon-pr-fix" aria-label="Zoom in" title="Zoom in">
-                      <span class="zoom-in" aria-hidden="true">
-                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
-                          xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 36 36" style="enable-background:new 0 0 36 36; width:
-                            30px; height: 30px;" xml:space="preserve">
-                          <polyline points="6,14 9,11 14,16 16,14 11,9
-                              14,6 6,6">
-                          </polyline>
-                          <polyline points="22,6 25,9 20,14 22,16 27,11
-                              30,14 30,6">
-                          </polyline>
-                          <polyline points="30,22 27,25 22,20 20,22
-                              25,27 22,30 30,30">
-                          </polyline>
-                          <polyline points="14,30 11,27 16,22 14,20 9,25
-                              6,22 6,30">
-                          </polyline>
-                        </svg>
-                      </span>
+                  <div class="product-image-detail box__product-gallery scroll hidden-xs">
+                    <ul id="sliderproduct" class="site-box-content slide_product">
+                      <?php foreach ($images as $index => $image): ?>
+                        <li class="product-gallery-item gallery-item <?= $index === 0 ? 'current' : '' ?>" id="imgg<?= $index + 1 ?>a">
+                          <img class="product-image-feature"
+                            src="<?= $_ENV['APP_URL'] ?>/public/Uploads/Products/<?= $image ?>"
+                            alt="<?= $productData['product_name'] ?>">
+                        </li>
+                      <?php endforeach; ?>
+                    </ul>
+                    <div class="gallery-control">
+                      <span class="gallery-prev"><i class="fa fa-angle-left"></i></span>
+                      <span class="gallery-next"><i class="fa fa-angle-right"></i></span>
                     </div>
-                    <div class="gallery-index icon-pr-fix"><span class="current">1</span>
-                      / <span class="total">8</span></div>
                   </div>
-                </div>
+                <?php else: ?>
+                  <div class="product-image-detail">
+                    <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/no-image.jpg"
+                      alt="No image available"
+                      class="product-image-feature">
+                  </div>
+                <?php endif; ?>
               </div>
               <div class="product-gallery-slide">
-                <div class="owl-carousel owl-theme owl-product-gallery-slide"">
-                    <div class=" item">
-                  <div class="product-gallery__thumb  >
+                <div class="owl-carousel owl-theme owl-product-gallery-slide">
+                  <div class=" item">
+                    <div class="product-gallery__thumb  >
                       <a class=" product-gallery__thumb-placeholder" href="javascript:void(0);"
-                    data-image="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/detail_2.png" data-zoom-image="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/detail_2.png">
-                    <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/detail_2.png" data-image="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/detail_2.png"
-                      alt="Nike Air Max 90 Essential" grape="">
-                    </a>
+                      data-image="<?= $_ENV['APP_URL'] ?>/public/Uploads/Products/<?= $images[0] ?>" data-zoom-image="<?= $_ENV['APP_URL'] ?>/public/Uploads/Products/<?= $images[0] ?>">
+                      <img src="<?= $_ENV['APP_URL'] ?>/public/Uploads/Products/<?= $images[0] ?>" data-image="<?= $_ENV['APP_URL'] ?>/public/Uploads/Products/<?= $images[0] ?>"
+                        alt="<?= $productData['product_name'] ?>" grape="">
+                      </a>
+                    </div>
                   </div>
-                </div>
-                <div class="item">
-                  <div class="product-gallery__thumb  >
+                  <div class="item">
+                    <div class="product-gallery__thumb  >
                       <a class=" product-gallery__thumb-placeholder" href="javascript:void(0);"
-                    data-image="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/detail_4.png" data-zoom-image="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/detail_4.png">
-                    <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/detail_4.png" data-image="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/detail_4.png"
-                      alt="Nike Air Max 90 Essential" grape="">
-                    </a>
+                      data-image="<?= $_ENV['APP_URL'] ?>/public/Uploads/Products/<?= $images[1] ?>" data-zoom-image="<?= $_ENV['APP_URL'] ?>/public/Uploads/Products/<?= $images[1] ?>">
+                      <img src="<?= $_ENV['APP_URL'] ?>/public/Uploads/Products/<?= $images[1] ?>" data-image="<?= $_ENV['APP_URL'] ?>/public/Uploads/Products/<?= $images[1] ?>"
+                        alt="<?= $productData['product_name'] ?>" grape="">
+                      </a>
+                    </div>
                   </div>
-                </div>
-                <div class="item">
-                  <div class="product-gallery__thumb  >
+                  <div class="item">
+                    <div class="product-gallery__thumb  >
                       <a class=" product-gallery__thumb-placeholder" href="javascript:void(0);"
-                    data-image="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/3.jpg" data-zoom-image="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/3.jpg">
-                    <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/3.jpg" data-image="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/3.jpg"
-                      alt="Nike Air Max 90 Essential" grape="">
-                    </a>
+                      data-image="<?= $_ENV['APP_URL'] ?>/public/Uploads/Products/<?= $images[2] ?>" data-zoom-image="<?= $_ENV['APP_URL'] ?>/public/Uploads/Products/<?= $images[2] ?>">
+                      <img src="<?= $_ENV['APP_URL'] ?>/public/Uploads/Products/<?= $images[2] ?>" data-image="<?= $_ENV['APP_URL'] ?>/public/Uploads/Products/<?= $images[2] ?>"
+                        alt="<?= $productData['product_name'] ?>" grape="">
+                      </a>
+                    </div>
                   </div>
-                </div>
-                <div class="item">
-                  <div class="product-gallery__thumb  >
+                  <div class="item">
+                    <div class="product-gallery__thumb  >
                       <a class=" product-gallery__thumb-placeholder" href="javascript:void(0);"
-                    data-image="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/detail_1.png" data-zoom-image="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/detail_1.png">
-                    <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/detail_1.png" data-image="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/detail_1.png"
-                      alt="Nike Air Max 90 Essential" grape="">
-                    </a>
+                      data-image="<?= $_ENV['APP_URL'] ?>/public/Uploads/Products/<?= $images[3] ?>" data-zoom-image="<?= $_ENV['APP_URL'] ?>/public/Uploads/Products/<?= $images[3] ?>">
+                      <img src="<?= $_ENV['APP_URL'] ?>/public/Uploads/Products/<?= $images[3] ?>" data-image="<?= $_ENV['APP_URL'] ?>/public/Uploads/Products/<?= $images[3] ?>"
+                        alt="<?= $productData['product_name'] ?>" grape="">
+                      </a>
+                    </div>
                   </div>
-                </div>
-                <div class="item">
-                  <div class="product-gallery__thumb  >
+                  <div class="item">
+                    <div class="product-gallery__thumb  >
                       <a class=" product-gallery__thumb-placeholder" href="javascript:void(0);"
-                    data-image="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/detail_3.png" data-zoom-image="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/detail_3.png">
-                    <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/detail_3.png" data-image="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/detail_3.png"
-                      alt="Nike Air Max 90 Essential" grape="">
-                    </a>
+                      data-image="<?= $_ENV['APP_URL'] ?>/public/Uploads/Products/<?= $images[4] ?>" data-zoom-image="<?= $_ENV['APP_URL'] ?>/public/Uploads/Products/<?= $images[4] ?>">
+                      <img src="<?= $_ENV['APP_URL'] ?>/public/Uploads/Products/<?= $images[4] ?>" data-image="<?= $_ENV['APP_URL'] ?>/public/Uploads/Products/<?= $images[4] ?>"
+                        alt="<?= $productData['product_name'] ?>" grape="">
+                      </a>
+                    </div>
                   </div>
-                </div>
-                <div class="item">
-                  <div class="product-gallery__thumb  " id="imgg1">
-                    <a class="product-gallery__thumb-placeholder" href="javascript:void(0);"
-                      data-image="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/6.jpg" data-zoom-image="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/6.jpg">
-                      <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/6.jpg" data-image="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/6.jpg"
-                        alt="Nike Air Max 90 Essential" grape="">
-                    </a>
+                  <div class="item">
+                    <div class="product-gallery__thumb  " id="imgg1">
+                      <a class="product-gallery__thumb-placeholder" href="javascript:void(0);"
+                        data-image="<?= $_ENV['APP_URL'] ?>/public/Uploads/Products/<?= $images[5] ?>" data-zoom-image="<?= $_ENV['APP_URL'] ?>/public/Uploads/Products/<?= $images[5] ?>">
+                        <img src="<?= $_ENV['APP_URL'] ?>/public/Uploads/Products/<?= $images[5] ?>" data-image="<?= $_ENV['APP_URL'] ?>/public/Uploads/Products/<?= $images[5] ?>"
+                          alt="<?= $productData['product_name'] ?>" grape="">
+                      </a>
+                    </div>
                   </div>
-                </div>
-                <div class="item">
-                  <div class="product-gallery__thumb  " id="imgg1">
-                    <a class="product-gallery__thumb-placeholder" href="javascript:void(0);"
-                      data-image="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/7.jpg" data-zoom-image="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/7.jpg">
-                      <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/7.jpg" data-image="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/7.jpg"
-                        alt="Nike Air Max 90 Essential" grape="">
-                    </a>
+                  <div class="item">
+                    <div class="product-gallery__thumb  " id="imgg1">
+                      <a class="product-gallery__thumb-placeholder" href="javascript:void(0);"
+                        data-image="<?= $_ENV['APP_URL'] ?>/public/Uploads/Products/<?= $images[6] ?>" data-zoom-image="<?= $_ENV['APP_URL'] ?>/public/Uploads/Products/<?= $images[6] ?>">
+                        <img src="<?= $_ENV['APP_URL'] ?>/public/Uploads/Products/<?= $images[6] ?>" data-image="<?= $_ENV['APP_URL'] ?>/public/Uploads/Products/<?= $images[6] ?>"
+                          alt="<?= $productData['product_name'] ?>" grape="">
+                      </a>
+                    </div>
                   </div>
-                </div>
-                <div class="item">
-                  <div class="product-gallery__thumb  " id="imgg1">
-                    <a class="product-gallery__thumb-placeholder" href="javascript:void(0);"
-                      data-image="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/8.jpg" data-zoom-image="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/8.jpg">
-                      <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/8.jpg" data-image="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/8.jpg"
-                        alt="Nike Air Max 90 Essential" grape="">
-                    </a>
+                  <div class="item">
+                    <div class="product-gallery__thumb  " id="imgg1">
+                      <a class="product-gallery__thumb-placeholder" href="javascript:void(0);"
+                        data-image="<?= $_ENV['APP_URL'] ?>/public/Uploads/Products/<?= $images[7] ?>" data-zoom-image="<?= $_ENV['APP_URL'] ?>/public/Uploads/Products/<?= $images[7] ?>">
+                        <img src="<?= $_ENV['APP_URL'] ?>/public/Uploads/Products/<?= $images[7] ?>" data-image="<?= $_ENV['APP_URL'] ?>/public/Uploads/Products/<?= $images[7] ?>"
+                          alt="<?= $productData['product_name'] ?>" grape="">
+                      </a>
+                    </div>
                   </div>
-                </div>
 
+                </div>
               </div>
-            </div>
-            <!-- Flickity HTML init -->
+              <!-- Flickity HTML init -->
 
-            <!-- <div id="product-zoom-in" class="product-zoom icon-pr-fix
+              <!-- <div id="product-zoom-in" class="product-zoom icon-pr-fix
                   hidden-md hidden-sm" style="padding-top:2rem;"
                   aria-label="Zoom in" title="Zoom in">
                   <span class="zoom-in" aria-hidden="true">
@@ -243,273 +211,313 @@
                     </svg>
                   </span>
                 </div> -->
-          </div>
-          <div class="col-md-5 col-sm-12 col-xs-12
+            </div>
+            <div class="col-md-5 col-sm-12 col-xs-12
                 product-content-desc" id="detail-product">
-            <div class="product-content-desc-1">
-              <div class="product-title">
-                <h1>Viên uống Thái Minh Tràng Phục Linh Plus hỗ trợ ngăn ngừa hội chứng ruột kích thích (2 vỉ x 10 viên)</h1>
-                <span id="pro_sku">SKU: S-0015-1</span>
+              <div class="product-content-desc-1">
+                <div class="product-title">
+                  <h1><?= $productData['product_name'] ?></h1>
+                  <?php
+                  ?>
+                  <span id="pro_sku">SKU: <?= $firstSku['sku'] ?></span>
+                </div>
+                <div class="product-price" id="price-preview">
+                  <?php if ($productData['discount'] > 0): ?>
+                    <span class="pro-price"><?= number_format($firstSku['discounted_price'], 0, ',', '.') ?>₫</span>
+                    <span class="pro-price-del" style="text-decoration: line-through;"><?= number_format($firstSku['original_price'], 0, ',', '.') ?>₫</span>
+                  <?php else: ?>
+                    <span class="pro-price"><?= number_format($firstSku['original_price'], 0, ',', '.') ?>₫</span>
+                  <?php endif; ?>
+                </div>
+
+                <!-- Thêm mô tả ngắn vào đây -->
+                <div class="product-short-description">
+                  <?= $productData['short_description'] ?>
+                </div>
+
+                <form id="add-item-form" action="/cart/add" method="post" class="variants clearfix">
+                  <div class="select-swatch clearfix">
+                    <div id="variant-swatch-1" class="swatch clearfix" data-option="option2" data-option-index="1">
+
+
+                      <div class="select-swap">
+                        <?php foreach ($productData['skus'] as $sku): ?>
+                          <?php foreach ($sku['options'] as $option): ?>
+                            <div data-value="<?= $option['option_value'] ?>" class="n-sd swatch-element">
+                              <input class="variant-1" id="swatch-1-<?= $option['option_value'] ?>"
+                                type="radio" name="option2" value="<?= $option['option_value'] ?>">
+                              <label for="swatch-1-<?= $option['option_value'] ?>" class="sd">
+                                <span><?= $option['option_value'] ?></span>
+                              </label>
+                            </div>
+                          <?php endforeach; ?>
+                        <?php endforeach; ?>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="selector-actions">
+                    <div class="quantity-area clearfix">
+                      <input type="button" value="-" onclick="minusQuantity()" class="qty-btn">
+                      <input type="text" id="quantity" name="quantity" value="1" min="1" class="quantity-selector">
+                      <input type="button" value="+" onclick="plusQuantity()" class="qty-btn">
+                    </div>
+                    <div class="wrap-addcart clearfix">
+                      <div class="row-flex">
+                        <button type="button" class="button btn-addtocart addtocart-modal">Thêm
+                          vào</button>
+                        <button type="button" class="buy-now button" style="display: block;">Mua
+                          ngay</button>
+
+                      </div>
+
+
+
+                    </div>
+                  </div>
+                </form>
               </div>
-              <div class="product-price" id="price-preview"><span class="pro-price">800,000₫</span></div>
-              <form id="add-item-form" action="/cart/add" method="post" class="variants clearfix">
-                <!-- <div class="select clearfix">
-                  <div class="selector-wrapper"><label for="product-select-option-0">Màu sắc</label><span
-                      class="custom-dropdown custom-dropdown--white"><select class="single-option-selector
-                            custom-dropdown__select
-                            custom-dropdown__select--white" data-option="option1" id="product-select-option-0">
-                        <option value="Tím">Tím</option>
-                        <option value="Xanh">Xanh</option>
-                      </select></span></div>
-                  <div class="selector-wrapper"><label for="product-select-option-1">Kích thước</label><span
-                      class="custom-dropdown custom-dropdown--white"><select class="single-option-selector
-                            custom-dropdown__select
-                            custom-dropdown__select--white" data-option="option2" id="product-select-option-1">
-                        <option value="36">36</option>
-                        <option value="37">37</option>
-                        <option value="38">38</option>
-                        <option value="35">35</option>
-                      </select></span></div><select id="product-select" name="id" style="display:none;">
-
-                    <option value="1040377813">Tím / 36 - 4,800,000₫</option>
-                    <option value="1040377814">Tím / 37 - 4,800,000₫</option>
-                    <option value="1040377815">Tím / 38 - 4,800,000₫</option>
-                    <option value="1040409049">Xanh / 35 - 4,800,000₫</option>
-                    <option value="1040409050">Xanh / 36 - 4,800,000₫</option>
-                    <option value="1040409053">Xanh / 37 - 4,800,000₫</option>
-                    <option value="1040409054">Xanh / 38 - 4,800,000₫</option>
-                  </select>
-                </div> -->
-                <div class="select-swatch clearfix">
-                  <div id="variant-swatch-1" class="swatch clearfix" data-option="option2" data-option-index="1">
-
-
-                    <div class="select-swap">
-                      <div data-value="36" class="n-sd swatch-element
-                            36">
-                        <input class="variant-1" id="swatch-1-36" type="radio" name="option2" value="36"
-                          data-vhandle="36" checked="">
-
-                        <label for="swatch-1-36" class="sd">
-                          <span>500g</span>
-                        </label>
-
-                      </div>
-                      <div data-value="37" class="n-sd swatch-element
-                            37">
-                        <input class="variant-1" id="swatch-1-37" type="radio" name="option2" value="37"
-                          data-vhandle="37">
-
-                        <label for="swatch-1-37">
-                          <span>350g</span>
-                        </label>
-
-                      </div>
-
+            </div>
+          </div>
+          <!-- Thêm phần mô tả chi tiết -->
+          <div class="product-description-wrapper" style="margin-top: 30px;">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="description-content">
+                    <div class="title-bl">
+                      <h2>Mô tả sản phẩm</h2>
                     </div>
-                  </div>
-                </div>
-                <div class="selector-actions">
-                  <div class="quantity-area clearfix">
-                    <input type="button" value="-" onclick="minusQuantity()" class="qty-btn">
-                    <input type="text" id="quantity" name="quantity" value="1" min="1" class="quantity-selector">
-                    <input type="button" value="+" onclick="plusQuantity()" class="qty-btn">
-                  </div>
-                  <div class="wrap-addcart clearfix">
-                    <div class="row-flex">
-                      <button type="button" class="button btn-addtocart addtocart-modal">Thêm
-                        vào</button>
-                      <button type="button" class="buy-now button" style="display: block;">Mua
-                        ngay</button>
+                    <div class="description-productdetail">
+                      <div class="description-productdetail__content" style="max-height: 600px; overflow: hidden; position: relative;" id="product-description">
+                        <?php if (!empty($desc_specs['specifications'])): ?>
+                          <div class="product-specifications">
+                            <div class="specifications-header">
+                              <h3>Thành phần thuốc</h3>
+                            </div>
+                            <div class="specifications-content" id="specContainer">
+                              <?php
+                              $specs = json_decode($desc_specs['specifications']);
+                              if ($specs && is_array($specs)):
+                                foreach ($specs as $index => $spec):
+                              ?>
+                                  <div class="table-row <?= $index >= 7 ? 'd-none' : '' ?>">
+                                    <div class="table-row__title">
+                                      <p><?= $spec->spec_name ?></p>
+                                    </div>
+                                    <div class="table-row__text">
+                                      <p><?= $spec->spec_value ?></p>
+                                    </div>
+                                  </div>
+                              <?php
+                                endforeach;
+                              endif;
+                              ?>
+                            </div>
+                          </div>
+                        <?php endif; ?>
+                        <div class="product-description">
+                          <?= $desc_specs['description'] ?>
+                        </div>
 
-                    </div>
-
-
-
-                  </div>
-                </div>
-                <!--<div class="product-action-bottom visible-xs">
-                      <div class="input-bottom">
-                        <input id="quan-input" type="number" value="1" min="1">
                       </div>
-                      <button type="button" id="add-to-cartbottom"
-                        class="add-to-cartProduct add-cart-bottom button addtocart-modal" name="add">Thêm vào
-                        giỏ</button>
-                    </div>-->
-              </form>
-              <div class="product-description">
-                <div class="title-bl">
-                  <h2>Mô tả</h2>
-                </div>
-                <div class="description-content">
-                  <div class="description-productdetail">
-                    <p><span>
-                        Thực phẩm bảo vệ sức khỏe Tràng Phục Linh Plus
-                      </span><br><br></p>
-                    <ul>
-                      <li>
-                        Danh mục Thực phẩm chức năng Nhóm dạ dày
-                      </li>
-                      <li>
-                        Công dụng
-                        Giúp cân bằng hệ khuẩn có ích đường ruột,
-                        tăng cường sức đề kháng
-                        tái tạo niêm mạc đại tràng và tăng cường sức khỏe hệ tiêu hóa.
-                        Giúp giảm các cảm giác căng thẳng, stress gây co thắt đại tràng. Hỗ trợ ngăn ngừa hội chứng ruột kích thích, viêm đại tràng cấp và mãn tính, đi ngoài nhiều lần, phân sống.
-
-                      </li>
-                      <li>
-                        Quy cách
-                        Hộp 2 vỉ x 10 viên
-                      </li>
-                      <li> Lưu ý
-                        Sản phẩm này không phải là thuốc, không có tác dụng thay thế thuốc chữa bệnh. Đọc kỹ tờ hướng dẫn sử dụng trước khi dùng. </li>
-
-                    </ul>
+                      <div class="view-more-description" style="text-align: center; margin-top: 20px;">
+                        <button id="view-more-btn" class="view-more-btn" onclick="toggleDescription()">
+                          <span>Xem thêm</span>
+                          <i class="fa fa-angle-down"></i>
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="list-productRelated clearfix">
-          <div class="heading-title text-center">
-            <h2>Sản phẩm liên quan</h2>
-          </div>
-          <div class="container">
-            <div class="row">
-              <div class="col-md-3 col-sm-6 col-xs-6 col-6">
-                <div class="product-block">
-                  <div class="product-img fade-box">
-                    <a href="#" title="Adidas EQT Cushion ADV" class="img-resize">
-                      <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/pharma/blob.jpg"
-                        alt="Adidas EQT Cushion ADV" class="lazyloaded">
-                      <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/pharma/blob.jpg" alt="Adidas EQT Cushion ADV" class="lazyloaded">
-                    </a>
+          <div class="list-productRelated clearfix">
+            <div class="heading-title text-center">
+              <h2>Sản phẩm liên quan</h2>
+            </div>
+            <div class="container">
+              <div class="row">
+                <div class="col-md-3 col-sm-6 col-xs-6 col-6">
+                  <div class="product-block">
+                    <div class="product-img fade-box">
+                      <a href="#" title="Adidas EQT Cushion ADV" class="img-resize">
+                        <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/pharma/blob.jpg"
+                          alt="Adidas EQT Cushion ADV" class="lazyloaded">
+                        <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/pharma/blob.jpg" alt="Adidas EQT Cushion ADV" class="lazyloaded">
+                      </a>
 
-                  </div>
-                  <div class="product-detail clearfix">
-                    <div class="pro-text">
-                      <a style="color: black;
+                    </div>
+                    <div class="product-detail clearfix">
+                      <div class="pro-text">
+                        <a style="color: black;
                             font-size: 14px;text-decoration: none;" href="#" title="Adidas EQT Cushion ADV" inspiration
-                        pack>
-                        Adidas EQT Cushion ADV "North America"
-                      </a>
-                    </div>
-                    <div class="pro-price">
-                      <p class="">7,000,000₫</p>
+                          pack>
+                          Adidas EQT Cushion ADV "North America"
+                        </a>
+                      </div>
+                      <div class="pro-price">
+                        <p class="">7,000,000₫</p>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="col-md-3 col-sm-6 col-xs-6 col-6">
-                <div class="product-block">
-                  <div class="product-img fade-box">
-                    <a href="#" title="Adidas Nmd R1" class="img-resize">
-                      <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/pharma/blob.jpg" alt="Adidas Nmd R1"
-                        class="lazyloaded">
-                      <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/pharma/blob.jpg" alt="Adidas Nmd R1" class="lazyloaded">
-                    </a>
+                <div class="col-md-3 col-sm-6 col-xs-6 col-6">
+                  <div class="product-block">
+                    <div class="product-img fade-box">
+                      <a href="#" title="Adidas Nmd R1" class="img-resize">
+                        <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/pharma/blob.jpg" alt="Adidas Nmd R1"
+                          class="lazyloaded">
+                        <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/pharma/blob.jpg" alt="Adidas Nmd R1" class="lazyloaded">
+                      </a>
 
-                  </div>
-                  <div class="product-detail clearfix">
-                    <div class="pro-text">
-                      <a style="color: black;
+                    </div>
+                    <div class="product-detail clearfix">
+                      <div class="pro-text">
+                        <a style="color: black;
                             font-size: 14px;text-decoration: none;" title="Adidas Nmd R1" href="">
-                        Adidas Nmd R1 "Villa Exclusive"
-                      </a>
-                    </div>
-                    <div class="pro-price">
-                      <p class="">7,000,000₫</p>
+                          Adidas Nmd R1 "Villa Exclusive"
+                        </a>
+                      </div>
+                      <div class="pro-price">
+                        <p class="">7,000,000₫</p>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="col-md-3 col-sm-6 col-xs-6 col-6">
-                <div class="product-block">
-                  <div class="product-img fade-box">
-                    <a href="#" title="Adidas PW Solar HU NMD" class="img-resize">
-                      <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/pharma/blob.jpg"
-                        alt="Adidas PW Solar HU NMD" class="lazyloaded">
-                      <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/pharma/blob.jpg" alt="Adidas PW Solar HU NMD" class="lazyloaded">
-                    </a>
+                <div class="col-md-3 col-sm-6 col-xs-6 col-6">
+                  <div class="product-block">
+                    <div class="product-img fade-box">
+                      <a href="#" title="Adidas PW Solar HU NMD" class="img-resize">
+                        <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/pharma/blob.jpg"
+                          alt="Adidas PW Solar HU NMD" class="lazyloaded">
+                        <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/pharma/blob.jpg" alt="Adidas PW Solar HU NMD" class="lazyloaded">
+                      </a>
 
-                  </div>
-                  <div class="product-detail clearfix">
-                    <div class="pro-text">
-                      <a style="color: black;
+                    </div>
+                    <div class="product-detail clearfix">
+                      <div class="pro-text">
+                        <a style="color: black;
                             font-size: 14px;text-decoration: none;" href="#" title="Adidas PW Solar HU NMD" inspiration
-                        pack>
-                        Adidas PW Solar HU NMD "Inspiration Pack"
-                      </a>
-                    </div>
-                    <div class="pro-price">
-                      <p class="">5,000,000₫</p>
+                          pack>
+                          Adidas PW Solar HU NMD "Inspiration Pack"
+                        </a>
+                      </div>
+                      <div class="pro-price">
+                        <p class="">5,000,000₫</p>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="col-md-3 col-sm-6 col-xs-6 col-6">
-                <div class="product-block">
-                  <div class="product-img fade-box">
-                    <a href="#" title="Adidas Ultraboost W" class="img-resize">
-                      <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/pharma/blob.jpg"
-                        alt="Adidas Ultraboost W" class="lazyloaded">
-                      <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/pharma/blob.jpg" alt="Adidas Ultraboost W" class="lazyloaded">
-                    </a>
-
-                  </div>
-                  <div class="product-detail clearfix">
-                    <div class="pro-text">
-                      <a style="color: black;
-                            font-size: 14px;text-decoration: none;" href="#" title="Adidas Ultraboost W" inspiration
-                        pack>
-                        Adidas Ultraboost W
+                <div class="col-md-3 col-sm-6 col-xs-6 col-6">
+                  <div class="product-block">
+                    <div class="product-img fade-box">
+                      <a href="#" title="Adidas Ultraboost W" class="img-resize">
+                        <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/pharma/blob.jpg"
+                          alt="Adidas Ultraboost W" class="lazyloaded">
+                        <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/pharma/blob.jpg" alt="Adidas Ultraboost W" class="lazyloaded">
                       </a>
+
                     </div>
-                    <div class="pro-price">
-                      <p class="">5,300,000₫</p>
+                    <div class="product-detail clearfix">
+                      <div class="pro-text">
+                        <a style="color: black;
+                            font-size: 14px;text-decoration: none;" href="#" title="Adidas Ultraboost W" inspiration
+                          pack>
+                          Adidas Ultraboost W
+                        </a>
+                      </div>
+                      <div class="pro-price">
+                        <p class="">5,300,000₫</p>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-      </div>
-    </div>
-  </div>
-  </div>
-
-
-  <!-- show zoom detail product -->
-  <!-- zoom -->
-  <div class="product-zoom11">
-    <div class="product-zom">
-      <div class="divclose">
-        <i class="fa fa-times-circle"></i>
-      </div>
-      <div class="owl-carousel owl-theme owl-product1">
-
-        <div class="item"><img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/detail_2.png" alt="">
-        </div>
-        <div class="item"><img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/detail_4.png" alt="">
-        </div>
-        </div>
-        <div class="item"><img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/detail_1.png" alt="">
-        </div>
-        <div class="item"><img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/detailproduct/detail_3.png" alt="">
         </div>
       </div>
     </div>
   </div>
+
+
 
 </main>
+
 <?php $this->stop() ?>
 <?php
 $this->push('scripts')
 ?>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Toggle Description
+    const content = document.getElementById('product-description');
+    const viewMoreBtn = document.querySelector('.view-more-description');
+
+    if (content && content.scrollHeight <= 600) {
+      viewMoreBtn.style.display = 'none';
+    }
+
+    window.toggleDescription = function() {
+      if (!content) return;
+
+      const button = document.getElementById('view-more-btn');
+      const buttonText = button.querySelector('span');
+
+      if (content.classList.contains('expanded')) {
+        content.classList.remove('expanded');
+        content.style.maxHeight = '600px';
+        buttonText.textContent = 'Xem thêm';
+        button.classList.remove('expanded');
+        content.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      } else {
+        content.classList.add('expanded');
+        content.style.maxHeight = content.scrollHeight + 'px';
+        buttonText.textContent = 'Thu gọn';
+        button.classList.add('expanded');
+      }
+    };
+
+    // Quantity Handler
+    const quantityInput = document.getElementById('quantity');
+    if (!quantityInput) return;
+
+    const maxQuantity = parseInt(quantityInput.getAttribute('max')) || 999;
+
+    window.minusQuantity = function() {
+      let currentQty = parseInt(quantityInput.value);
+      if (currentQty > 1) {
+        quantityInput.value = currentQty - 1;
+      }
+    };
+
+    window.plusQuantity = function() {
+      let currentQty = parseInt(quantityInput.value);
+      if (currentQty < maxQuantity) {
+        quantityInput.value = currentQty + 1;
+      }
+    };
+
+    // Xử lý input trực tiếp
+    quantityInput.addEventListener('change', function() {
+      let value = parseInt(this.value);
+      if (isNaN(value) || value < 1) {
+        value = 1;
+      } else if (value > maxQuantity) {
+        value = maxQuantity;
+      }
+      this.value = value;
+    });
+
+    // Khởi tạo giá trị ban đầu
+    quantityInput.value = quantityInput.value || "1";
+  });
+</script>
 <?php
 $this->end();
 ?>

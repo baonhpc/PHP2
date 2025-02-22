@@ -1,6 +1,9 @@
 <?php
 require_once 'vendor/autoload.php';
 
+
+
+
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
@@ -9,6 +12,9 @@ ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
 ini_set('log_errors', TRUE);
 ini_set('error_log', './logs/php-errors.log');
+
+
+session_start();
 
 use FastRoute\RouteCollector;
 use League\Plates\Extension\URI;
@@ -40,7 +46,7 @@ $dispatcher = FastRoute\simpleDispatcher(function (RouteCollector $r) {
     $r->addRoute('GET', '/', [HomeController::class, 'show']);
     $r->addRoute('GET', '/home', [HomeController::class, 'show']);
     $r->addRoute('GET', '/list', [ProductController::class, 'show']);
-    $r->addRoute('GET', '/detail', [ProductController::class, 'detail']);
+    $r->addRoute('GET', '/detail/{id}', [ProductController::class, 'detail']);
     $r->addRoute('GET', '/blog', [BlogController::class, 'show']);
     $r->addRoute('GET', '/myaccount', [UserInfoController::class, 'myaccount']);
     $r->addRoute('GET', '/orders', [UserInfoController::class, 'orders']);
@@ -56,7 +62,7 @@ $dispatcher = FastRoute\simpleDispatcher(function (RouteCollector $r) {
     $r->post('/user-login', [AuthController::class, 'authLogin']);
     $r->addRoute('GET', '/cart', [CartController::class, 'show']);
     $r->addRoute('GET', '/checkout', [CheckoutController::class, 'show']);
-    $r->addRoute('GET', '/Search', [SearchController::class, 'show']);
+    $r->addRoute('GET', '/search', [SearchController::class, 'show']);
     $r->addGroup('/admin', function (FastRoute\RouteCollector $r) {
         $r->get('/admin', [DashboardController::class, 'show']);
         $r->get('/admin/dashboard', [DashboardController::class, 'show']);

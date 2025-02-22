@@ -68,7 +68,7 @@
                             </h3>
                         </div>
                         <div style="text-align:center; padding-bottom: 30px;">
-                            <span>Với chiến lược tiếp thị thông minh tập trung vào trải nghiệm của khách hàng và chất lượng sản phẩm nổi trội đã giúp chuỗi nhà thuốc Pharmacity đạt được danh hiệu ...</span>
+                            <span>Với chiến lược tiếp thị thông minh tập trung vào trải nghiệm của khách hàng và chất lượng sản phẩm nổi trội đã giúp chuỗi nhà thuốc Medical health care đạt được danh hiệu ...</span>
                         </div>
                     </div>
                 </div>
@@ -91,12 +91,12 @@
                             <h3 class="post_title">
                                 <a style=" color: black;
                                       font-size: 18px;text-decoration: none;" href="#" inspiration pack>
-                               Đào tạo Sơ cấp cứu y tế cho dược sĩ Pharmacity và tài xế Grab
+                               Đào tạo Sơ cấp cứu y tế cho dược sĩ Medical health care và tài xế Grab
                                 </a>
                             </h3>
                         </div>
                         <div style="text-align:center; padding-bottom: 30px;">
-                            <span>Hội Chữ thập đỏ TPHCM cùng Quỹ Urgo đào tạo Sơ cấp cứu y tế cho dược sĩ Pharmacity và tài xế Grab giúp cải thiện sức khoẻ y tế cộng đồng...</span>
+                            <span>Hội Chữ thập đỏ TPHCM cùng Quỹ Urgo đào tạo Sơ cấp cứu y tế cho dược sĩ Medical health care và tài xế Grab giúp cải thiện sức khoẻ y tế cộng đồng...</span>
                         </div>
                     </div>
                 </div>
@@ -108,7 +108,7 @@
     <div class="container-fluid">
         <div class="content-newsletter">
             <h2 style="color: black;">Đăng ký</h2>
-            <p style="color: black;">Đăng ký nhận bản tin của Pharmacity để cập nhật những sản phẩm mới, nhận thông tin ưu đãi đặc biệt và thông
+            <p style="color: black;">Đăng ký nhận bản tin của Medical health care để cập nhật những sản phẩm mới, nhận thông tin ưu đãi đặc biệt và thông
                 tin
                 giảm giá khác.</p>
             <div class="form-newsletter">

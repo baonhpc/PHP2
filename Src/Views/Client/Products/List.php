@@ -22,11 +22,6 @@
             </a>
           </li>
           <li>
-            <a href="Product.html">
-              <span>Danh mục</span>
-            </a>
-          </li>
-          <li>
             <span><span style="color: #777777">Tất cả sản phẩm</span></span>
           </li>
         </ol>
@@ -51,32 +46,6 @@
                       href="#collapseExample1" role="button" aria-expanded="false"
                       aria-controls="collapseExample1"></i></span>
                 </div>
-                <div class="block_content layered-category collapse" id="collapseExample1">
-                  <div class="layered-content card card-body" style="border:0;padding:0">
-                    <ul class="menuList-links">
-                      <li class=""><a href="home.html" title="Trang chủ"><span>Trang chủ</span></a></li>
-                      <li class=" active "><a href="product.html" title="Bộ sưu tập"><span>Bộ sưu tập</span></a>
-                      </li>
-                      <li class="has-submenu level0 ">
-                        <a title="Sản phẩm">Sản phẩm<span class="icon-plus-submenu" data-toggle="collapse"
-                            href="#collapseExample" role="button" aria-expanded="false"
-                            aria-controls="collapseExample"></span></a>
-                        <div class="collapse" id="collapseExample">
-                          <div class="card card-body" style="border:0;padding-top:0;">
-                            <ul class="menu-product">
-                              <li><a href="detailproduct.html" title="Sản phẩm - Style 1">Sản phẩm - Style 1</a></li>
-                              <li><a href="detailproduct.html" title="Sản phẩm - Style 2">Sản phẩm - Style 2</a></li>
-                              <li><a href="detailproduct.html" title="Sản phẩm - Style 3">Sản phẩm - Style 3</a></li>
-                            </ul>
-                          </div>
-                        </div>
-                      </li>
-                      <li class=""><a href="introduce.html" title="Giới thiệu"><span>Giới thiệu</span></a></li>
-                      <li class=""><a href="blog.html" title="Blog"><span>Blog</span></a></li>
-                      <li class=""><a href="contact.html" title="Liên hệ"><span>Liên hệ</span></a></li>
-                    </ul>
-                  </div>
-                </div>
               </div>
               <div class="layered">
                 <p class="title_block d-block d-sm-none d-none d-sm-block d-md-none" data-toggle="collapse"
@@ -88,18 +57,6 @@
                       aria-controls="collapseExample2"></i></span>
                 </p>
                 <div class="block_content collapse" id="collapseExample2">
-                  <div class="group-filter card card-body" style="border:0;padding:0" aria-expanded="true">
-                    <div class="layered_subtitle dropdown-filter"><span>Thương hiệu</span><span
-                        class="icon-control"><i class="fa fa-minus"></i></span></div>
-                    <div class="layered-content bl-filter filter-brand">
-                      <ul class="check-box-list">
-                        <li>
-                          <input type="checkbox" id="data-brand-p1" value="Khác">
-                          <label for="data-brand-p1">Khác</label>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
                   <div class="group-filter" aria-expanded="true">
                     <div class="layered_subtitle dropdown-filter"><span>Giá sản phẩm</span><span
                         class="icon-control"><i class="fa fa-minus"></i></span></div>
@@ -138,11 +95,7 @@
                       </ul>
                     </div>
                   </div>
-
-
-
                 </div>
-
               </div>
             </div>
           </div>
@@ -150,172 +103,50 @@
       </div>
     </div>
     <div class="col-md-9 col-sm-12 col-xs-12">
-      <div class="wrap-collection-title row">
-        <div class="col-md-8 col-sm-12 col-xs-12">
-          <h1 class="title">
-            Tất cả sản phẩm
-          </h1>
-          <div class="alert-no-filter"></div>
-        </div>
-        <div class="col-md-4 d-sm-none d-md-block d-none d-sm-block" style="float: left">
-          <div class="option browse-tags">
-            <span class="custom-dropdown custom-dropdown--grey">
-              <select class="sort-by custom-dropdown__select">
-                <option value="price-ascending">Giá: Tăng dần</option>
-                <option value="price-descending">Giá: Giảm dần
-                </option>
-                <option value="title-ascending">Tên: A-Z</option>
-                <option value="title-descending">Tên: Z-A</option>
-                <option value="created-ascending">Cũ nhất
-                </option>
-                <option value="created-descending">Mới nhất
-                </option>
-                <option value="best-selling">Bán chạy nhất
-                </option>
-                <option value="quantity-descending">Tồn kho: Giảm dần</option>
-              </select>
-            </span>
-          </div>
-        </div>
-      </div>
+      
       <div class="row">
-        <div class="col-md-3 col-sm-6 col-xs-6 col-6">
-          <div class="product-block">
-            <div class="product-img fade-box">
-              <a href="/detail" title="Adidas EQT Cushion ADV" class="img-resize">
-                <img
-                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/pharma/blob (1).jpg"
-                  alt="Adidas EQT Cushion ADV" class="lazyloaded">
-                <img
-                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/pharma/bigbb.png"
-                  alt="Adidas EQT Cushion ADV" class="lazyloaded">
-              </a>
+        <?php if (!empty($data) && is_array($data)): ?>
+          <?php foreach ($data as $product): ?>
+            <?php
+            $thumbnails = explode(',', $product['thumbnail']);
+            $thumbnail = !empty($thumbnails[0]) ? $thumbnails[0] : 'default.jpg';
+            $firstSku = reset($product['skus']);
+            $secondImage = !empty($firstSku['images']) ? $firstSku['images'] : $thumbnail;
+            $discountedPrice = !empty($firstSku['discounted_price']) ? number_format($firstSku['discounted_price'], 0, ',', '.') : 'Giá không có sẵn';
+            ?>
 
-            </div>
-            <div class="product-detail clearfix">
-              <div class="pro-text">
-                <a style=" color: black;
-                                                          font-size: 14px;text-decoration: none;" href="/detail"
-                  title="Adidas EQT Cushion ADV" inspiration pack>
-                  Adidas EQT Cushion ADV "North America"
-                </a>
+            <div class="col-md-3 col-sm-6 col-xs-6 col-6">
+              <div class="product-block">
+                <div class="product-img fade-box">
+                  <a href="/detail/<?= $product['product_id'] ?>"
+                    title="<?= htmlspecialchars($product['product_name']) ?>" class="img-resize">
+                    <img src="<?= $_ENV['APP_URL'] . '/public/Uploads/Products/' . $thumbnail ?>"
+                      alt="<?= htmlspecialchars($product['product_name']) ?>" class="lazyloaded">
+                    <img src="<?= $_ENV['APP_URL'] . '/public/Uploads/Products/' . $secondImage ?>"
+                      alt="<?= htmlspecialchars($product['product_name']) ?>" class="lazyloaded">
+                  </a>
+                </div>
+                <div class="product-detail clearfix">
+                  <div class="pro-text">
+                    <a style="color: black; font-size: 14px; text-decoration: none;"
+                      href="/detail/<?= $product['product_id'] ?>">
+                      <?= htmlspecialchars($product['product_name']); ?>
+                    </a>
+                  </div>
+                  <div class="pro-price">
+                    <p class=""><?= $discountedPrice; ?>₫</p>
+                  </div>
+                </div>
               </div>
-              <div class="pro-price">
-                <p class="">7,000,000₫</p>
-              </div>
             </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6 col-xs-6 col-6">
-          <div class="product-block">
-            <div class="product-img fade-box">
-              <a href="/detail" title="Adidas EQT Cushion ADV" class="img-resize">
-                <img
-                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/pharma/blob.jpg"
-                  alt="Adidas EQT Cushion ADV" class="lazyloaded">
-                <img
-                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/pharma/diabetna.png"
-                  alt="Adidas EQT Cushion ADV" class="lazyloaded">
-              </a>
 
-            </div>
-            <div class="product-detail clearfix">
-              <div class="pro-text">
-                <a style=" color: black;
-                                                          font-size: 14px;text-decoration: none;" href="/detail"
-                  title="Adidas EQT Cushion ADV" inspiration pack>
-                  Adidas EQT Cushion ADV "North America"
-                </a>
-              </div>
-              <div class="pro-price">
-                <p class="">7,000,000₫</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6 col-xs-6 col-6">
-          <div class="product-block">
-            <div class="product-img fade-box">
-              <a href="/detail" title="Adidas EQT Cushion ADV" class="img-resize">
-                <img
-                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/pharma/blob (2).jpg"
-                  alt="Adidas EQT Cushion ADV" class="lazyloaded">
-                <img
-                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/pharma/dizza.png"
-                  alt="Adidas EQT Cushion ADV" class="lazyloaded">
-              </a>
-
-            </div>
-            <div class="product-detail clearfix">
-              <div class="pro-text">
-                <a style=" color: black;
-                                                          font-size: 14px;text-decoration: none;" href="/detail"
-                  title="Adidas EQT Cushion ADV" inspiration pack>
-                  Adidas EQT Cushion ADV "North America"
-                </a>
-              </div>
-              <div class="pro-price">
-                <p class="">7,000,000₫</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6 col-xs-6 col-6">
-          <div class="product-block">
-            <div class="product-img fade-box">
-              <a href="/detail" title="Adidas EQT Cushion ADV" class="img-resize">
-                <img
-                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/pharma/blob (3).jpg"
-                  alt="Adidas EQT Cushion ADV" class="lazyloaded">
-                <img
-                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/pharma/nattoenzyn.png"
-                  alt="Adidas EQT Cushion ADV" class="lazyloaded">
-              </a>
-
-            </div>
-            <div class="product-detail clearfix">
-              <div class="pro-text">
-                <a style=" color: black;
-                                                        font-size: 14px;text-decoration: none;" href="/detail"
-                  title="Adidas EQT Cushion ADV" inspiration pack>
-                  Adidas EQT Cushion ADV "North America"
-                </a>
-              </div>
-              <div class="pro-price">
-                <p class="">7,000,000₫</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6 col-xs-6 col-6">
-          <div class="product-block">
-            <div class="product-img fade-box">
-              <a href="/detail" title="Adidas EQT Cushion ADV" class="img-resize">
-                <img
-                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/pharma/blob (4).jpg"
-                  alt="Adidas EQT Cushion ADV" class="lazyloaded">
-                <img
-                  src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/pharma/blob (4).jpg"
-                  alt="Adidas EQT Cushion ADV" class="lazyloaded">
-              </a>
-
-            </div>
-            <div class="product-detail clearfix">
-              <div class="pro-text">
-                <a style=" color: black;
-                                                      font-size: 14px;text-decoration: none;" href="/detail"
-                  title="Adidas EQT Cushion ADV" inspiration pack>
-                  Adidas EQT Cushion ADV "North America"
-                </a>
-              </div>
-              <div class="pro-price">
-                <p class="">7,000,000₫</p>
-              </div>
-            </div>
-          </div>
-        </div>
+          <?php endforeach; ?>
+        <?php else: ?>
+          <p class="text-center">Không có sản phẩm nào.</p>
+        <?php endif; ?>
       </div>
-      <div class="sortpagibar pagi clearfix text-center">
+
+      <!-- <div class="sortpagibar pagi clearfix text-center">
         <div id="pagination" class="clearfix">
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <span class="page-node current">1</span>
@@ -328,13 +159,11 @@
               </svg> </a>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>
-<?php
-$this->Insert("/Client/Components/Footer_2");
-?>
+
 <?php $this->stop() ?>
 <?php
 $this->push('scripts')

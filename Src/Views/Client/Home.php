@@ -13,11 +13,11 @@ $this->stop()
 <?php $this->start('main_content') ?>
 <!-- Insert nội dung vào đây -->
 <?php
-$this->insert('/Client/Home/ProductAds');
+$this->insert('/Client/Home/ProductAds', ['dataProduct' => $dataProduct ]);
 $this->Insert("/Client/Home/BrandAds");
-$this->insert('/Client/Home/ProductNew');
+$this->insert('/Client/Home/ProductNew', ['LatestProduct' => $LatestProduct ]);
 $this->Insert("/Client/Home/BlogNews" );
-$this->Insert("/Client/Components/Footer_2" );
+
 ?>
 
 

@@ -1,13 +1,27 @@
-<?php 
+<?php
 
 namespace Src\Controllers\Client;
 
 
+
 use Src\Controllers\BaseController;
-class HomeController extends BaseController{ 
+use Src\Models\Client\ProductModel;
 
-    public function show(){
-        echo $this->view->render('Client/Home', ['Name' => 'Bao']);
+class HomeController extends BaseController
+{
+
+    public function show()
+    {
+        $product = new ProductModel();
+        $dataProduct = $product->getAllRandomProductWithSkus();
+        $LatestProduct = $product->getAllLatestProductsWithSkus();
+        
+        echo $this->view->render('Client/Home', [
+            'Name' => 'Bao',
+            'dataProduct' => $dataProduct,
+            'LatestProduct' => $LatestProduct
+
+        ]);
     }
-
+    
 }

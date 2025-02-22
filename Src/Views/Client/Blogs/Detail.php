@@ -81,7 +81,7 @@
                   <a href="">Cách phục hồi tóc hư tổn do uốn nhuộm trong dịp Tết</a>
                 </h3>
                 <span class="author">
-                  <a href="">Pharmacity</a>
+                  <a href="">Medical health care</a>
                 </span>
                 <span class="date">
                   11.06.2019
@@ -97,7 +97,7 @@
                   <a href="">Bài viết mẫu</a>
                 </h3>
                 <span class="author">
-                  <a href="">Pharmacity</a>
+                  <a href="">Medical health care</a>
                 </span>
                 <span class="date">
                   10.06.2019
@@ -194,9 +194,7 @@
     </div>
   </div>
 </div>
-<?php
-$this->Insert("/Client/Components/Footer_2");
-?>
+
 <?php $this->stop() ?>
 <?php
 $this->push('scripts')
