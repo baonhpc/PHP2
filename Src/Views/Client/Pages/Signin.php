@@ -31,7 +31,7 @@
           <div class="submit">
           <button class="btn btn-secondary" id="loginSubmit">Đăng nhập</button>
             <div class="forgetpassword">
-              <p id="quenmk">Quên mật khẩu?</p> hoặc <a href="">Đăng kí</a>
+              <p id="quenmk">Quên mật khẩu?</p> hoặc <a href="/signup">Đăng kí</a>
             </div>
 
           </div>

@@ -37,10 +37,12 @@
             <span class="text-danger password-required" style="display:none" id="passwordhash-required">Vui lòng nhập lại mật khẩu *</span>
           </div>
           <div class="recaptcha form-control1">This site is protected by reCAPTCHA and the Google <a href="">Privacy Policy</a> and <a href="">Terms of Service</a> apply.</div>
-      
-            <button type="submit" class="btn btn-secondary btn-lg" id="loginSubmit">Đăng ký</button>
-      
+
+          <button type="submit" class="btn btn-secondary btn-lg" id="loginSubmit">Đăng ký</button>
+        
+
           <p class="login-option-title">Hoặc đăng ký bằng</p>
+          <a href="/signin"><i class=" text-dark fa fa-long-arrow-alt-right"></i> <span class="text-dark">Bạn đã có tài khoản? Đăng nhập</span> </a>
           <div class="backto">
             <a href="/"><i class="fa fa-long-arrow-alt-left"></i> Quay lại trang chủ</a>
           </div>

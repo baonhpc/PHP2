@@ -1,23 +1,29 @@
-<?php 
+<?php
 
 namespace Src\Controllers\Client;
 
 
 use Src\Controllers\BaseController;
+use Src\Helpers\Client\AuthHelper;
 use Src\Models\Client\UserModel;
 use Src\Validations\Client\UserValidation;
 use Src\Notifications\Notification;
-class AuthController extends BaseController{ 
 
-    public function login(){
+class AuthController extends BaseController
+{
+
+    public function login()
+    {
         echo $this->view->render('Client/Pages/Signin', ['Name' => 'Bao']);
     }
-    
-    public function register(){
+
+    public function register()
+    {
         echo $this->view->render('Client/Pages/Signup', ['Name' => 'Bao']);
     }
 
-    public function store() {
+    public function store()
+    {
         $data = [
             'firstname' => $_POST['firstname'] ?? null,
             'lastname' => $_POST['lastname'] ?? null,
@@ -43,7 +49,7 @@ class AuthController extends BaseController{
             'lastname' => $data['lastname'],
             'email' => $data['email'],
             'password' => $hashedPassword,
-            'status' => 1 
+            'status' => 1
         ];
 
         $userModel = new UserModel();
@@ -60,12 +66,13 @@ class AuthController extends BaseController{
         }
     }
 
-    public function authLogin() {
+    public function authLogin()
+    {
         $email = $_POST['email'];
         $userModel = new UserModel();
-        $user = $userModel->findUserForLogin('email',$email);
-        if($user) {
-            if(password_verify($_POST['password'], $user['password'])) {
+        $user = $userModel->findUserForLogin('email', $email);
+        if ($user) {
+            if (password_verify($_POST['password'], $user['password'])) {
                 Notification::success('Đăng nhập thành công', 'Bạn đã đăng nhập thành công');
                 $_SESSION['user']['fullname'] = $user['firstname'] . ' ' . $user['lastname'];
                 $_SESSION['user']['id'] = $user['id'];
@@ -90,4 +97,42 @@ class AuthController extends BaseController{
         }
     }
 
+    public function logoutUser()
+    {
+        $userHelper = new AuthHelper;
+        $userHelper->logout();
+        Notification::success('Đăng xuất thành công', 'bạn đã đăng xuất khỏi tài khoản');
+        header('Location: /signin');
+        exit;
+    }
+
+    public static function updateUserInfoAction()
+    {
+        $data = [
+            'fullname' => $_POST['fullname'],
+            'firstname' => $_POST['firstname'],
+            'lastname' =>  $_POST['lastname'],
+            'phone' => $_POST['phone'],
+            'email' => $_POST['email']
+        ];
+        $checkDuplicate = AuthHelper::checkInformation($data);
+        if (!$checkDuplicate) {
+            header('location: /myaccount');
+            exit();
+        }
+
+        $errors = UserValidation::updateUserInfoValidation($data);
+        if (is_array($errors) && !empty($errors)) {
+            foreach ($errors as $error) {
+                Notification::error("Cập nhật thông tin", $error);
+            }
+            header('location: /myaccount');
+            exit();
+        }
+        if (isset($_SESSION['user']['google_id']) && !empty($_SESSION['user']['google_id'])) {
+            $data['email'] = $_SESSION['user']['email'];
+        }
+        AuthHelper::update($data);
+        header('location: /myaccount');
+    }
 }

@@ -1,4 +1,5 @@
 <?php
+
 require_once 'vendor/autoload.php';
 
 
@@ -37,37 +38,54 @@ use Src\Controllers\Client\UserInfoController;
 use Src\Controllers\Client\CartController;
 use Src\Controllers\Client\CheckoutController;
 use Src\Controllers\Client\SearchController;
+use Src\Helpers\Client\AuthHelper;
 
 $connection = new Database();
 
+// $middleware = new AuthHelper;
+// $middleware->middleware();
 
 
 $dispatcher = FastRoute\simpleDispatcher(function (RouteCollector $r) {
+    // Homecontroller
     $r->addRoute('GET', '/', [HomeController::class, 'show']);
     $r->addRoute('GET', '/home', [HomeController::class, 'show']);
+    // Productcontroller
     $r->addRoute('GET', '/list', [ProductController::class, 'show']);
     $r->addRoute('GET', '/detail/{id}', [ProductController::class, 'detail']);
+    // BlogController
     $r->addRoute('GET', '/blog', [BlogController::class, 'show']);
+    $r->addRoute('GET', '/blog-detail', [BlogController::class, 'detail']);
+    // UserInfoController
     $r->addRoute('GET', '/myaccount', [UserInfoController::class, 'myaccount']);
     $r->addRoute('GET', '/orders', [UserInfoController::class, 'orders']);
     $r->addRoute('GET', '/orderDetail', [UserInfoController::class, 'orderDetail']);
     $r->addRoute('GET', '/changePassword', [UserInfoController::class, 'changePassword']);
     $r->addRoute('GET', '/address', [UserInfoController::class, 'address']);
-    $r->addRoute('GET', '/blog-detail', [BlogController::class, 'detail']);
+    // ContactController
     $r->addRoute('GET', '/contact', [ContactController::class, 'show']);
+    // IntroduceController
     $r->addRoute('GET', '/introduce', [IntroduceController::class, 'show']);
+    // AuthController
     $r->addRoute('GET', '/signup', [AuthController::class, 'register']);
     $r->addRoute('GET', '/signin', [AuthController::class, 'login']);
     $r->post('/register-action', [AuthController::class, 'store']);
     $r->post('/user-login', [AuthController::class, 'authLogin']);
+    $r->addRoute('POST', '/update-information', [AuthController::class, 'updateUserInfoAction']);
+    $r->addRoute('GET', '/logout', [AuthController::class, 'logoutUser']);
+    // CartController
     $r->addRoute('GET', '/cart', [CartController::class, 'show']);
+    // CheckoutController
     $r->addRoute('GET', '/checkout', [CheckoutController::class, 'show']);
+    // SearchController
     $r->addRoute('GET', '/search', [SearchController::class, 'show']);
     $r->addGroup('/admin', function (FastRoute\RouteCollector $r) {
+        // DashboardController    
         $r->get('/admin', [DashboardController::class, 'show']);
         $r->get('/admin/dashboard', [DashboardController::class, 'show']);
         $r->get('', [DashboardController::class, 'show']);
         $r->get('/dashboard', [DashboardController::class, 'show']);
+        // UserController    
         $r->get('/users', [UserController::class, 'show']);
         $r->get('/create-user', [UserController::class, 'add']);
         $r->get('/user-order/{user_id}/{order_id}', [UserController::class, 'showUserOrderDetails']);
@@ -79,7 +97,7 @@ $dispatcher = FastRoute\simpleDispatcher(function (RouteCollector $r) {
         $r->post('/lock-user/{id:\d+}', [UserController::class, 'lockUser']);
         $r->post('/user/get-order/{id}', [UserController::class, 'showOrders']);
         $r->delete('/delete-user/{id:\d+}', [UserController::class, 'delete']);
-
+        // ProductControlelr
         $r->get('/products', [productsController::class, 'index']);
         $r->get('/product/add', [productsController::class, 'add']);
         $r->get('/product/detail/{id}', [productsController::class, 'show']);
@@ -96,13 +114,14 @@ $dispatcher = FastRoute\simpleDispatcher(function (RouteCollector $r) {
         $r->post('/variant/edit/{product_id}/{sku_id}', [ProductsController::class, 'updateVariant']);
         $r->delete('/variant/delete/{sku_value}/{option_value}', [ProductsController::class, 'deleteProperty']);
 
-
+        // AttributeController
         $r->get('/allAttribute', [AttributeController::class, 'show']);
         $r->get('/attribute', [AttributeController::class, 'add']);
         $r->get('/attribute-edit/{id}', [AttributeController::class, 'edit']);
         $r->get('/delete-attribute/{id}', [AttributeController::class, 'delete']);
         $r->post('/attribute-add', [AttributeController::class, 'store']);
         $r->post('/attribute-update/{id}', [AttributeController::class, 'update']);
+        // CategoryController
         $r->get('/categories', [CategoryController::class, 'show']);
         $r->get('/category/CategoryValueList/{id}', [CategoryController::class, 'showSub']);
         $r->get('/category/CategoryValueAdd/{id}', [CategoryController::class, 'addSub']);
@@ -115,14 +134,16 @@ $dispatcher = FastRoute\simpleDispatcher(function (RouteCollector $r) {
         $r->get('/category/value/edit/{id}', [CategoryController::class, 'editSub']);
         $r->post('/category/value/update/{id}', [CategoryController::class, 'updateSub']);
         $r->post('/category/value/delete/{id}', [CategoryController::class, 'deleteSub']);
+        // BrandController
         $r->get('/brands', [BrandController::class, 'show']);
         $r->get('/brand/add', [BrandController::class, 'add']);
         $r->get('/edit-brand/{id:\d+}', [BrandController::class, 'edit']);
         $r->post('/add-brand', [BrandController::class, 'store']);
         $r->post('/update-brand/{id:\d+}', [BrandController::class, 'update']);
         $r->delete('/delete-brand/{id:\d+}', [BrandController::class, 'delete']);
-
+        // CommentController
         $r->get('/comments', [CommentController::class, 'show']);
+        // OrderController
         $r->get('/orders', [OrdersController::class, 'show']);
         $r->get('/order-detail/{id}', [OrdersController::class, 'detail']);
         $r->post('/order-search', [OrdersController::class, 'search']);

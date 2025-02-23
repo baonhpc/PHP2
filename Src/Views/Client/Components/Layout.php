@@ -18,12 +18,20 @@
     <link rel="stylesheet" href="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/css/myaccount.css">
     <!-- UIkit CSS -->
     <link rel="stylesheet" href="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/plugins/uikit/uikit.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <title>Medical health care</title>
 
 </head>
 
 <body>
+<script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+  crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
     <div class="header">
         <a style="color: #ffffff;text-decoration: none;" href="/">MIỄN PHÍ VẬN CHUYỂN VỚI ĐƠN HÀNG NỘI THÀNH > 300K
             - ĐỔI TRẢ TRONG 30 NGÀY - ĐẢM BẢO CHẤT LƯỢNG</a>
@@ -181,7 +189,7 @@
             </div>
 
             <div class="icon-ol">
-                <a style="color: #272727" href="/myaccount">
+                <a style="color: #272727" href="<?=isset($_SESSION['user']) ? '/myaccount' : '/signin'?>">
                     <i class="fas fa-user-alt"></i>
                 </a>
                 <a href="#" class="" uk-toggle="target: #offcanvas-flip">
@@ -320,7 +328,7 @@
     <script src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/plugins/uikit/uikit.min.js"></script>
     <script src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/plugins/uikit/uikit-icons.min.js"></script>
 
-
+    <?php $this->insert('Notification')?>
     <?= $this->section('scripts') ?>
 </body>
 
