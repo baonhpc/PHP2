@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 use Phinx\Migration\AbstractMigration;
 
-final class UserTable extends AbstractMigration
+final class ProvinceTable extends AbstractMigration
 {
     /**
      * Change Method.
@@ -19,6 +19,13 @@ final class UserTable extends AbstractMigration
      */
     public function change(): void
     {
-
+        $table = $this->table('Provinces');
+        $table->addColumn('name', 'string', ['limit' => 16])
+            ->addColumn('created_at', 'timestamp', ['default' => 'CURRENT_TIMESTAMP'])
+            ->addColumn('updated_at', 'timestamp', [
+                'default' => 'CURRENT_TIMESTAMP',
+                'update' => 'CURRENT_TIMESTAMP'
+            ])
+            ->create();
     }
 }

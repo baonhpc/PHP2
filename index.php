@@ -75,8 +75,14 @@ $dispatcher = FastRoute\simpleDispatcher(function (RouteCollector $r) {
     $r->addRoute('GET', '/logout', [AuthController::class, 'logoutUser']);
     // CartController
     $r->addRoute('GET', '/cart', [CartController::class, 'show']);
+    $r->addRoute('POST', '/add-to-cart', [CartController::class, 'store']);
+    $r->post('/update-cart/{id}', [CartController::class, 'updateCart']);
     // CheckoutController
     $r->addRoute('GET', '/checkout', [CheckoutController::class, 'show']);
+    $r->post('/proceed-checkout', [CheckoutController::class, 'checkOut']);
+    $r->post('/delete-cart-item',[CartController::class, 'deleteOneCart']);
+
+
     // SearchController
     $r->addRoute('GET', '/search', [SearchController::class, 'show']);
     $r->addGroup('/admin', function (FastRoute\RouteCollector $r) {

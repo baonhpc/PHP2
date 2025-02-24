@@ -326,7 +326,7 @@ class ProductsController extends BaseController {
             $fileType = pathinfo($_FILES['specifications_file']['name'], PATHINFO_EXTENSION);
 
             if (!in_array(strtolower($fileType), ['xls', 'xlsx'])) {
-                $errors[] = 'Bạn cần phải tải lên file excel thông số kỹ thuật (.xls, .xlsx).';
+                $errors[] = 'Bạn cần phải tải lên file excel thành phần thuốc (.xls, .xlsx).';
             }
 
             if ($_FILES['specifications_file']['size'] > 10485760) { // 10MB max
@@ -705,7 +705,7 @@ class ProductsController extends BaseController {
             $fileType = pathinfo($_FILES['specifications_file']['name'], PATHINFO_EXTENSION);
 
             if (!in_array(strtolower($fileType), ['xls', 'xlsx'])) {
-                $errors[] = 'Bạn cần phải tải lên file excel thông số kỹ thuật (.xls, .xlsx).';
+                $errors[] = 'Bạn cần phải tải lên file excel thành phần thuốc(.xls, .xlsx).';
             }
 
             if ($_FILES['specifications_file']['size'] > 10485760) { // 10MB max
@@ -748,7 +748,7 @@ class ProductsController extends BaseController {
         $ProductModel = new ProductModel();
         $result = $ProductModel->updateProduct($id, $data);
         if($result) {
-            Notification::success('Cập nhật thành công', 'Đã cập nhật thành công thông số kỹ thuật');
+            Notification::success('Cập nhật thành công', 'Đã cập nhật thành công thành phần thuốc');
             header('location: /admin/product/detail/' . $id);
             exit();
         } else {

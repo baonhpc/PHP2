@@ -15,7 +15,7 @@ $specs = json_decode($data['specifications']);
         <div class="card-body">
             <form action="/admin/edit-specs/<?=$data['product_id']?>" method="post" class="m-0" enctype="multipart/form-data">
                 <div class="form-group">
-                    <label for="specifications_file">Tải lên file Excel cho thông số kỹ thuật (.xls hoặc .xlsx)</label>
+                    <label for="specifications_file">Tải lên file Excel cho thành phần thuốc (.xls hoặc .xlsx)</label>
                     <input type="file" class="form-control" name="specifications_file" accept=".xls, .xlsx">
                 </div>
                 <div class="col-md-12 px-0 " style="text-align: end;">
@@ -31,7 +31,7 @@ $specs = json_decode($data['specifications']);
 <div class="col-12 grid-margin">
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">Thông số kỹ thuật hiện tại</h4>
+            <h4 class="card-title">thành phần thuốc hiện tại</h4>
             <form class="forms-sample" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="method" value="POST">
                 <?php

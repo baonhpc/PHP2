@@ -181,7 +181,7 @@ button.btn-addtocart {
   box-shadow: none;
   padding: 14px 15px;
   line-height: 22px;
-  width: 100%;
+  width: 200%;
   margin-bottom: 15px;
 }
 button.buy-now {
@@ -2260,36 +2260,45 @@ ul.article-info-more li i {
   width: 100%;
   float: left;
   margin-top: 15px;
-}
-.quantity-area {
+}  .quantity-area {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   margin-bottom: 15px;
 }
-.quantity-area input#quantity {
-  background: #fff;
-  font-weight: 600;
-  height: 32px;
-  padding: 0;
-  text-align: center;
-  width: 70px;
-  border: 1px solid #f3f4f4;
-  border-left: none;
-  border-right: none;
-  border-radius: 1px;
-  float: left;
-  -webkit-appearance: none;
-}
-.quantity-area input.qty-btn {
-  float: left;
+
+.quantity-area .qty-btn {
   background: #f3f4f4;
-  border: solid 1px #f3f4f4;
+  border: 1px solid #d1d1d1;
   cursor: pointer;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 18px;
   outline: none;
-  height: 32px;
-  width: 32px;
+  height: 40px;
+  width: 40px;
   text-align: center;
-  border-radius: 0;
+  border-radius: 5px;
+  transition: all 0.2s ease-in-out;
+}
+
+.quantity-area .qty-btn:hover {
+  background: #e0e0e0;
+}
+
+.quantity-area .qty-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.quantity-area .quantity {
+  background: #fff;
+  font-weight: 600;
+  height: 40px;
+  width: 50px;
+  text-align: center;
+  border: 1px solid #d1d1d1;
+  border-radius: 5px;
+  font-size: 16px;
 }
 a.btn-check,
 button.buy-now,

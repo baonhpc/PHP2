@@ -93,7 +93,7 @@ $this->start('main_content');
     <div class="col-md-4 grid-margin">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Thông số kỹ thuật</h4>
+                <h4 class="card-title">Thành phần thuốc</h4>
                 <form class="forms-sample" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="method" value="POST">
                     <?php

@@ -97,7 +97,7 @@ $this->start('main_content');
                 </div>
 
                 <div class="form-group">
-                    <label for="specifications_file">Tải lên file Excel cho thông số kỹ thuật (.xls hoặc .xlsx)</label>
+                    <label for="specifications_file">Tải lên file Excel cho thành phần thuốc (.xls hoặc .xlsx)</label>
                     <input type="file" class="form-control" name="specifications_file" accept=".xls, .xlsx">
                     <small id="categories-required" class="text-danger" style="display:none">Vui lòng tải lên file excel sản phẩm</small>
                 </div>
