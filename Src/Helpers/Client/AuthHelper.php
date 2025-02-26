@@ -118,30 +118,44 @@
     }
     public static function updatePassword($data)
     {
+        // Kiểm tra dữ liệu đầu vào
+        if (empty($data['currentPassword']) || empty($data['newPassword']) || empty($data['confirmPassword'])) {
+            Notification::error('Đổi mật khẩu', 'Vui lòng điền đầy đủ thông tin');
+            return false;
+        }
+
         $currentPassword = $data['currentPassword'];
         $newPassword = $data['newPassword'];
         $confirmPassword = $data['confirmPassword'];
-        $newPasswordHash = password_hash($data['newPassword'], PASSWORD_DEFAULT);
+        
+        // Kiểm tra độ dài mật khẩu mới
+        if (strlen($newPassword) < 6) {
+            Notification::error('Đổi mật khẩu', 'Mật khẩu mới phải có ít nhất 6 ký tự');
+            return false;
+        }
 
         $UserModel = new UserModel();
         $userData = $UserModel->getUserById($_SESSION['user']['id']);
-        echo '<pre>';
+
+        if (!$userData) {
+            Notification::error('Đổi mật khẩu', 'Không tìm thấy thông tin người dùng');
+            return false;
+        }
 
         if (!password_verify($currentPassword, $userData['password'])) {
             Notification::error('Đổi mật khẩu', 'Mật khẩu hiện tại không đúng');
             return false;
         }
 
-
-        if (strcmp($newPassword, $confirmPassword) !== 0) {
+        if ($newPassword !== $confirmPassword) {
             Notification::error('Đổi mật khẩu', 'Mật khẩu xác nhận không trùng khớp');
             return false;
-
         }
 
+        $newPasswordHash = password_hash($newPassword, PASSWORD_DEFAULT);
         $result = $UserModel->updatePassword($_SESSION['user']['id'], ['password' => $newPasswordHash]);
+        
         if ($result) {
-            Notification::success('Đổi mật khẩu', 'Đã cập nhật mật khẩu thành công');
             return true;
         } else {
             Notification::error('Đổi mật khẩu', 'Cập nhật mật khẩu thất bại');

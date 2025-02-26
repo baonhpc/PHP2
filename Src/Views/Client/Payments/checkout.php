@@ -48,7 +48,7 @@
 
 
 
-                <!-- 
+                
                 <div class="addressUser" id="addressUser" style="display:none;">
 
                     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -60,7 +60,7 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form id="addressForm" method="post" action="/new-address">
+                                    <form id="addressForm" method="post" action="/insert-address">
                                         <input type="hidden" name="method" value="POST">
                                         <div class="form-group text-start">
                                             <label for="" class="form-label">Tỉnh/thành</label>
@@ -114,7 +114,7 @@
                             <label class="w-100"
                                 data-province_name="<?= $item['province_name'] ?>"
                                 data-district_name="<?= $item['district_name'] ?>">
-                                <input form="paymentForm" type="radio" class="address my-3" name="address" id="userAddress" value="<?= $item['id'] ?>">
+                                <input form="paymentForm" type="radio" class="address my-3" name="address_id" id="userAddress" value="<?= $item['id'] ?>">
                                 <p>SĐT: <?= $item['phone'] ?></p>
                                 <p><?= $item['address'] . ', ' . $item['ward_name'] . ', ' . $item['district_name'] . ', ' . $item['province_name'] ?></p>
                             </label>
@@ -122,21 +122,8 @@
                     <?php endforeach; ?>
 
                     <span class="text-danger" id="address-required" style="display: none;">* Vui lòng chọn địa chỉ cần giao</span>
-                </div> -->
-                <form action="" method="POST" id="addressForm" name="addressForm">
-
-                    <div class="col-12 mb-30">
-                        <select class="col-12 mb-30" id="tinh" name="tinh" title="Chọn Tỉnh Thành">
-                            <option value="">Tỉnh Thành</option>
-                        </select>
-                        <select class="col-12 mb-30" id="quan" name="quan" title="Chọn Quận Huyện">
-                            <option value="">Quận Huyện</option>
-                        </select>
-                        <select class="col-12 mb-30" id="phuong" name="phuong" title="Chọn Phường Xã">
-                            <option value="">Phường Xã</option>
-                        </select>
-                    </div>
-                </form>
+                </div>
+              
 
 
                 <div class="atStore" id="atStore" style="display:none;">
@@ -151,15 +138,7 @@
 
 
 
-                <!-- <div class="shipping-methods">
-                        <h3>Phương thức vận chuyển</h3>
-                        <select class="cnvc" name="delivery-method">
-                            <option value="grab">Khách tự book Grab (TP.HCM) - 30,000 ₫</option>
-                            <option value="free-hcm" selected>Miễn phí HCM (trong ngày) - 0 ₫</option>
-                            <option value="free-national">Miễn phí toàn quốc (2 ~ 7 ngày) - 20,000 ₫</option>
-                        </select>
-                    </div> -->
-
+           
                 <!-- Phương thức thanh toán -->
                 <div class="payment-methods">
                     <h3>Phương thức thanh toán</h3>
@@ -168,7 +147,6 @@
                         <option value="international">Thanh toán quốc tế <i class="fab fa-cc-visa"></i> <i
                                 class="fab fa-cc-mastercard"></i></option>
                         <option value="vnpay">Thanh toán VNPay</option>
-                        class="fab fa-cc-mastercard"></i></option>
                     </select>
 
                 </div>
@@ -288,183 +266,133 @@
 </section>
 
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const shippingSelect = document.getElementById('van_chuyen');
-        const addressForm = document.querySelector('.col-12.mb-30'); // Sửa lại selector
-        const atStore = document.getElementById('atStore');
 
-        // Ẩn các form khi trang được load
-        addressForm.style.display = 'none';
-        atStore.style.display = 'none';
-
-        shippingSelect.addEventListener('change', function() {
-            const shippingMethod = this.value;
-            console.log('Phương thức vận chuyển:', shippingMethod); // Debug
-
-            // Ẩn tất cả form trước
-            addressForm.style.display = 'none';
-            atStore.style.display = 'none';
-
-            // Hiển thị form tương ứng
-            if (shippingMethod === 'home') {
-                addressForm.style.display = 'block';
-                console.log('Hiển thị form địa chỉ'); // Debug
-            } else if (shippingMethod === 'store') {
-                atStore.style.display = 'block';
-                console.log('Hiển thị bản đồ'); // Debug
-            }
-        });
-    });
-
-
-    document.addEventListener("DOMContentLoaded", function() {
-        const paymentMethodSelect = document.getElementById("paymentMethodSelect");
-        const installment = document.getElementById("installment");
-
-        paymentMethodSelect.addEventListener("change", function() {
-            if (this.value === "installment") {
-                installment.style.display = "block";
-            } else {
-                installment.style.display = "none";
-            }
-        });
-    });
-
-
-    $('#paymentForm').on('submit', (e) => {
-        if ($('#van_chuyen').val() != 'home' && $('#van_chuyen').val() != 'store') {
-            console.log($('#van_chuyen').val());
-            e.preventDefault();
-            $('#method_required').show();
-        } else {
-            console.log($('#van_chuyen').val());
-            $('#method_required').hide();
-        }
-
-        if ($('#fullname').val() == '') {
-            e.preventDefault();
-            $('#fullname-required').show();
-        } else {
-            $('#fullname-required').hide();
-        }
-
-        // Kiểm tra nếu chọn giao hàng tận nhà
-        if ($('#van_chuyen').val() === 'home') {
-            // Kiểm tra đã chọn đủ tỉnh/quận/phường chưa
-            if (!$('#tinh').val() || !$('#quan').val() || !$('#phuong').val()) {
-                e.preventDefault();
-                $('#address-required').show();
-            } else {
-                $('#address-required').hide();
-            }
-        }
-    })
-</script>
-
-<script>
-    $('.address').on('change', function() {
-        var $label = $(this).closest('label');
-        var provinceName = $label.data('province_name');
-        var districtName = $label.data('district_name');
-        var itemId = Number($(this).val());
-
-        $.ajax({
-            url: '/shipping/calculate-shipping-fee',
-            method: 'POST',
-            data: {
-                item_id: itemId,
-                province_name: provinceName,
-                district_name: districtName
-            },
-            success: function(response) {
-                console.log(response);
-
-                var shippingFee = 0;
-
-                if (response.fee) {
-                    shippingFee = Number(response.fee);
-                    $('#shippingFee').text(shippingFee.toLocaleString() + ' ₫');
-                } else {
-                    $('#shippingFee').text('MIỄN PHÍ');
-                }
-
-                var totalPriceWithShipping = <?= $totalPrice ?> + shippingFee;
-
-                $('#price').text(totalPriceWithShipping.toLocaleString() + ' ₫');
-            },
-
-
-
-        });
-    });
-</script>
 <?php $this->stop() ?>
 
 <?php $this->push('scripts') ?>
 
-<!-- <script src="/public/assets/client/js/checkoutAjax.js"></script>
-
-<script src="<?= getenv('APP_URL') ?>/public/assets/client/js/ProvinceAPI.js"></script> -->
-<script>
+ <!-- <script src="/public/assets/client/js/checkoutAjax.js"></script> -->
+ <script>
     $(document).ready(function() {
-        console.log("Script đã chạy!");
-
-        // Gọi API lấy danh sách tỉnh/thành phố
-        $.getJSON('https://esgoo.net/api-tinhthanh/1/0.htm', function(data) {
-            console.log("Dữ liệu tỉnh nhận được:", data); // Kiểm tra dữ liệu API
-            if (data.error === 0) {
-                $.each(data.data, function(key, val) {
-                    $('#tinh').append(`<option value="${val.id}">${val.full_name}</option>`);
-                });
-                console.log("Danh sách tỉnh đã được thêm vào select!");
-            }
-        }).fail(function(jqXHR, textStatus, errorThrown) {
-            console.error("Gọi API tỉnh thất bại:", textStatus, errorThrown);
-        });
-
-        // Khi chọn tỉnh -> Lấy danh sách quận/huyện
-        $('#tinh').change(function() {
-            var tinhId = $(this).val();
-            console.log("Tỉnh được chọn có ID:", tinhId);
-            $('#quan').html('<option value="">Quận Huyện</option>');
-            $('#phuong').html('<option value="">Phường Xã</option>');
-
-            if (tinhId) {
-                $.getJSON(`https://esgoo.net/api-tinhthanh/2/${tinhId}.htm`, function(data) {
-                    console.log("Dữ liệu quận huyện nhận được:", data);
-                    if (data.error === 0) {
-                        $.each(data.data, function(key, val) {
-                            $('#quan').append(`<option value="${val.id}">${val.full_name}</option>`);
-                        });
-                        console.log("Danh sách quận huyện đã được thêm vào select!");
-                    }
-                }).fail(function(jqXHR, textStatus, errorThrown) {
-                    console.error("Gọi API quận huyện thất bại:", textStatus, errorThrown);
-                });
+        // Xử lý khi chọn phương thức thanh toán
+        $('#paymentMethodSelect').on('change', function() {
+            let selectedMethod = $(this).val();
+            if (selectedMethod === 'cash') {
+                // Hiển thị địa chỉ nếu chọn thanh toán khi nhận hàng
+                $('#addressUser').show();
+            } else {
+                // Ẩn địa chỉ với các phương thức thanh toán khác
+                $('#addressUser').hide();
             }
         });
 
-        // Khi chọn quận -> Lấy danh sách phường/xã
-        $('#quan').change(function() {
-            var quanId = $(this).val();
-            console.log("Quận được chọn có ID:", quanId);
-            $('#phuong').html('<option value="">Phường Xã</option>');
+        // Kích hoạt sự kiện change khi trang load để hiển thị địa chỉ nếu mặc định là cash
+        $('#paymentMethodSelect').trigger('change');
 
-            if (quanId) {
-                $.getJSON(`https://esgoo.net/api-tinhthanh/3/${quanId}.htm`, function(data) {
-                    console.log("Dữ liệu phường xã nhận được:", data);
-                    if (data.error === 0) {
-                        $.each(data.data, function(key, val) {
-                            $('#phuong').append(`<option value="${val.id}">${val.full_name}</option>`);
-                        });
-                        console.log("Danh sách phường xã đã được thêm vào select!");
-                    }
-                }).fail(function(jqXHR, textStatus, errorThrown) {
-                    console.error("Gọi API phường xã thất bại:", textStatus, errorThrown);
+        // Giữ lại code xử lý địa chỉ cũ
+        $('#selectAddress').on('change', function() {
+            let selectedOption = $(this).find(':selected');
+            let address = selectedOption.data('address');
+            let phone = selectedOption.data('phone');
+            let province = selectedOption.data('province');
+            let district = selectedOption.data('district');
+            let ward = selectedOption.data('ward');
+
+
+            $('#province').val(province);
+            $('#district').val(district);
+            $('#ward').val(ward);
+            $('#address').val(address);
+            $('#phone').val(phone);
+        });
+        
+        $('#paymentForm').on('submit', function() {
+            $("input[readonly]").removeAttr("readonly");
+        });
+    });
+</script>
+<script>
+    $(() => {
+        $.ajax({
+            type: "GET",
+            url: "/api/tinh-thanh",
+            success: function(response) {
+            console.log(response);
+            
+                let data = response.data
+                data.forEach(element => {
+                    $('select[name="city"]').append(`<option value="${element.ProvinceName}|${element.ProvinceID}" data-province-id="${element.ProvinceID}">${element.ProvinceName}</option>`);
                 });
+            },
+            error: function(xhr) {
+                console.error('Lỗi', xhr.responseText);
             }
         });
+        $('select[name="city"]').on('change', function() {
+            let provinceId = $(this).find(':selected').data('province-id');
+
+            $('select[name="district"]').empty().append('<option value="">Chọn quận/huyện</option>');
+
+            if (!provinceId) {
+                console.log('Không tìm thấy Province ID');
+                return;
+            }
+
+            $.ajax({
+                type: "GET",
+                url: "/api/quan-huyen",
+                data: {
+                    id: provinceId
+                },
+                success: function(response) {
+                    let districts = response.data;
+                    console.log(districts);
+
+                    districts.forEach(element => {
+                        $('select[name="district"]').append(
+                            `<option value="${element.DistrictName}|${element.DistrictID}" data-district-id="${element.DistrictID}">${element.DistrictName}</option>`
+                        );
+                    });
+                },
+                error: function(xhr) {
+                    console.error('Lỗi khi lấy danh sách quận/huyện:', xhr.responseText);
+                }
+            });
+        });
+
+
+        $('select[name="district"]').on('change', function() {
+            let districtId = $(this).find(':selected').data('district-id'); // Lấy ID quận/huyện
+
+            $('select[name="ward"]').empty().append('<option value="">Chọn Phường/Xã</option>');
+
+            if (!districtId) {
+                console.log('Không tìm thấy district ID');
+                return;
+            }
+
+            $.ajax({
+                type: "GET",
+                url: "/api/phuong-xa",
+                data: {
+                    id: districtId
+                },
+                success: function(response) {
+                    let wards = response.data;
+                    console.log(wards);
+
+                    wards.forEach(element => {
+                        $('select[name="ward"]').append(
+                            `<option value="${element.WardName}|${element.WardCode}" data-ward-id="${element.WardCode}">${element.WardName}</option>`
+                        );
+                    });
+                },
+                error: function(xhr) {
+                    console.error('Lỗi khi lấy danh sách phường/xã:', xhr.responseText);
+                }
+            });
+        });
+
     });
 </script>
 <?php $this->end(); ?>

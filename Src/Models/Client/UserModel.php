@@ -181,6 +181,6 @@ class UserModel extends BaseModel
     {
         return $this->update($id, $data);
     }
-
+   
 }
 
