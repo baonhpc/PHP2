@@ -39,6 +39,7 @@ use Src\Controllers\Client\CartController;
 use Src\Controllers\Client\CheckoutController;
 use Src\Controllers\Client\SearchController;
 use Src\Helpers\Client\AuthHelper;
+use Src\Controllers\Client\ApiController;
 
 $connection = new Database();
 
@@ -61,7 +62,10 @@ $dispatcher = FastRoute\simpleDispatcher(function (RouteCollector $r) {
     $r->addRoute('GET', '/orders', [UserInfoController::class, 'orders']);
     $r->addRoute('GET', '/orderDetail', [UserInfoController::class, 'orderDetail']);
     $r->addRoute('GET', '/changePassword', [UserInfoController::class, 'changePassword']);
+    $r->addRoute('POST', '/change-user-password', [UserInfoController::class, 'updatePasswordAction']);
     $r->addRoute('GET', '/address', [UserInfoController::class, 'address']);
+    $r->addRoute('POST', '/insert-address', [UserInfoController::class, 'insertAddress']);
+    $r->addRoute('POST', '/delete-address/{id}', [UserInfoController::class, 'deleteAddress']);
     // ContactController
     $r->addRoute('GET', '/contact', [ContactController::class, 'show']);
     // IntroduceController
@@ -81,6 +85,12 @@ $dispatcher = FastRoute\simpleDispatcher(function (RouteCollector $r) {
     $r->addRoute('GET', '/checkout', [CheckoutController::class, 'show']);
     $r->post('/proceed-checkout', [CheckoutController::class, 'checkOut']);
     $r->post('/delete-cart-item',[CartController::class, 'deleteOneCart']);
+    $r->addRoute('GET', '/checkout-complete', [CheckoutController::class, 'checkoutComplete']);
+    // ApiController
+    $r->get('/api/tinh-thanh', [ApiController::class, 'fetchProvince']);
+    $r->get('/api/quan-huyen', [ApiController::class, 'fetchDistrict']);
+    $r->get('/api/phuong-xa', [ApiController::class, 'fetchWard']);
+    // $r->get('/api/calculate-fee', [ApiController::class, 'calculateFee']);
 
 
     // SearchController

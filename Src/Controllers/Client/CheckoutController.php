@@ -1,6 +1,7 @@
 <?php
 
 namespace Src\Controllers\Client;
+
 use Src\Models\Client\CheckoutModel;
 use Src\Models\Client\CartModel;
 use Src\Models\Client\AddressModel;
@@ -15,7 +16,8 @@ use Exception;
 
 use Src\Controllers\BaseController;
 
-class CheckoutController extends BaseController {
+class CheckoutController extends BaseController
+{
 
     public function show()
     {
@@ -24,16 +26,17 @@ class CheckoutController extends BaseController {
         $data = $CartModel->getCartByUser($user_id);
         $id = $_SESSION['user']['id'];
         $addressModel = new AddressModel();
-        $addressUser = $addressModel->getUserAddress($id);
+        $addressUser = $addressModel->getAddressByUserId($id);
 
 
-        echo $this->view->render('Client/Payments/checkout',[
+        echo $this->view->render('Client/Payments/checkout', [
             'data' => $data,
             'addressUser' => $addressUser,
         ]);
     }
 
-    public function checkout() {
+    public function checkout()
+    {
         if (!isset($_POST['payment-method'])) {
             Notification::error('Thanh toán thất bại', 'Không thể thanh toán');
             header('location: /checkout');
@@ -43,14 +46,14 @@ class CheckoutController extends BaseController {
         try {
             $user_id = $_SESSION['user']['id'];
             $method = $_POST['payment-method'];
-            $address_id = $_POST['address_id'] ?? null;
+            $address_id = $_POST['address_id'];
 
             // Lấy thông tin giỏ hàng
             $cartModel = new CartModel();
             $cartItems = $cartModel->getCartByUser($user_id);
             // var_dump($cartItems);
             // die;
-            
+
             if (empty($cartItems)) {
                 throw new Exception('Giỏ hàng trống');
             }
@@ -67,15 +70,13 @@ class CheckoutController extends BaseController {
                 'user_id' => $user_id,
                 'total_price' => $total_price,
                 'status' => 1, // Trạng thái mới
+                'address_id' => $address_id,
             ]);
-            
-            // var_dump($order_id);
-            // die;
+
 
             Notification::success('Đặt hàng thành công', 'Cảm ơn bạn đã mua hàng');
-            header('location: /orders');
+            header('location: /checkout-complete');
             exit();
-
         } catch (Exception $e) {
             Notification::error('Checkout thất bại', $e->getMessage());
             header('location: /checkout');
@@ -83,4 +84,11 @@ class CheckoutController extends BaseController {
         }
     }
 
+    public function checkoutComplete()
+    {
+
+        echo $this->view->render('Client/Payments/checkoutComplete', [
+            'Name' => 'Bao'
+        ]);
+    }
 }
