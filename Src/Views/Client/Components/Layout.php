@@ -25,10 +25,10 @@
 </head>
 
 <body>
-<script
-  src="https://code.jquery.com/jquery-3.7.1.min.js"
-  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-  crossorigin="anonymous"></script>
+    <script
+        src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
@@ -122,10 +122,9 @@
                 margin: 3px 0 30px 0;
                 font-weight: 500; letter-spacing: 2px;">Tìm kiếm</h3>
                     <div class="search-box wpo-wrapper-search">
-                        <form action="search" class="searchform searchform-categoris ultimate-search">
+                        <form action="/search" class="searchform searchform-categoris ultimate-search" method="GET">
                             <div class="wpo-search-inner" style="display:inline">
-                                <input type="hidden" name="type" value="product">
-                                <input required="" id="inputSearchAuto" name="q" maxlength="40" autocomplete="off"
+                                <input required="" id="inputSearchAuto" name="search" maxlength="40" autocomplete="off"
                                     class="searchinput input-search search-input" type="text" size="20"
                                     placeholder="Tìm kiếm sản phẩm...">
                             </div>
@@ -139,57 +138,11 @@
                     </div>
                 </div>
             </div>
-            <div id="offcanvas-flip2" uk-offcanvas="flip: true; overlay: true">
-                <div class="uk-offcanvas-bar" style="    background: white;
-            width: 350px;">
+            <?php $this->Insert('Client/Components/CartOppCanvas'); ?>
 
-                    <button class="uk-offcanvas-close" style="color:#272727" type="button" uk-close></button>
-
-                    <h3 style="font-size: 14px;
-                color: #272727;
-                text-transform: uppercase;
-                margin: 3px 0 30px 0;
-                font-weight: 500; letter-spacing: 2px;">Giỏ hàng</h3>
-                    <div class="site-nav-container-last" style="color:#272727">
-                        <div class="cart-view clearfix">
-                            <table id="cart-view">
-                                <tbody>
-                                    <tr class="item_1">
-                                        <td class="img"><a href="" title="Nike Air Max 90 Essential &quot;Grape&quot;"><img
-                                                    src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/pharma/dizza.png" alt="/products/nike-air-max-90-essential-grape"></a></td>
-                                        <td>
-                                            <a class="pro-title-view" style="color: #272727" href=""
-                                                title="Nike Air Max 90 Essential &quot;Grape&quot;">Nike Air Max 90 Essential "Grape"</a>
-                                            <span class="variant">Tím / 36</span>
-                                            <span class="pro-quantity-view">1</span>
-                                            <span class="pro-price-view">4,800,000₫</span>
-                                            <span class="remove_link remove-cart"><a href=""><i style="color: #272727;"
-                                                        class="fas fa-times"></i></a></span>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <span class="line"></span>
-                            <table class="table-total">
-                                <tbody>
-                                    <tr>
-                                        <td class="text-left">TỔNG TIỀN:</td>
-                                        <td class="text-right" id="total-view-cart">4,800,000₫</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="distance-td"><a href="/cart" class="linktocart button dark">Xem giỏ hàng</a></td>
-                                        <td><a href="/checkout" class="linktocheckout button dark">Thanh toán</a></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             <div class="icon-ol">
-                <a style="color: #272727" href="<?=isset($_SESSION['user']) ? '/myaccount' : '/signin'?>">
+                <a style="color: #272727" href="<?= isset($_SESSION['user']) ? '/myaccount' : '/signin' ?>">
                     <i class="fas fa-user-alt"></i>
                 </a>
                 <a href="#" class="" uk-toggle="target: #offcanvas-flip">
@@ -328,7 +281,7 @@
     <script src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/plugins/uikit/uikit.min.js"></script>
     <script src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/plugins/uikit/uikit-icons.min.js"></script>
 
-    <?php $this->insert('Notification')?>
+    <?php $this->insert('Notification') ?>
     <?= $this->section('scripts') ?>
 </body>
 

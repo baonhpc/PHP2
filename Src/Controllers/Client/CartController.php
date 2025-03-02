@@ -28,6 +28,8 @@ class CartController extends BaseController
         }
     }
 
+   
+
     public function store()
     {
         try {
@@ -78,9 +80,10 @@ class CartController extends BaseController
             exit();
         }
     }
-    public function updateCart($params) {
+    public function updateCart($params)
+    {
         $id = $params['id'];
-        if(!isset($_POST['quantity']) && is_numeric($_POST['quantity'])) {
+        if (!isset($_POST['quantity']) && is_numeric($_POST['quantity'])) {
             echo json_encode('No change');
             exit();
         }
@@ -91,25 +94,40 @@ class CartController extends BaseController
         $cartModel = new CartModel();
         $result = $cartModel->updateCart($id, ['quantity' => $quantity]);
 
-        if($result) {
+        if ($result) {
             echo json_encode($result);
             exit();
         }
- 
+
         echo json_decode('failed');
         exit();
     }
-    public function deleteOneCart() {
+    public function deleteOneCart()
+    {
         $CartModel = new CartModel();
         $id = $_POST['id'];
         $result = $CartModel->deleteCart($id);
-        if($result) {
+        if ($result) {
             Notification::success('Đã xóa sản phẩm', 'Đã xóa sản phẩm ra khỏi giỏ hàng');
             header('location: /cart');
             exit();
-        } 
+        }
         Notification::error('Xóa sản phẩm thất bại', 'Không thể xóa sản phẩm ra khỏi giỏ hàng');
         header('location: /cart');
         exit();
+    }
+    public function deleteAllCart()
+    {
+        $CartModel = new CartModel();
+        $result = $CartModel->deleteAllCarts($_SESSION['user']['id']);
+        if (!$result) {
+            Notification::error('Xóa thất bại', 'Lỗi khi xóa tất cả sản phẩm khỏi giỏ hàng');
+            header('location: /cart');
+            exit();
+        } else {
+            Notification::success('Xóa thành công', 'Đã xóa tất cả sản phẩm khỏi giỏ hàng');
+            header('location: /cart');
+            exit();
+        }
     }
 }

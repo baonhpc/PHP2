@@ -40,6 +40,7 @@ use Src\Controllers\Client\CheckoutController;
 use Src\Controllers\Client\SearchController;
 use Src\Helpers\Client\AuthHelper;
 use Src\Controllers\Client\ApiController;
+use Src\Controllers\Client\NotFoundController;
 
 $connection = new Database();
 
@@ -61,6 +62,8 @@ $dispatcher = FastRoute\simpleDispatcher(function (RouteCollector $r) {
     $r->addRoute('GET', '/myaccount', [UserInfoController::class, 'myaccount']);
     $r->addRoute('GET', '/orders', [UserInfoController::class, 'orders']);
     $r->addRoute('GET', '/orderDetail', [UserInfoController::class, 'orderDetail']);
+    $r->addRoute('POST', '/cancelOrder/{id}', [UserInfoController::class, 'cancelOrder']);
+
     $r->addRoute('GET', '/changePassword', [UserInfoController::class, 'changePassword']);
     $r->addRoute('POST', '/change-user-password', [UserInfoController::class, 'updatePasswordAction']);
     $r->addRoute('GET', '/address', [UserInfoController::class, 'address']);
@@ -68,6 +71,9 @@ $dispatcher = FastRoute\simpleDispatcher(function (RouteCollector $r) {
     $r->addRoute('POST', '/delete-address/{id}', [UserInfoController::class, 'deleteAddress']);
     // ContactController
     $r->addRoute('GET', '/contact', [ContactController::class, 'show']);
+    $r->addRoute('POST', '/contact/sendMail', [ContactController::class, 'sendMail']);
+
+    
     // IntroduceController
     $r->addRoute('GET', '/introduce', [IntroduceController::class, 'show']);
     // AuthController
@@ -77,14 +83,23 @@ $dispatcher = FastRoute\simpleDispatcher(function (RouteCollector $r) {
     $r->post('/user-login', [AuthController::class, 'authLogin']);
     $r->addRoute('POST', '/update-information', [AuthController::class, 'updateUserInfoAction']);
     $r->addRoute('GET', '/logout', [AuthController::class, 'logoutUser']);
+    $r->get('/forgot-password', [AuthController::class, 'forgotPassword']);
+    $r->post('/send-mail', [AuthController::class, 'forgotPasswordSubmit']);
+    $r->get('/reset-password', [AuthController::class, 'loadResetPage']);
+    $r->post('/reset-password/{token}', [AuthController::class, 'resetPassword']);
+
+
     // CartController
     $r->addRoute('GET', '/cart', [CartController::class, 'show']);
     $r->addRoute('POST', '/add-to-cart', [CartController::class, 'store']);
     $r->post('/update-cart/{id}', [CartController::class, 'updateCart']);
+    $r->post('/delete-all-cart', [CartController::class, 'deleteAllCart']);
+    $r->post('/delete-cart-item', [CartController::class, 'deleteOneCart']);
+
     // CheckoutController
     $r->addRoute('GET', '/checkout', [CheckoutController::class, 'show']);
     $r->post('/proceed-checkout', [CheckoutController::class, 'checkOut']);
-    $r->post('/delete-cart-item',[CartController::class, 'deleteOneCart']);
+    $r->get('/vnpay-response', [CheckoutController::class, 'response']);
     $r->addRoute('GET', '/checkout-complete', [CheckoutController::class, 'checkoutComplete']);
     // ApiController
     $r->get('/api/tinh-thanh', [ApiController::class, 'fetchProvince']);
@@ -93,8 +108,13 @@ $dispatcher = FastRoute\simpleDispatcher(function (RouteCollector $r) {
     // $r->get('/api/calculate-fee', [ApiController::class, 'calculateFee']);
 
 
+
+
+
     // SearchController
-    $r->addRoute('GET', '/search', [SearchController::class, 'show']);
+    $r->addRoute('GET', '/searchResult', [SearchController::class, 'show']);
+    $r->addRoute('GET', '/search', [SearchController::class, 'search']);
+
     $r->addGroup('/admin', function (FastRoute\RouteCollector $r) {
         // DashboardController    
         $r->get('/admin', [DashboardController::class, 'show']);
@@ -179,7 +199,7 @@ $uri = rawurldecode($uri);
 $routeInfo = $dispatcher->dispatch($httpMethod, $uri);
 switch ($routeInfo[0]) {
     case FastRoute\Dispatcher::NOT_FOUND:
-        echo 'Not Found';
+        require 'Src/Views/Client/404.php';
         break;
     case FastRoute\Dispatcher::METHOD_NOT_ALLOWED:
         $allowedMethods = $routeInfo[1];

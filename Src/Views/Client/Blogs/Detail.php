@@ -106,36 +106,6 @@
             </div>
           </div>
         </div>
-        <div class="menu-blog">
-          <div class="group-menu">
-            <div class="sidebarblog-title title_block">
-              <h2>Danh mục blog<span class="fa fa-angle-down"></span></h2>
-            </div>
-            <div class="layered-category">
-              <ul class="menuList-links">
-                <li class=""><a href="home.html" title="Trang chủ"><span>Trang chủ</span></a></li>
-                <li class=""><a href="product.html" title="Bộ sưu tập"><span>Bộ sưu tập</span></a></li>
-                <li class="has-submenu level0 ">
-                  <a title="Sản phẩm">Sản phẩm <span class="icon-plus-submenu" data-toggle="collapse"
-                      href="#collapseExample" role="button" aria-expanded="false"
-                      aria-controls="collapseExample"></span></a>
-                  <div class="collapse" id="collapseExample">
-                    <div class="card card-body" style="border:0">
-                      <ul class="menu-product">
-                        <li><a href="detailproduct.html" title="Sản phẩm - Style 1">Sản phẩm - Style 1</a></li>
-                        <li><a href="detailproduct.html" title="Sản phẩm - Style 2">Sản phẩm - Style 2</a></li>
-                        <li><a href="detailproduct.html" title="Sản phẩm - Style 3">Sản phẩm - Style 3</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </li>
-                <li class=""><a href="introduce.html" title="Giới thiệu"><span>Giới thiệu</span></a></li>
-                <li class="active"><a href="blog.html" title="Blog"><span>Blog</span></a></li>
-                <li class=""><a href="contact.html" title="Liên hệ"><span>Liên hệ</span></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
     <div class="col-md-9 col-sm-12 col-xs-12 article-area">

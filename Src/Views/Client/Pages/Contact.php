@@ -66,38 +66,37 @@
         <div class="box-send-contact">
           <h2>Gửi thắc mắc cho chúng tôi</h2>
           <div id="col-left contactFormWrapper menuList-links">
-            <form accept-charset="UTF-8" action="/contact" class="contact-form" method="post">
-              <div class="contact-form">
+            <div class="contact-form">
+              <form id="contactForm">
                 <div class="row">
-                  <div class="col-sm-12 col-xs-12">
+                  <div class="col-sm-12">
                     <div class="input-group">
-                      <input required="" type="text" class="form-control"
-                        placeholder="Tên của bạn">
+                      <input type="text" class="form-control" id="name" placeholder="Tên của bạn" required>
                     </div>
                   </div>
-                  <div class="col-sm-6 col-xs-12">
+                  <div class="col-sm-6">
                     <div class="input-group">
-                      <input required="" type="text" class="form-control"
-                        placeholder="Email của bạn">
+                      <input type="email" class="form-control" id="email" placeholder="Email của bạn" required>
                     </div>
                   </div>
-                  <div class="col-sm-6 col-xs-12">
+                  <div class="col-sm-6">
                     <div class="input-group">
-                      <input required="" type="text" class="form-control"
-                        placeholder="Số điện thoại của bạn">
-                    </div>
-                  </div>
-                  <div class="col-sm-12 col-xs-12">
-                    <div class="input-group">
-                      <textarea placeholder="Nội dung"></textarea>
+                      <input type="text" class="form-control" id="phone" placeholder="Số điện thoại của bạn">
                     </div>
                   </div>
                   <div class="col-sm-12">
-                    <button class="button dark">Gửi cho chúng tôi</button>
+                    <div class="input-group">
+                      <textarea class="form-control" id="message" placeholder="Nội dung" required></textarea>
+                    </div>
+                  </div>
+                  <div class="col-sm-12">
+                    <button type="submit" class="button dark">Gửi cho chúng tôi</button>
                   </div>
                 </div>
-              </div>
-            </form>
+              </form>
+              <p id="responseMessage"></p>
+
+            </div>
           </div>
         </div>
       </div>
@@ -109,6 +108,35 @@
 <?php
 $this->push('scripts')
 ?>
+<script>
+  $(document).ready(function() {
+    $("#contactForm").submit(function(e) {
+      e.preventDefault();
+
+      $.ajax({
+        url: "/contact/sendMail",
+        type: "POST",
+        data: {
+          name: $("#name").val(),
+          email: $("#email").val(),
+          phone: $("#phone").val(),
+          message: $("#message").val()
+        },
+        success: function(response) {
+          let res = JSON.parse(response);
+          $("#responseMessage").html(res.message).css("color", res.status === "success" ? "green" : "red");
+          if (res.status === "success") {
+            $("#contactForm")[0].reset();
+          }
+        },
+        error: function() {
+          $("#responseMessage").html("Lỗi hệ thống, vui lòng thử lại!").css("color", "red");
+        }
+      });
+    });
+  });
+</script>
+
 <?php
 $this->end();
 ?>

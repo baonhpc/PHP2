@@ -64,8 +64,9 @@ class VNPayHelper
 
         $vnp_Url = $this->test_url . "?" . $query;
         if (isset($this->hashSecret)) {
-            $vnpSecureHash =   hash_hmac('sha512', $hashdata, $this->hashSecret); //  
-            $vnp_Url .= 'vnp_SecureHash=' . $vnpSecureHash;
+            $vnpSecureHash = hash_hmac('sha512', $hashdata, $this->hashSecret);
+            $vnp_Url = $this->test_url . "?" . $query . "vnp_SecureHash=" . $vnpSecureHash;
+            
         }
 
         $returnData = array(

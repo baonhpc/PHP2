@@ -11,6 +11,7 @@ final class CheckoutAddressesTable extends AbstractMigration
         $table = $this->table('checkout_addresses');
         $table->addColumn('user_id', 'integer', ['signed' => false, 'null' => false])
             ->addColumn('address', 'text')
+            ->addColumn('address_username','text', ['null'=> false, 'limit' => '125'])
             ->addColumn('phone', 'string', ['limit' => 10])
             ->addColumn('province_id', 'integer', ['null' => false])
             ->addColumn('district_id', 'integer', ['null' => false])

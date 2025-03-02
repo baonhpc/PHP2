@@ -6,7 +6,7 @@ $this->start('main_content');
 <section class="account">
     <div class="container-fluid">
         <div class="row g-0">
-        <?php $this->Insert('Client/UserProfile/Particals/Sidebar'); ?>
+            <?php $this->Insert('Client/UserProfile/Particals/Sidebar'); ?>
             <div class="col-lg-9 hiden">
                 <div class="address-info">
                     <div class="address-info-add">
@@ -71,6 +71,10 @@ $this->start('main_content');
                                                             <input type="text" class="form-control p-3" name="address" id="address">
                                                         </div>
                                                         <div class="form-group text-start">
+                                                            <label for="" class="form-label">Tên người nhận</label>
+                                                            <input type="text" class="form-control p-3" name="address_username " id="address_username ">
+                                                        </div>
+                                                        <div class="form-group text-start">
                                                             <label for="" class="form-label">Số điện thoại của địa chỉ này</label>
                                                             <input type="text" class="form-control p-3" name="phone" id="phone">
                                                         </div>
@@ -131,6 +135,10 @@ $this->start('main_content');
                                                             <input type="text" class="form-control p-3" name="address" id="address">
                                                         </div>
                                                         <div class="form-group text-start">
+                                                            <label for="" class="form-label">Tên người nhận</label>
+                                                            <input type="text" class="form-control p-3" name="address_username" id="address_username">
+                                                        </div>
+                                                        <div class="form-group text-start">
                                                             <label for="" class="form-label">Số điện thoại của địa chỉ này</label>
                                                             <input type="text" class="form-control p-3" name="phone" id="phone">
                                                         </div>
@@ -173,12 +181,14 @@ $this->start('main_content');
                                         </h4>
                                         <p>SĐT: <?= $item['phone'] ?></p>
                                         </p>
+                                        <p>Tên người nhận: <?= $item['address_username'] ?> </p>
                                         <p>Tỉnh/thành:<?= $item['province_name'] ?> </p>
                                         <p>Quận/Huyện: <?= $item['district_name'] ?></p>
                                         <p>Phường/Xã:<?= $item['ward_name'] ?> </p>
                                         <p class="mb-0">
                                             Địa chỉ chi tiết:<?= $item['address'] ?>
                                         </p>
+
                                     </div>
                                 <?php
                                 endforeach;
@@ -220,6 +230,10 @@ $this->start('main_content');
                                                 <input type="text" class="form-control p-3" name="address" id="address">
                                             </div>
                                             <div class="form-group text-start">
+                                                <label for="" class="form-label">Tên người nhận</label>
+                                                <input type="text" class="form-control p-3" name="address_username " id="address_username ">
+                                            </div>
+                                            <div class="form-group text-start">
                                                 <label for="" class="form-label">Số điện thoại của địa chỉ này</label>
                                                 <input type="text" class="form-control p-3" name="phone" id="phone">
                                             </div>
@@ -250,8 +264,8 @@ $this->start('main_content');
             type: "GET",
             url: "/api/tinh-thanh",
             success: function(response) {
-            console.log(response);
-            
+                console.log(response);
+
                 let data = response.data
                 data.forEach(element => {
                     $('select[name="city"]').append(`<option value="${element.ProvinceName}|${element.ProvinceID}" data-province-id="${element.ProvinceID}">${element.ProvinceName}</option>`);

@@ -5,7 +5,8 @@ $this->start('main_content');
 <section class="account">
     <div class="container-fluid">
         <div class="row g-0">
-        <?php $this->Insert('Client/UserProfile/Particals/Sidebar'); ?>
+            <?php $this->Insert('Client/UserProfile/Particals/Sidebar'); ?>
+
             <div class="col-lg-9">
                 <div class="order-info">
                     <div class="order-info-add">
@@ -17,6 +18,7 @@ $this->start('main_content');
                         </ul>
                         <div class="container-fluid">
                             <?php
+
                             if (empty($data)):
                             ?>
 
@@ -50,9 +52,15 @@ $this->start('main_content');
                                             </div>
                                         </div>
                                     </div>
+                                <?php
+                            else:
+                                ?>
                                     <?php
-                                else:
                                     foreach ($data as $r):
+                                        // Tách dữ liệu sản phẩm
+                                        $productData = explode('|', $r['products']);
+                                        $productName = $productData[0] ?? 'Sản phẩm không xác định';
+                                        $imageName = $productData[1] ?? 'default.jpg';
                                     ?>
                                         <div class="tab-content">
                                             <div class="list-order-page">
@@ -60,60 +68,61 @@ $this->start('main_content');
                                                     <div class="wrap-head-order">
                                                         <div class="code-order-list">
                                                             <h4 class="col-6"><a href="./order-detail.php"
-                                                                    aria-label="Đơn hàng ECO672454N01"
-                                                                    title="Đơn hàng ECO672454N01">Đơn hàng
-                                                                    <b><?= $r['id'] ?></b></a></h4>
-                                                            <div class="status-order col-6"><span>
+                                                                    title="Đơn hàng <?= $r['order_id'] ?>">Đơn hàng <b><?= $r['order_id'] ?></b></a></h4>
+                                                            <div class="status-order col-6">
+                                                                <span>
                                                                     <?php
                                                                     if ($r['order_status'] == 1) {
-                                                                        echo 'Đang chờ thanh toán';
+                                                                        echo 'Đang duyệt';
                                                                     } else if ($r['order_status'] == 2) {
-                                                                        echo 'Đã thanh toán';
+                                                                        echo 'Chờ thanh toán';
                                                                     } else if ($r['order_status'] == 3) {
-                                                                        echo 'Thanh công ';
+                                                                        echo 'Đã thanh toán - tiến hành giao đơn';
+                                                                    } else if ($r['order_status'] == 4) {
+                                                                        echo 'Đang vận chuyển';
+                                                                    } else if ($r['order_status'] == 5) {
+                                                                        echo 'Thành công';
                                                                     } else {
                                                                         echo 'Đã hủy';
                                                                     }
                                                                     ?>
-                                                                </span><img
-                                                                    src="https://file.hstatic.net/1000284478/file/chevron-right_570ce8b9119e4acf84d88cb705b42a64.svg"
-                                                                    alt="icon"></div>
-                                                        </div>
-                                                        <div class="title-prod-orders">
+                                                                </span>
+                                                            </div>
                                                         </div>
                                                     </div>
+
                                                     <div class="content-order">
-
                                                         <div class="items-prod-in-orders">
-                                                            <div class="media-prod"><img width="100px"
-                                                                    src="<?= getenv('APP_URL') ?>/public/uploads/<?= $r['image_name'] ?> "></div>
+                                                            <div class="media-prod">
+                                                                <img width="100px" src="<?= getenv('APP_URL') ?>/public/Uploads/Products/<?= $imageName ?>">
+                                                            </div>
                                                             <div class="info-prod">
-                                                                <div class="vendor-prod">
-                                                                    <?= $r['category_name'] ?>
-
-                                                                </div>
-
-                                                                <div class="title-prod">
-                                                                    <?= $r['product_name'] ?>
-
-                                                                </div>
+                                                                <div class="vendor-prod"><?= $r['category_name'] ?></div>
+                                                                <div class="title-prod"><?= $productName ?></div>
                                                                 <div class="wrap-price-quantity">
-                                                                    <div class="price-prod "><span>
-                                                                            <?= number_format($r['order_price'])  ?> VNĐ
-
-                                                                        </span></div>
+                                                                    <div class="price-prod"><span><?= number_format($r['order_price']) ?> VNĐ</span></div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    <?php if (isset($r['order_status']) && $r['order_status'] == 1): ?>
+                                                        <div class="btnInCard d-flex justify-content-end">
+                                                            <form method="POST" action="/cancelOrder/<?= htmlspecialchars($r['order_id']) ?>">
+                                                                <input type="hidden" name="order_id" value="<?= htmlspecialchars($r['order_id']) ?>">
+                                                                <button type="submit" class="btn btn-danger btn-sm">Hủy đơn</button>
+                                                            </form>
+                                                        </div>
+                                                    <?php endif; ?>
+
                                                 </div>
                                             </div>
-                                            <div class="paginate-list-order d-none"></div>
                                         </div>
+                                    <?php endforeach; ?>
+
+
 
                                 <?php
-                                    endforeach;
-                                endif;
+                            endif;
 
                                 ?>
                                 </div>

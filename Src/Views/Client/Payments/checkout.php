@@ -48,7 +48,7 @@
 
 
 
-                
+
                 <div class="addressUser" id="addressUser" style="display:none;">
 
                     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -60,7 +60,7 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form id="addressForm" method="post" action="/insert-address">
+                                    <form id="addressForm" method="post" action="/new-address">
                                         <input type="hidden" name="method" value="POST">
                                         <div class="form-group text-start">
                                             <label for="" class="form-label">Tỉnh/thành</label>
@@ -87,6 +87,10 @@
                                             <input type="text" class="form-control p-3" name="address" id="address">
                                         </div>
                                         <div class="form-group text-start">
+                                            <label for="" class="form-label">Tên người nhận</label>
+                                            <input type="text" class="form-control p-3" name="address_username " id="address_username ">
+                                        </div>
+                                        <div class="form-group text-start">
                                             <label for="" class="form-label">Số điện thoại của địa chỉ này</label>
                                             <input type="text" class="form-control p-3" name="phone" id="phone">
                                         </div>
@@ -110,20 +114,39 @@
                         </button>
                     </h4>
                     <?php foreach ($addressUser as $item): ?>
-                        <div class="border-bottom">
-                            <label class="w-100"
-                                data-province_name="<?= $item['province_name'] ?>"
-                                data-district_name="<?= $item['district_name'] ?>">
-                                <input form="paymentForm" type="radio" class="address my-3" name="address_id" id="userAddress" value="<?= $item['id'] ?>">
-                                <p>SĐT: <?= $item['phone'] ?></p>
-                                <p><?= $item['address'] . ', ' . $item['ward_name'] . ', ' . $item['district_name'] . ', ' . $item['province_name'] ?></p>
-                            </label>
+                        <div class="border-bottom p-3 rounded bg-light my-2">
+                            <div class="form-check">
+                                <input form="paymentForm" type="radio" class="form-check-input address" name="address" id="address_<?= $item['id'] ?>" value="<?= $item['id'] ?>">
+                                <label class="form-check-label w-100 p-2 d-block address-label" for="address_<?= $item['id'] ?>"
+                                    data-province_name="<?= $item['province_name'] ?>"
+                                    data-district_name="<?= $item['district_name'] ?>">
+
+                                    <strong class="d-block text-primary">Người Nhận: <?= $item['address_username'] ?></strong>
+                                    <p class="mb-1"> Số điện thoại: <?= $item['phone'] ?></p>
+                                    <p class="mb-1"> Tên người nhận: <?= $item['address_username'] ?></p>
+                                    <p class="text-muted"><?= $item['address'] . ', ' . $item['ward_name'] . ', ' . $item['district_name'] . ', ' . $item['province_name'] ?></p>
+                                </label>
+                            </div>
                         </div>
                     <?php endforeach; ?>
 
+
                     <span class="text-danger" id="address-required" style="display: none;">* Vui lòng chọn địa chỉ cần giao</span>
                 </div>
-              
+                <style>
+                    .address-label {
+                        cursor: pointer;
+                        transition: all 0.3s ease-in-out;
+                        border: 2px solid transparent;
+                        border-radius: 8px;
+                    }
+
+                    .address-label:hover,
+                    .form-check-input:checked+.address-label {
+                        background-color: #e3f2fd;
+                        border-color: #0d6efd;
+                    }
+                </style>
 
 
                 <div class="atStore" id="atStore" style="display:none;">
@@ -138,14 +161,20 @@
 
 
 
-           
+                <!-- <div class="shipping-methods">
+                        <h3>Phương thức vận chuyển</h3>
+                        <select class="cnvc" name="delivery-method">
+                            <option value="grab">Khách tự book Grab (TP.HCM) - 30,000 ₫</option>
+                            <option value="free-hcm" selected>Miễn phí HCM (trong ngày) - 0 ₫</option>
+                            <option value="free-national">Miễn phí toàn quốc (2 ~ 7 ngày) - 20,000 ₫</option>
+                        </select>
+                    </div> -->
+
                 <!-- Phương thức thanh toán -->
                 <div class="payment-methods">
                     <h3>Phương thức thanh toán</h3>
                     <select class="cnvc" name="payment-method" id="paymentMethodSelect" form="paymentForm">
                         <option value="cash" selected>Tiền mặt khi nhận hàng</option>
-                        <option value="international">Thanh toán quốc tế <i class="fab fa-cc-visa"></i> <i
-                                class="fab fa-cc-mastercard"></i></option>
                         <option value="vnpay">Thanh toán VNPay</option>
                     </select>
 
@@ -168,51 +197,6 @@
             .bold-button {
                 background-color: #007bff !important;
                 color: white !important;
-            }
-
-            .col-12.mb-30 {
-                margin-top: 20px;
-            }
-
-            .col-12.mb-30 select {
-                width: 100%;
-                padding: 12px;
-                margin-bottom: 15px;
-                border: 1px solid #ddd;
-                border-radius: 4px;
-                font-size: 14px;
-                background-color: #fff;
-            }
-
-            .col-12.mb-30 select:focus {
-                border-color: #007bff;
-                outline: none;
-                box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
-            }
-
-            /* Ẩn cả hai form mặc định */
-            /*.col-12.mb-30,
-            .atStore {
-                display: none;
-            }*/
-
-            .atStore {
-                margin-top: 20px;
-                padding: 15px;
-                border: 1px solid #eee;
-                border-radius: 8px;
-            }
-
-            .atStore p {
-                font-weight: bold;
-                margin-bottom: 15px;
-                color: #333;
-            }
-
-            .atStore iframe {
-                max-width: 100%;
-                border-radius: 8px;
-                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             }
         </style>
 
@@ -264,52 +248,161 @@
         </div>
     </div>
 </section>
+<script>
+    const productPrice = <?= $totalPrice; ?>;
+    const interestRate = 10 / 100;
 
+    const termInputs = document.querySelectorAll('.d-flex input[type="radio"]');
+    const downPaymentSelect = document.querySelector('#down-payment-select');
+    const downPaymentAmount = document.querySelector('#down-payment-amount');
+    const totalInterestField = document.querySelector('#total-interest');
+    const monthlyPaymentFirstField = document.querySelector('#monthly-payment-first');
+    const principalInterestField = document.querySelector('#principal-interest');
+    const viewDetailsButton = document.querySelector('#view-details');
+    const actualTotalPaymentP = document.querySelector('#actual-total-payment');
 
+    let selectedTerm = 12;
+    let downPaymentRate = parseFloat(downPaymentSelect.value) / 100;
 
-<?php $this->stop() ?>
+    function updateInstallment() {
+        const downPayment = productPrice * downPaymentRate;
+        const remainingPrincipal = productPrice - downPayment;
+        let totalInterest = 0;
+        let totalPayment = 0;
 
-<?php $this->push('scripts') ?>
+        let currentPrincipal = remainingPrincipal;
+        const monthlyPrincipal = remainingPrincipal / selectedTerm;
 
- <!-- <script src="/public/assets/client/js/checkoutAjax.js"></script> -->
- <script>
-    $(document).ready(function() {
-        // Xử lý khi chọn phương thức thanh toán
-        $('#paymentMethodSelect').on('change', function() {
-            let selectedMethod = $(this).val();
-            if (selectedMethod === 'cash') {
-                // Hiển thị địa chỉ nếu chọn thanh toán khi nhận hàng
-                $('#addressUser').show();
-            } else {
-                // Ẩn địa chỉ với các phương thức thanh toán khác
-                $('#addressUser').hide();
-            }
-        });
+        const table = document.createElement('table');
+        table.className = 'table table-bordered';
 
-        // Kích hoạt sự kiện change khi trang load để hiển thị địa chỉ nếu mặc định là cash
-        $('#paymentMethodSelect').trigger('change');
+        table.innerHTML = `
+    <thead>
+        <tr>
+            <th>Tháng</th>
+            <th>Gốc</th>
+            <th>Lãi</th>
+            <th>Tổng</th>
+        </tr>
+    </thead>
+    `;
 
-        // Giữ lại code xử lý địa chỉ cũ
-        $('#selectAddress').on('change', function() {
-            let selectedOption = $(this).find(':selected');
-            let address = selectedOption.data('address');
-            let phone = selectedOption.data('phone');
-            let province = selectedOption.data('province');
-            let district = selectedOption.data('district');
-            let ward = selectedOption.data('ward');
+        const tbody = document.createElement('tbody');
+        for (let i = 1; i <= selectedTerm; i++) {
+            const monthlyInterest = currentPrincipal * interestRate;
+            const monthlyPayment = monthlyPrincipal + monthlyInterest;
 
+            totalInterest += monthlyInterest;
+            totalPayment += monthlyPayment;
 
-            $('#province').val(province);
-            $('#district').val(district);
-            $('#ward').val(ward);
-            $('#address').val(address);
-            $('#phone').val(phone);
-        });
-        
-        $('#paymentForm').on('submit', function() {
-            $("input[readonly]").removeAttr("readonly");
+            const row = document.createElement('tr');
+            row.innerHTML = `
+        <td>Tháng ${i}</td>
+        <td>${monthlyPrincipal.toLocaleString()} ₫</td>
+        <td>${monthlyInterest.toLocaleString()} ₫</td>
+        <td>${monthlyPayment.toLocaleString()} ₫</td>
+        `;
+            tbody.appendChild(row);
+            currentPrincipal -= monthlyPrincipal;
+        }
+
+        table.appendChild(tbody);
+
+        const modalBody = document.querySelector('#interest-details-modal .modal-body');
+        modalBody.innerHTML = '';
+        modalBody.appendChild(table);
+
+        downPaymentAmount.innerText = `${downPayment.toLocaleString()} ₫`;
+        totalInterestField.innerText = `${totalInterest.toLocaleString()} ₫`;
+        monthlyPaymentFirstField.innerText = `${(monthlyPrincipal + (remainingPrincipal * interestRate)).toLocaleString()} ₫`;
+        principalInterestField.innerText = `${totalPayment.toLocaleString()} ₫`;
+        actualTotalPaymentP.innerText = `${(totalPayment + downPayment).toLocaleString()} ₫`;
+    }
+
+    termInputs.forEach(input => {
+        input.addEventListener('change', () => {
+            termInputs.forEach(inp => inp.parentElement.querySelector('div').classList.remove('bold-button'));
+            input.parentElement.querySelector('div').classList.add('bold-button');
+
+            selectedTerm = parseInt(input.value, 10);
+            updateInstallment();
         });
     });
+
+    downPaymentSelect.addEventListener('change', () => {
+        downPaymentRate = parseFloat(downPaymentSelect.value) / 100;
+        updateInstallment();
+    });
+
+    viewDetailsButton.addEventListener('click', () => {
+        const modal = new bootstrap.Modal(document.getElementById('interest-details-modal'));
+        modal.show();
+    });
+
+    updateInstallment();
+</script>
+
+<script>
+    document.getElementById('van_chuyen').addEventListener('change', function() {
+        const shippingMethod = this.value;
+        const addressUser = document.getElementById('addressUser');
+        const atStore = document.getElementById('atStore');
+
+        if (shippingMethod === 'home') {
+            addressUser.style.display = 'block';
+        } else {
+            addressUser.style.display = 'none';
+        }
+
+        if (shippingMethod === 'store') {
+            atStore.style.display = 'block';
+        } else {
+            atStore.style.display = 'none';
+        }
+    });
+
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const paymentMethodSelect = document.getElementById("paymentMethodSelect");
+        const installment = document.getElementById("installment");
+
+        paymentMethodSelect.addEventListener("change", function() {
+            if (this.value === "installment") {
+                installment.style.display = "block";
+            } else {
+                installment.style.display = "none";
+            }
+        });
+    });
+
+
+    $('#paymentForm').on('submit', (e) => {
+        if ($('#van_chuyen').val() != 'home' && $('#van_chuyen').val() != 'store') {
+            console.log($('#van_chuyen').val());
+            e.preventDefault();
+            $('#method_required').show();
+        } else {
+            console.log($('#van_chuyen').val());
+            $('#method_required').hide();
+        }
+
+        if ($('#fullname').val() == '') {
+            e.preventDefault();
+            $('#fullname-required').show();
+        } else {
+            $('#fullname-required').hide();
+        }
+
+        if ($('#van_chuyen').val() === 'home') {
+            if (!$('input[name="address"]:checked').length) {
+                console.log($('input[name="address"]:checked').val());
+                e.preventDefault();
+                $('#address-required').show();
+            } else {
+                $('#address-required').hide();
+            }
+        }
+    })
 </script>
 <script>
     $(() => {
@@ -317,8 +410,8 @@
             type: "GET",
             url: "/api/tinh-thanh",
             success: function(response) {
-            console.log(response);
-            
+                console.log(response);
+
                 let data = response.data
                 data.forEach(element => {
                     $('select[name="city"]').append(`<option value="${element.ProvinceName}|${element.ProvinceID}" data-province-id="${element.ProvinceID}">${element.ProvinceName}</option>`);
@@ -395,4 +488,47 @@
 
     });
 </script>
+<!-- <script>
+    $('.address').on('change', function() {
+        var $label = $(this).closest('label');
+        var provinceName = $label.data('province_name');
+        var districtName = $label.data('district_name');
+        var itemId = Number($(this).val());
+
+        $.ajax({
+            url: '/shipping/calculate-shipping-fee',
+            method: 'POST',
+            data: {
+                item_id: itemId,
+                province_name: provinceName,
+                district_name: districtName
+            },
+            success: function(response) {
+                console.log(response);
+
+                var shippingFee = 0;
+
+                if (response.fee) {
+                    shippingFee = Number(response.fee);
+                    $('#shippingFee').text(shippingFee.toLocaleString() + ' ₫');
+                } else {
+                    $('#shippingFee').text('MIỄN PHÍ');
+                }
+
+                var totalPriceWithShipping = <?= $totalPrice ?> + shippingFee;
+
+                $('#price').text(totalPriceWithShipping.toLocaleString() + ' ₫');
+            },
+
+
+
+        });
+    });
+</script> -->
+<?php $this->stop() ?>
+
+<?php $this->push('scripts') ?>
+
+<script src="/public/assets/client/js/checkoutAjax.js"></script>
+
 <?php $this->end(); ?>

@@ -48,6 +48,7 @@
                                     </div>
                                 </form>
 
+                     
 
                                 <form action="/delete-cart-item" method="post" class="delete-form">
                                     <input type="hidden" name="id" value="<?= htmlspecialchars($cart['cart_id']) ?>">
@@ -101,7 +102,7 @@ $this->push('scripts')
 ?>
 
 <script>
-     $(document).on('click', '.quantity-increase', function() {
+    $(document).on('click', '.quantity-increase', function() {
         let cartId = $(this).data('id');
         let quantityInput = $(`.cart__product-quantity[data-id='${cartId}']`);
         let currentQuantity = parseInt(quantityInput.val()) || 0;

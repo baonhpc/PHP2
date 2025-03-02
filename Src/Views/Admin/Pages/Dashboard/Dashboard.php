@@ -125,7 +125,7 @@
                                 <h6 class="mb-0"></h6>
                             </div>
                             <div>
-                                <p class="mb-2 text-muted"><?= $countBrand[0]['brand'] ? $countBrand[0]['brand'] : 0 ?></p>
+                            
                                 <h6 class="mb-0"></h6>
                             </div>
                             <div class="text-center" style="width: fit-content;">
@@ -152,7 +152,7 @@
                                 <h6 class="mb-0"></h6>
                             </div>
                             <div>
-                                <p class="mb-2 text-muted"><?= $countRating[0]['rating'] ? $countRating[0]['rating'] : 0 ?></p>
+                        
                                 <h6 class="mb-0"></h6>
                             </div>
                             <div class="text-center" style="width: fit-content;">
@@ -179,7 +179,7 @@
                                 <h6 class="mb-0"></h6>
                             </div>
                             <div>
-                                <p class="mb-2 text-muted"><?= $countCategoryParent[0]['categoryParent'] ? $countCategoryParent[0]['categoryParent'] : 0 ?></p>
+                     
                                 <h6 class="mb-0"></h6>
                             </div>
                             <div class="text-center" style="width: fit-content;">
@@ -206,7 +206,7 @@
                                 <h6 class="mb-0"></h6>
                             </div>
                             <div>
-                                <p class="mb-2 text-muted"><?= $countProduct[0]['product'] ? $countProduct[0]['product'] : 0 ?></p>
+                            
                                 <h6 class="mb-0"></h6>
                             </div>
                             <div class="text-center" style="width: fit-content;">
@@ -281,248 +281,3 @@
 
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-    const analyticProductByDay = <?php echo json_encode($analyticProductByDay, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP); ?>;
-    const analyticProductByMonth = <?php echo json_encode($analyticProductByMonth, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP); ?>;
-    const analyticProductByYear = <?php echo json_encode($analyticProductByYear, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP); ?>;
-
-    let productChartInstance = null;
-
-    function renderProductChart(data) {
-        const labels = data.map(item => item.product_name);
-        const chartData = data.map(item => item.total_sold);
-
-        const backgroundColors = ['#FF6F61', '#6B8E23', '#8A2BE2', '#FFD700', '#DC143C', '#FF1493', '#00CED1', '#32CD32', '#FF6347'];
-
-        const chartColors = [];
-        for (let i = 0; i < chartData.length; i++) {
-            chartColors.push(backgroundColors[i % backgroundColors.length]);
-        }
-
-        if (productChartInstance) {
-            productChartInstance.destroy();
-        }
-
-        productChartInstance = new Chart(document.getElementById("comment_by_product"), {
-            type: 'bar',
-            data: {
-                labels: labels,
-                datasets: [{
-                    label: 'Sản phẩm bán chạy',
-                    data: chartData,
-                    backgroundColor: chartColors,
-                    borderColor: chartColors,
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                scales: {
-                    x: {
-                        beginAtZero: true,
-                        ticks: {
-                            autoSkip: false,
-                            maxRotation: 90,
-                            minRotation: 45
-                        }
-                    },
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-
-        });
-    }
-
-    function updateProductChart(timeFilter) {
-        let filteredData = [];
-        if (timeFilter === 'day') {
-            filteredData = analyticProductByDay;
-        } else if (timeFilter === 'month') {
-            filteredData = analyticProductByMonth;
-        } else if (timeFilter === 'year') {
-            filteredData = analyticProductByYear;
-        }
-
-        renderProductChart(filteredData);
-    }
-
-    document.getElementById("dayFilter").addEventListener("click", () => {
-        setActiveButton('day');
-        updateProductChart('day');
-    });
-
-    document.getElementById("monthFilter").addEventListener("click", () => {
-        setActiveButton('month');
-        updateProductChart('month');
-    });
-
-    document.getElementById("yearFilter").addEventListener("click", () => {
-        setActiveButton('year');
-        updateProductChart('year');
-    });
-
-    function setActiveButton(selected) {
-        const buttons = document.querySelectorAll('.btn-group .btn');
-        buttons.forEach(button => button.classList.remove('active'));
-
-        const selectedButton = document.getElementById(selected + 'Filter');
-        if (selectedButton) {
-            selectedButton.classList.add('active');
-        }
-    }
-
-
-    const revenueByDay = <?php echo json_encode($anaLyticRevenueByDay, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP); ?>;
-    const revenueByMonth = <?php echo json_encode($anaLyticRevenueByMonth, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP); ?>;
-    const revenueByYear = <?php echo json_encode($anaLyticRevenueByYear, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP); ?>;
-
-    let revenueChartInstance = null;
-
-    function formatCurrency(value) {
-        return new Intl.NumberFormat('vi-VN', {
-            style: 'currency',
-            currency: 'VND'
-        }).format(value);
-    }
-
-    function renderRevenueChart(data, label) {
-        const labels = data.map(item => item.label);
-        const revenueData = data.map(item => item.revenue);
-
-        if (revenueChartInstance) {
-            revenueChartInstance.destroy();
-        }
-
-        revenueChartInstance = new Chart(document.getElementById("revenue_chart"), {
-            type: 'line',
-            data: {
-                labels: labels,
-                datasets: [{
-                    label: label,
-                    data: revenueData,
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                scales: {
-                    y: {
-                        ticks: {
-
-                            callback: function(value) {
-                                return formatCurrency(value);
-                            }
-                        }
-                    }
-                }
-            }
-        });
-    }
-
-
-
-
-    document.getElementById("dayRevenue").addEventListener("click", () => {
-        renderRevenueChart(
-            revenueByDay.map(item => ({
-                label: item.order_date,
-                revenue: item.daily_revenue
-            })),
-            'Doanh thu 7 ngày gần nhất'
-        );
-        setActiveRevenueButton('dayRevenue');
-    });
-
-    document.getElementById("monthRevenue").addEventListener("click", () => {
-        renderRevenueChart(
-            revenueByMonth.map(item => ({
-                label: item.order_month,
-                revenue: item.monthly_revenue
-            })),
-            'Doanh thu 6 tháng gần nhất'
-        );
-        setActiveRevenueButton('monthRevenue');
-    });
-
-    document.getElementById("yearRevenue").addEventListener("click", () => {
-        renderRevenueChart(
-            revenueByYear.map(item => ({
-                label: item.order_year,
-                revenue: item.yearly_revenue
-            })),
-            'Doanh thu 5 năm gần nhất'
-        );
-        setActiveRevenueButton('yearRevenue');
-    });
-
-    function setActiveRevenueButton(activeButtonId) {
-        const buttons = document.querySelectorAll('.revenue-btn-group .btn');
-        buttons.forEach(button => button.classList.remove('btn-primary'));
-        buttons.forEach(button => button.classList.add('btn-secondary'));
-        document.getElementById(activeButtonId).classList.add('btn-primary');
-        document.getElementById(activeButtonId).classList.remove('btn-secondary');
-    }
-
-
-    document.addEventListener('DOMContentLoaded', () => {
-        setActiveButton('day');
-        updateProductChart('day');
-
-        renderRevenueChart(
-            revenueByDay.map(item => ({
-                label: item.order_date,
-                revenue: item.daily_revenue
-            })),
-            'Doanh thu 7 ngày gần nhất'
-        );
-        setActiveRevenueButton('dayRevenue');
-    });
-
-    document.getElementById("filterByDate").addEventListener("click", () => {
-        const selectedDate = document.getElementById("datePicker").value;
-        if (!selectedDate) {
-            alert("Vui lòng chọn một ngày!");
-            return;
-        }
-
-
-        const dailyData = revenueByDay.find(item => item.order_date === selectedDate);
-
-        if (dailyData) {
-            renderRevenueChart(
-                [{
-                    label: selectedDate,
-                    revenue: dailyData.daily_revenue
-                }],
-                `Doanh thu ngày ${selectedDate}`
-            );
-        } else {
-            alert("Không có dữ liệu doanh thu cho ngày này!");
-        }
-    });
-    
-
-
-    document.getElementById("filterByDate").addEventListener("click", () => {
-        const datePicker = document.getElementById("datePicker");
-        datePicker.type = "date"; 
-        datePicker.value = "";
-    });
-
-    document.getElementById("filterByMonth").addEventListener("click", () => {
-        const datePicker = document.getElementById("datePicker");
-        datePicker.type = "month"; 
-        datePicker.value = ""; 
-    });
-
-    document.getElementById("filterByYear").addEventListener("click", () => {
-        const datePicker = document.getElementById("datePicker");
-        datePicker.type = "number";
-        datePicker.placeholder = "Nhập năm"; 
-        datePicker.value = ""; 
-    });
-</script>
