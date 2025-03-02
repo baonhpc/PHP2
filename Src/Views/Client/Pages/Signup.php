@@ -39,12 +39,25 @@
           <div class="recaptcha form-control1">This site is protected by reCAPTCHA and the Google <a href="">Privacy Policy</a> and <a href="">Terms of Service</a> apply.</div>
 
           <button type="submit" class="btn btn-secondary btn-lg" id="loginSubmit">Đăng ký</button>
-        
 
-          <p class="login-option-title">Hoặc đăng ký bằng</p>
-          <a href="/signin"><i class=" text-dark fa fa-long-arrow-alt-right"></i> <span class="text-dark">Bạn đã có tài khoản? Đăng nhập</span> </a>
-          <div class="backto">
-            <a href="/"><i class="fa fa-long-arrow-alt-left"></i> Quay lại trang chủ</a>
+
+          <div class="login-option-title mt-3">Hoặc đăng ký bằng</div>
+
+          <a href="/login-google" class="d-inline-block mt-2">
+            <img src="<?= $_ENV['APP_URL'] ?>/public/Assets/Client/images/Login/Googlebg.png"
+              alt="Google Icon" class="google-icon" style="height: 50px;">
+          </a>
+
+          <div class="mt-3">
+            <a href="/signin" class="text-dark text-decoration-none">
+              <i class="fa fa-long-arrow-alt-right"></i> Bạn đã có tài khoản? Đăng nhập
+            </a>
+          </div>
+
+          <div class="mt-3">
+            <a href="/" class="text-muted text-decoration-none">
+              <i class="fa fa-long-arrow-alt-left"></i> Quay lại trang chủ
+            </a>
           </div>
         </form>
 

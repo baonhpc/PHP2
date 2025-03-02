@@ -10,6 +10,11 @@ use Src\Validations\Client\UserValidation;
 use Src\Notifications\Notification;
 use Src\Helpers\Client\SendMailHelper;
 use DateTime;
+use Google\Client;
+use Google\Service;
+use Google\Service\Oauth2;
+use Exception;
+
 
 
 class AuthController extends BaseController
@@ -205,6 +210,112 @@ class AuthController extends BaseController
         } else {
             Notification::error('Thất bại', 'Thay đổi mật khẩu thất bại');
             header('location: /signin');
+            exit();
+        }
+    }
+
+    public function loginGoogle()
+    {
+        $client = new Client();
+
+        $client->setClientId($_ENV['GOOGLE_CLIENT_ID']);
+        $client->setClientSecret($_ENV['GOOGLE_CLIENT_SECRET']);
+        $client->setRedirectUri($_ENV['GOOGLE_REDIRECT_URI']);
+
+        $client->addScope(Oauth2::USERINFO_PROFILE);
+        $client->addScope(Oauth2::USERINFO_EMAIL);
+
+        if (isset($_GET['code'])) {
+            try {
+                $client->authenticate($_GET['code']);
+                $_SESSION['access_token'] = $client->getAccessToken();
+                header('Location: /profile');
+                exit();
+            } catch (Exception $e) {
+                echo 'Lỗi khi kết nối với Google: ' . $e->getMessage();
+                exit();
+            }
+        } else {
+            $authUrl = $client->createAuthUrl();
+            header('Location: ' . $authUrl);
+            exit();
+        }
+    }
+
+    public static function loginGoogleAction()
+    {
+        if (isset($_GET['code'])) {
+            try {
+                $client = new Client();
+                $client->setClientId($_ENV['GOOGLE_CLIENT_ID']);
+                $client->setClientSecret($_ENV['GOOGLE_CLIENT_SECRET']);
+                $client->setRedirectUri($_ENV['GOOGLE_REDIRECT_URI']);
+                $client->addScope(Oauth2::USERINFO_PROFILE);
+                $client->addScope(Oauth2::USERINFO_EMAIL);
+
+                $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
+                $client->setAccessToken($token['access_token']);
+
+                $oAuth = new Oauth2($client);
+                $accountInfo = $oAuth->userinfo->get();
+
+                $_SESSION['access_token'] = $token['access_token'];
+
+                $existedUser = AuthHelper::checkExistedInfo('email', $accountInfo->getEmail());
+                if ($existedUser > 0) {
+                    if (!empty($existedUser['google_id'])) {
+                        if ($existedUser['status'] != 1) {
+                            Notification::error('locked_account', 'Tài khoản đã bị khóa');
+                            header('Location: /signin');
+                            exit();
+                        } else {
+                            AuthHelper::updateSession($existedUser['id']);
+                            header('Location: /home');
+                            exit();
+                        }
+                    } else if (!empty($existedUser['facebook_id'])) {
+                        // Nếu tài khoản đã có facebook_id, chuyển hướng đến đăng nhập Facebook
+                        Notification::error('Đăng nhập thất bại', 'Email này đã được liên kết với tài khoản Facebook. Vui lòng đăng nhập qua Facebook');
+                        header('Location: /signin-facebook');
+                        exit();
+                    } else {
+                        Notification::error('Đăng ký thất bại', 'Tài khoản đã tồn tại và không liên kết với Google');
+                        header('Location: /signin');
+                        exit();
+                    }
+                } else {
+                    $nameParts = explode(" ", $accountInfo->getName());
+                    $lastname  = array_pop($nameParts);
+                    $firstname = implode(" ", $nameParts);
+                    $data = [
+                        'google_id' => $accountInfo->getId(),
+                        'email' => $accountInfo->getEmail(),
+                        'fullname' => $accountInfo->getName(),
+                        'firstname' => $firstname,
+                        'lastname' => $lastname,
+                        'method' => 'google'
+                    ];
+                    $result = AuthHelper::register($data);
+
+                    if ($result) {
+                        $user = AuthHelper::checkExistedInfo('google_id', $data['google_id']);
+                        AuthHelper::updateSession($user['id']);
+                        AuthHelper::updateCookie($user['id']);
+                        Notification::success('Đăng nhập thành công', 'Đăng nhập tài khoản Google thành công');
+                        header('Location: /home');
+                        exit();
+                    } else {
+                        Notification::error('đăng nhập thất bại', 'Đăng nhập tài khoản Google thất bại');
+                        header('Location: /signin');
+                        exit();
+                    }
+                }
+            } catch (Exception $e) {
+                echo 'Lỗi khi kết nối với Google: ' . $e->getMessage();
+                exit();
+            }
+        } else {
+            header('Location: /signin');
             exit();
         }
     }

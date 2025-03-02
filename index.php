@@ -79,6 +79,8 @@ $dispatcher = FastRoute\simpleDispatcher(function (RouteCollector $r) {
     // AuthController
     $r->addRoute('GET', '/signup', [AuthController::class, 'register']);
     $r->addRoute('GET', '/signin', [AuthController::class, 'login']);
+    $r->addRoute('GET', '/login-google', [AuthController::class, 'loginGoogle']);
+    $r->addRoute('GET', '/logged-google', [AuthController::class, 'loginGoogleAction']);
     $r->post('/register-action', [AuthController::class, 'store']);
     $r->post('/user-login', [AuthController::class, 'authLogin']);
     $r->addRoute('POST', '/update-information', [AuthController::class, 'updateUserInfoAction']);
