@@ -44,8 +44,8 @@ use Src\Controllers\Client\NotFoundController;
 
 $connection = new Database();
 
-// $middleware = new AuthHelper;
-// $middleware->middleware();
+$middleware = new AuthHelper;
+$middleware->middleware();
 
 
 $dispatcher = FastRoute\simpleDispatcher(function (RouteCollector $r) {
