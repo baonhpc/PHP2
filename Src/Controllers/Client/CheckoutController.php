@@ -114,7 +114,7 @@ class CheckoutController extends BaseController
                 }
     
                 $OrderInfo = $OrderModel->getOneOrder($OrderInsertedId);
-                $bankContext = "Thanh toan don hang: " . $OrderInsertedId . ' - BeeTechNova';
+                $bankContext = "Thanh toan don hang: " . $OrderInsertedId . ' - Media health care';
                 $paymentURL = $VNPayHelper->createPayment($OrderInfo['total_price'], $bankContext, $OrderInsertedId);
                 $conn->commit();
                 header('location: ' . $paymentURL['data']);

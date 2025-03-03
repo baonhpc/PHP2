@@ -71,12 +71,12 @@
                 <div class="row">
                   <div class="col-sm-12">
                     <div class="input-group">
-                      <input type="text" class="form-control" id="name" placeholder="Tên của bạn" required>
+                      <input type="text" class="form-control" id="name" placeholder="Tên của bạn">
                     </div>
                   </div>
                   <div class="col-sm-6">
                     <div class="input-group">
-                      <input type="email" class="form-control" id="email" placeholder="Email của bạn" required>
+                      <input type="email" class="form-control" id="email" placeholder="Email của bạn">
                     </div>
                   </div>
                   <div class="col-sm-6">
@@ -86,7 +86,7 @@
                   </div>
                   <div class="col-sm-12">
                     <div class="input-group">
-                      <textarea class="form-control" id="message" placeholder="Nội dung" required></textarea>
+                      <textarea class="form-control" id="message" placeholder="Nội dung"></textarea>
                     </div>
                   </div>
                   <div class="col-sm-12">

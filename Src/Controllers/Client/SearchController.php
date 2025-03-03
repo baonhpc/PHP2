@@ -20,6 +20,8 @@ class SearchController extends BaseController {
             $SearchModel = new SearchModel();
             $data = $SearchModel->search($keyword);
             Notification::success('Thành công', 'Tìm kiếm thành công');
+            var_dump($data);
+            die();
             echo $this->view->render('Client/Components/Search', [
                 'data' => $data,
                 'keyword' => $keyword,
